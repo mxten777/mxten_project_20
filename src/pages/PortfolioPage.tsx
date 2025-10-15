@@ -2,54 +2,55 @@ import React from 'react';
 
 const PortfolioPage: React.FC = () => {
   return (
-    <div className="min-h-screen py-8">
+    <div className="min-h-screen py-6 sm:py-8">
       <div className="container-width section-padding">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+        {/* Mobile-Optimized Header */}
+        <div className="text-center mb-8 sm:mb-12 px-4 sm:px-0">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             포트폴리오
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             28개의 혁신적인 MVP 프로젝트로 다양한 산업의 디지털 전환을 이끌어왔습니다
           </p>
         </div>
 
-        {/* Filters */}
-        <div className="mb-8">
-          <div className="flex flex-wrap gap-4 justify-center mb-6">
-            <button className="px-6 py-2 bg-primary-600 text-white rounded-full font-medium">
+        {/* Mobile-First Filters */}
+        <div className="mb-6 sm:mb-8">
+          <div className="flex flex-wrap gap-2 sm:gap-4 justify-center mb-6 px-4 sm:px-0">
+            <button className="px-4 sm:px-6 py-2 bg-primary-600 text-white rounded-full font-medium text-sm sm:text-base">
               전체
             </button>
-            <button className="px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-colors">
+            <button className="px-4 sm:px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-colors text-sm sm:text-base">
               기업/산업
             </button>
-            <button className="px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-colors">
+            <button className="px-4 sm:px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-colors text-sm sm:text-base">
               의료/헬스케어
             </button>
-            <button className="px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-colors">
+            <button className="px-4 sm:px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-colors text-sm sm:text-base">
               교육
             </button>
-            <button className="px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-colors">
+            <button className="px-4 sm:px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-colors text-sm sm:text-base">
               AI/데이터
             </button>
-            <button className="px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-colors">
+            <button className="px-4 sm:px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-colors text-sm sm:text-base">
               공공/사회
             </button>
-            <button className="px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-colors">
+            <button className="px-4 sm:px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-colors text-sm sm:text-base">
               게임/엔터테인먼트
             </button>
           </div>
         </div>
 
-        {/* Search and Sort */}
-        <div className="flex flex-col md:flex-row gap-4 mb-8">
+        {/* Mobile-First Search and Sort */}
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 px-4 sm:px-0">
           <div className="flex-1">
             <input
               type="text"
               placeholder="프로젝트 검색..."
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base"
             />
           </div>
-          <select className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+          <select className="px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base w-full sm:w-auto">
             <option>최신순</option>
             <option>인기순</option>
             <option>완성도순</option>
@@ -57,17 +58,17 @@ const PortfolioPage: React.FC = () => {
           </select>
         </div>
 
-        {/* Project Grid */}
-        <div className="grid-responsive gap-8 mb-12">
+        {/* Mobile-First Project Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-12 px-4 sm:px-0">
           {/* Project Card 1 */}
           <div className="card hover:shadow-lg transition-shadow group">
             <div className="relative overflow-hidden rounded-lg mb-4">
-              <div className="h-48 bg-gradient-to-br from-blue-100 to-blue-200"></div>
+              <div className="h-40 sm:h-48 bg-gradient-to-br from-blue-100 to-blue-200"></div>
               <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300"></div>
-              <div className="absolute top-3 left-3">
+              <div className="absolute top-2 sm:top-3 left-2 sm:left-3">
                 <span className="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">완료</span>
               </div>
-              <div className="absolute top-3 right-3">
+              <div className="absolute top-2 sm:top-3 right-2 sm:right-3">
                 <span className="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded-full">추천</span>
               </div>
             </div>

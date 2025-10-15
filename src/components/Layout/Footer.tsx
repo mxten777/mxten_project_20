@@ -6,8 +6,8 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="container-width section-padding py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+      <div className="container-width section-padding py-12 sm:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12 px-4 sm:px-0">
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
               </div>
               <span className="text-xl font-bold">바이브코딩</span>
             </div>
-            <p className="text-gray-300 mb-6 leading-relaxed">
+            <p className="text-gray-300 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
               혁신적인 MVP 개발로 기업의 디지털 전환을 가속화하는 전문 개발팀입니다.
             </p>
             <div className="flex gap-4">

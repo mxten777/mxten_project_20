@@ -28,23 +28,23 @@ const HomePage: React.FC = () => {
               </div>
             </h1>
 
-            {/* Subtitle with Better Typography */}
-            <p className="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed max-w-3xl mx-auto font-light">
+            {/* Mobile-Optimized Subtitle */}
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-8 sm:mb-12 leading-relaxed max-w-3xl mx-auto font-light px-4 sm:px-0">
               혁신적인 기술과 창의적 아이디어로 디지털 미래를 만들어가는
-              <span className="font-semibold text-indigo-600"> 프리미엄 개발 파트너</span>
+              <span className="font-semibold text-indigo-600 block sm:inline"> 프리미엄 개발 파트너</span>
             </p>
 
-            {/* Premium CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-              <button className="group relative px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+            {/* Mobile-First CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 sm:mb-16 px-4 sm:px-0">
+              <button className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden">
                 <span className="relative z-10">포트폴리오 둘러보기</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
               
-              <button className="group px-8 py-4 bg-white/20 backdrop-blur-sm border border-white/30 text-gray-700 rounded-2xl font-semibold text-lg hover:bg-white/30 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                <span className="flex items-center gap-2">
+              <button className="group px-6 sm:px-8 py-3 sm:py-4 bg-white/20 backdrop-blur-sm border border-white/30 text-gray-700 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg hover:bg-white/30 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                <span className="flex items-center justify-center gap-2">
                   프로젝트 문의하기
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </span>
@@ -77,21 +77,21 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Premium Stats Section with 3D Cards */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white relative">
+      {/* Mobile-Optimized Premium Stats Section */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-gray-50 to-white relative">
         <div className="container-width section-padding">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              숫자로 보는 <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">우리의 성과</span>
+          {/* Mobile-First Section Header */}
+          <div className="text-center mb-12 sm:mb-16 px-4 sm:px-0">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+              숫자로 보는 <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent block sm:inline">우리의 성과</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-2 sm:px-0">
               검증된 실력과 경험으로 클라이언트의 성공을 함께 만들어갑니다
             </p>
           </div>
 
-          {/* 3D Stats Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Mobile-First 3D Stats Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {/* Card 1 - Projects */}
             <div className="group relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
@@ -173,8 +173,8 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Premium Featured Projects with Advanced Cards */}
-      <section className="py-24 bg-gradient-to-br from-gray-900 via-indigo-900 to-purple-900 relative overflow-hidden">
+      {/* Mobile-Optimized Premium Featured Projects */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-900 via-indigo-900 to-purple-900 relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -184,30 +184,30 @@ const HomePage: React.FC = () => {
         </div>
 
         <div className="relative container-width section-padding">
-          {/* Premium Section Header */}
-          <div className="text-center mb-20">
-            <div className="inline-block px-6 py-3 mb-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full">
-              <span className="text-indigo-300 font-semibold">🏆 대표 프로젝트</span>
+          {/* Mobile-First Section Header */}
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20 px-4 sm:px-0">
+            <div className="inline-block px-4 sm:px-6 py-2 sm:py-3 mb-4 sm:mb-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full">
+              <span className="text-indigo-300 font-semibold text-sm sm:text-base">🏆 대표 프로젝트</span>
             </div>
-            <h2 className="text-5xl md:text-6xl font-black text-white mb-6 leading-tight">
-              혁신을 현실로
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 sm:mb-6 leading-tight">
+              <span className="block">혁신을 현실로</span>
               <div className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                 만든 프로젝트들
               </div>
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-2 sm:px-0">
               다양한 산업군에서 검증된 우리의 대표적인 MVP 프로젝트들을 만나보세요
             </p>
           </div>
           
-          {/* Premium Project Cards */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {/* Mobile-First Premium Project Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16 px-4 sm:px-0">
             {/* ERP Project Card */}
             <div className="group relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-1000"></div>
-              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:bg-white/15 transition-all duration-500 group-hover:transform group-hover:scale-105">
+              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-6 sm:p-8 hover:bg-white/15 transition-all duration-500 group-hover:transform group-hover:scale-105">
                 {/* Project Image with Overlay */}
-                <div className="relative h-48 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-2xl mb-6 overflow-hidden">
+                <div className="relative h-40 sm:h-48 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-2xl mb-6 overflow-hidden">
                   <div className="absolute inset-0 bg-black/20"></div>
                   <div className="absolute top-4 left-4">
                     <span className="px-3 py-1 bg-green-500 text-white rounded-full text-xs font-semibold">완료</span>
@@ -400,17 +400,17 @@ const HomePage: React.FC = () => {
             </p>
           </div>
           
-          {/* Premium Tech Grid with 3D Effects */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-16">
+          {/* Mobile-First Premium Tech Grid with 3D Effects */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 lg:gap-8 mb-12 sm:mb-16 px-4 sm:px-0">
             {/* React */}
             <div className="group text-center">
-              <div className="relative w-20 h-20 mx-auto mb-4 perspective-1000">
-                <div className="w-full h-full bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center shadow-2xl group-hover:shadow-blue-500/50 transform group-hover:rotateY-12 group-hover:-translate-y-2 transition-all duration-500 preserve-3d">
-                  <span className="text-3xl">⚛️</span>
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
+              <div className="relative w-16 sm:w-20 h-16 sm:h-20 mx-auto mb-3 sm:mb-4 perspective-1000">
+                <div className="w-full h-full bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-2xl group-hover:shadow-blue-500/50 transform group-hover:rotateY-12 group-hover:-translate-y-2 transition-all duration-500 preserve-3d">
+                  <span className="text-2xl sm:text-3xl">⚛️</span>
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl sm:rounded-2xl"></div>
                 </div>
               </div>
-              <h3 className="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">React</h3>
+              <h3 className="text-sm sm:text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">React</h3>
               <div className="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="w-full bg-gray-200 rounded-full h-1.5">
                   <div className="bg-blue-500 h-1.5 rounded-full" style={{width: '95%'}}></div>
@@ -421,13 +421,13 @@ const HomePage: React.FC = () => {
             
             {/* Node.js */}
             <div className="group text-center">
-              <div className="relative w-20 h-20 mx-auto mb-4 perspective-1000">
-                <div className="w-full h-full bg-gradient-to-br from-green-400 to-green-600 rounded-2xl flex items-center justify-center shadow-2xl group-hover:shadow-green-500/50 transform group-hover:rotateY-12 group-hover:-translate-y-2 transition-all duration-500 preserve-3d">
-                  <span className="text-3xl">🟢</span>
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
+              <div className="relative w-16 sm:w-20 h-16 sm:h-20 mx-auto mb-3 sm:mb-4 perspective-1000">
+                <div className="w-full h-full bg-gradient-to-br from-green-400 to-green-600 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-2xl group-hover:shadow-green-500/50 transform group-hover:rotateY-12 group-hover:-translate-y-2 transition-all duration-500 preserve-3d">
+                  <span className="text-2xl sm:text-3xl">🟢</span>
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl sm:rounded-2xl"></div>
                 </div>
               </div>
-              <h3 className="text-lg font-bold text-gray-900 group-hover:text-green-600 transition-colors duration-300">Node.js</h3>
+              <h3 className="text-sm sm:text-lg font-bold text-gray-900 group-hover:text-green-600 transition-colors duration-300">Node.js</h3>
               <div className="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="w-full bg-gray-200 rounded-full h-1.5">
                   <div className="bg-green-500 h-1.5 rounded-full" style={{width: '92%'}}></div>
@@ -570,25 +570,25 @@ const HomePage: React.FC = () => {
               </span>
             </div>
             
-            <h2 className="text-5xl md:text-7xl font-black mb-8 leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 sm:mb-8 leading-tight px-4 sm:px-0">
               <span className="block">다음 혁신적인</span>
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent block sm:inline">
                 MVP 프로젝트를
               </span>
               <span className="block">함께 만들어보세요</span>
             </h2>
             
-            <p className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-4">
+            <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-3 sm:mb-4 px-4 sm:px-0">
               아이디어가 있으신가요? 바이브코딩이 최첨단 기술로 현실로 만들어드립니다.
             </p>
-            <p className="text-lg text-indigo-300 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-indigo-300 max-w-3xl mx-auto px-4 sm:px-0">
               💡 무료 컨설팅부터 MVP 출시까지, 전 과정을 함께합니다
             </p>
           </div>
 
-          {/* Premium Action Buttons */}
-          <div className="flex flex-col lg:flex-row gap-6 justify-center items-center mb-16">
-            <button className="group relative px-12 py-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl font-bold text-xl shadow-2xl hover:shadow-blue-500/50 transform hover:-translate-y-2 hover:scale-105 transition-all duration-300 overflow-hidden min-w-[280px]">
+          {/* Mobile-First Premium Action Buttons */}
+          <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 justify-center items-center mb-12 sm:mb-16 px-4 sm:px-0">
+            <button className="group relative px-8 sm:px-12 py-4 sm:py-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl sm:rounded-2xl font-bold text-lg sm:text-xl shadow-2xl hover:shadow-blue-500/50 transform hover:-translate-y-2 hover:scale-105 transition-all duration-300 overflow-hidden w-full sm:w-auto sm:min-w-[280px]">
               <span className="relative z-10 flex items-center justify-center gap-3">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-3.582 8-8 8a8.955 8.955 0 01-2.236-.289l-5.051 1.263 1.263-5.051A8.955 8.955 0 013 12c0-4.418 3.582-8 8-8s8 3.582 8 8z" />
