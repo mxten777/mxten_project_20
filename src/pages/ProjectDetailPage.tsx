@@ -6,6 +6,9 @@ const ProjectDetailPage: React.FC = () => {
   
   // 실제 프로젝트에서는 이 id를 사용하여 프로젝트 데이터를 가져옵니다
   // const project = getProjectById(id);
+  
+  // 현재는 mock 데이터를 사용하고 있어 id를 콘솔에 출력
+  console.log('Project ID:', id);
 
   return (
     <div className="min-h-screen py-8">
