@@ -1,6 +1,15 @@
 import React from 'react';
+import { categories, projects } from '../data/projects';
+import { useNavigate } from 'react-router-dom';
 
 const HomePage: React.FC = () => {
+  const navigate = useNavigate();
+  const totalProjects = projects.length;
+  // show a slightly approximate badge when many projects exist (e.g. "35+")
+  const badgeCount = totalProjects >= 35 ? `${totalProjects - 1}+` : `${totalProjects}`;
+
+  const goPortfolio = () => navigate('/portfolio');
+
   return (
     <div className="min-h-screen">
       {/* Hero Section - Premium Glassmorphism */}
@@ -17,7 +26,7 @@ const HomePage: React.FC = () => {
             {/* Premium Badge */}
             <div className="inline-flex items-center px-6 py-3 mb-8 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-indigo-700 font-medium shadow-lg">
               <span className="w-2 h-2 bg-green-400 rounded-full mr-3 animate-pulse"></span>
-              28개 성공적인 MVP 프로젝트 완성
+              {badgeCount}개 성공적인 MVP 프로젝트 완성
             </div>
 
             {/* Main Title with Advanced Typography */}
@@ -36,7 +45,7 @@ const HomePage: React.FC = () => {
 
             {/* Mobile-First CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 sm:mb-16 px-4 sm:px-0">
-              <button className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+              <button onClick={goPortfolio} className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden">
                 <span className="relative z-10">포트폴리오 둘러보기</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
@@ -77,98 +86,50 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Mobile-Optimized Premium Stats Section */}
+      {/* 카테고리별 대표 포트폴리오 요약 섹션 */}
       <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-gray-50 to-white relative">
         <div className="container-width section-padding">
-          {/* Mobile-First Section Header */}
           <div className="text-center mb-12 sm:mb-16 px-4 sm:px-0">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
-              숫자로 보는 <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent block sm:inline">우리의 성과</span>
+              카테고리별 대표 <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent block sm:inline">포트폴리오 요약</span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-2 sm:px-0">
-              검증된 실력과 경험으로 클라이언트의 성공을 함께 만들어갑니다
+              실제 프로젝트 데이터를 기반으로 각 분야별 대표 프로젝트와 개수를 한눈에 확인하세요.
             </p>
           </div>
 
-          {/* Mobile-First 3D Stats Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            {/* Card 1 - Projects */}
-            <div className="group relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-              <div className="relative bg-white rounded-3xl p-8 text-center transform group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-2xl">
-                <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-2xl flex items-center justify-center">
-                  <span className="text-3xl">🚀</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
+            {categories.map(category => {
+              // 해당 카테고리의 프로젝트 목록
+              const categoryProjects = projects.filter(p => p.category === category.id);
+              // 최신 프로젝트 (date 기준 내림차순)
+              const sorted = [...categoryProjects].sort((a, b) => (b.date ?? '').localeCompare(a.date ?? ''));
+              const featured = sorted[0];
+              return (
+                <div key={category.id} className="group relative">
+                  <div className="absolute -inset-1 rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200" style={{ background: `linear-gradient(90deg, ${category.color}33, #fff0)` }}></div>
+                  <div className="relative bg-white rounded-3xl p-8 text-center transform group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-2xl">
+                    <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center text-3xl" style={{ color: category.color }}>
+                      {category.icon}
+                    </div>
+                    <div className="text-2xl font-black text-gray-900 mb-2">{category.name}</div>
+                    <div className="text-gray-600 font-semibold text-lg mb-2">{category.description}</div>
+                    <div className="text-5xl font-black mb-3 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                      {categoryProjects.length}
+                    </div>
+                    {featured ? (
+                      <div className="mt-4">
+                        <div className="text-base font-bold text-indigo-700 mb-1">대표 프로젝트</div>
+                        <div className="text-lg font-semibold text-gray-800 mb-1">{featured.title}</div>
+                        {featured.date && <div className="text-xs text-gray-400">{featured.date}</div>}
+                      </div>
+                    ) : (
+                      <div className="mt-4 text-gray-400">프로젝트 없음</div>
+                    )}
+                  </div>
                 </div>
-                <div className="text-5xl font-black text-gray-900 mb-3 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                  28
-                </div>
-                <div className="text-gray-600 font-semibold text-lg">완성 프로젝트</div>
-                <div className="text-sm text-gray-500 mt-2">100% 성공률 달성</div>
-              </div>
-            </div>
-
-            {/* Card 2 - Categories */}
-            <div className="group relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-              <div className="relative bg-white rounded-3xl p-8 text-center transform group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-2xl">
-                <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl flex items-center justify-center">
-                  <span className="text-3xl">🎯</span>
-                </div>
-                <div className="text-5xl font-black text-gray-900 mb-3 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                  6
-                </div>
-                <div className="text-gray-600 font-semibold text-lg">전문 분야</div>
-                <div className="text-sm text-gray-500 mt-2">다양한 산업군 경험</div>
-              </div>
-            </div>
-
-            {/* Card 3 - Tech Stack */}
-            <div className="group relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-pink-600 to-orange-600 rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-              <div className="relative bg-white rounded-3xl p-8 text-center transform group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-2xl">
-                <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-pink-100 to-orange-100 rounded-2xl flex items-center justify-center">
-                  <span className="text-3xl">⚡</span>
-                </div>
-                <div className="text-5xl font-black text-gray-900 mb-3 bg-gradient-to-r from-pink-600 to-orange-600 bg-clip-text text-transparent">
-                  25+
-                </div>
-                <div className="text-gray-600 font-semibold text-lg">기술 스택</div>
-                <div className="text-sm text-gray-500 mt-2">최신 기술 적용</div>
-              </div>
-            </div>
-
-            {/* Card 4 - Clients */}
-            <div className="group relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-orange-600 to-yellow-600 rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-              <div className="relative bg-white rounded-3xl p-8 text-center transform group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-2xl">
-                <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-orange-100 to-yellow-100 rounded-2xl flex items-center justify-center">
-                  <span className="text-3xl">⭐</span>
-                </div>
-                <div className="text-5xl font-black text-gray-900 mb-3 bg-gradient-to-r from-orange-600 to-yellow-600 bg-clip-text text-transparent">
-                  24
-                </div>
-                <div className="text-gray-600 font-semibold text-lg">만족한 고객</div>
-                <div className="text-sm text-gray-500 mt-2">평균 4.9/5.0 평점</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Additional Stats Bar */}
-          <div className="mt-16 bg-white/50 backdrop-blur-sm rounded-3xl p-8 border border-white/20 shadow-lg">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-              <div>
-                <div className="text-3xl font-bold text-indigo-600 mb-2">평균 6주</div>
-                <div className="text-gray-600">프로젝트 완료 기간</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-purple-600 mb-2">3년</div>
-                <div className="text-gray-600">업계 경험</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-pink-600 mb-2">24시간</div>
-                <div className="text-gray-600">평균 응답 시간</div>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -363,7 +324,7 @@ const HomePage: React.FC = () => {
           
           {/* Premium CTA */}
           <div className="text-center">
-            <button className="group relative px-12 py-6 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl font-bold text-xl shadow-2xl hover:shadow-indigo-500/25 transform hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+            <button className="group relative px-12 py-6 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl font-bold text-xl shadow-2xl hover:shadow-indigo-500/25 transform hover:-translate-y-2 transition-all duration-300 overflow-hidden" onClick={goPortfolio}>
               <span className="relative z-10 flex items-center gap-3">
                 모든 프로젝트 탐험하기
                 <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -600,7 +561,7 @@ const HomePage: React.FC = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-30 group-hover:opacity-60 transition-opacity duration-300"></div>
             </button>
             
-            <button className="group relative px-12 py-6 bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white rounded-2xl font-bold text-xl hover:bg-white hover:text-gray-900 transform hover:-translate-y-2 hover:scale-105 transition-all duration-300 min-w-[280px]">
+            <button onClick={goPortfolio} className="group relative px-12 py-6 bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white rounded-2xl font-bold text-xl hover:bg-white hover:text-gray-900 transform hover:-translate-y-2 hover:scale-105 transition-all duration-300 min-w-[280px]">
               <span className="flex items-center justify-center gap-3">
                 <svg className="w-6 h-6 group-hover:text-indigo-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />

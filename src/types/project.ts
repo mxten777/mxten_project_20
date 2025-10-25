@@ -1,29 +1,39 @@
-export interface Project {
-  id: string;
-  title: string;
-  subtitle: string;
-  description: string;
-  longDescription: string;
-  category: ProjectCategory;
-  status: ProjectStatus;
-  difficulty: ProjectDifficulty;
-  featured: boolean;
-  technologies: Technology[];
-  images: ProjectImage[];
-  links: ProjectLink[];
-  timeline: {
-    start: string;
-    end?: string;
-    duration: string;
-  };
-  metrics: ProjectMetrics;
-  challenges: Challenge[];
-  learnings: string[];
-  tags: string[];
-  relatedProjects: string[];
-  createdAt: string;
-  updatedAt: string;
-}
+export type ProjectCategory =
+  | 'enterprise'
+  | 'healthcare'
+  | 'education'
+  | 'ai-data'
+  | 'public'
+  | 'gaming'
+  | 'entertainment'
+  | 'welfare'
+  | 'industry'
+  | 'personal'
+  | 'job'
+  | 'meta';
+
+export type ProjectStatus =
+  | 'completed'
+  | 'in-progress'
+  | 'beta'
+  | 'prototype'
+  | 'planning';
+
+export type ProjectDifficulty =
+  | 'beginner'
+  | 'intermediate'
+  | 'advanced'
+  | 'expert';
+
+export type TechCategory =
+  | 'frontend'
+  | 'backend'
+  | 'database'
+  | 'cloud'
+  | 'mobile'
+  | 'ai-ml'
+  | 'devops'
+  | 'design';
 
 export interface Technology {
   name: string;
@@ -61,37 +71,36 @@ export interface Challenge {
   impact: string;
 }
 
-export type ProjectCategory = 
-  | 'enterprise' 
-  | 'healthcare' 
-  | 'education' 
-  | 'ai-data' 
-  | 'public' 
-  | 'gaming' 
-  | 'entertainment';
-
-export type ProjectStatus = 
-  | 'completed' 
-  | 'in-progress' 
-  | 'beta' 
-  | 'prototype' 
-  | 'planning';
-
-export type ProjectDifficulty = 
-  | 'beginner' 
-  | 'intermediate' 
-  | 'advanced' 
-  | 'expert';
-
-export type TechCategory = 
-  | 'frontend' 
-  | 'backend' 
-  | 'database' 
-  | 'cloud' 
-  | 'mobile' 
-  | 'ai-ml' 
-  | 'devops' 
-  | 'design';
+export interface Project {
+  id: string;
+  title: string;
+  category: ProjectCategory;
+  // 상세 프로젝트에만 필요한 속성 (필요시만 사용)
+  subtitle?: string;
+  description?: string;
+  longDescription?: string;
+  status?: ProjectStatus;
+  difficulty?: ProjectDifficulty;
+  featured?: boolean;
+  technologies?: Technology[];
+  images?: ProjectImage[];
+  links?: ProjectLink[];
+  timeline?: {
+    start?: string;
+    end?: string;
+    duration?: string;
+  };
+  metrics?: ProjectMetrics;
+  challenges?: Challenge[];
+  learnings?: string[];
+  tags?: string[];
+  relatedProjects?: string[];
+  createdAt?: string;
+  updatedAt?: string;
+  // 포트폴리오 리스트용 추가 속성
+  date?: string;
+  link?: string;
+}
 
 export interface CategoryInfo {
   id: ProjectCategory;
