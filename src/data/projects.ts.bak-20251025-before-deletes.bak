@@ -1,0 +1,461 @@
+import type { Project, Technology, CategoryInfo } from '../types/project';
+
+// 기술 스택 데이터
+export const technologies: Technology[] = [
+  { name: 'React', icon: '⚛️', category: 'frontend', color: '#61DAFB' },
+  { name: 'Next.js', icon: '▲', category: 'frontend', color: '#000000' },
+  { name: 'Vue.js', icon: '💚', category: 'frontend', color: '#4FC08D' },
+  { name: 'TypeScript', icon: '📘', category: 'frontend', color: '#3178C6' },
+  { name: 'Tailwind CSS', icon: '🎨', category: 'frontend', color: '#06B6D4' },
+  { name: 'SCSS', icon: '💅', category: 'frontend', color: '#CF649A' },
+  { name: 'Node.js', icon: '🟢', category: 'backend', color: '#339933' },
+  { name: 'Express', icon: '🚂', category: 'backend', color: '#000000' },
+  { name: 'Python', icon: '🐍', category: 'backend', color: '#3776AB' },
+  { name: 'Django', icon: '🎯', category: 'backend', color: '#092E20' },
+  { name: 'FastAPI', icon: '⚡', category: 'backend', color: '#009688' },
+  { name: 'Spring Boot', icon: '🍃', category: 'backend', color: '#6DB33F' },
+  { name: 'PostgreSQL', icon: '🐘', category: 'database', color: '#336791' },
+  { name: 'MongoDB', icon: '🍃', category: 'database', color: '#47A248' },
+  { name: 'Redis', icon: '🔴', category: 'database', color: '#DC382D' },
+  { name: 'MySQL', icon: '🐬', category: 'database', color: '#4479A1' },
+  { name: 'AWS', icon: '☁️', category: 'cloud', color: '#FF9900' },
+  { name: 'Docker', icon: '🐳', category: 'devops', color: '#2496ED' },
+  { name: 'Kubernetes', icon: '⚓', category: 'devops', color: '#326CE5' },
+  { name: 'Vercel', icon: '▲', category: 'cloud', color: '#000000' },
+  { name: 'TensorFlow', icon: '🧠', category: 'ai-ml', color: '#FF6F00' },
+  { name: 'PyTorch', icon: '🔥', category: 'ai-ml', color: '#EE4C2C' },
+  { name: 'OpenAI', icon: '🤖', category: 'ai-ml', color: '#412991' },
+  { name: 'React Native', icon: '📱', category: 'mobile', color: '#61DAFB' },
+  { name: 'Flutter', icon: '🦋', category: 'mobile', color: '#02569B' },
+  { name: 'Figma', icon: '🎨', category: 'design', color: '#F24E1E' },
+  { name: 'Adobe XD', icon: '🎯', category: 'design', color: '#FF61F6' },
+];
+
+// 카테고리 데이터
+export const categories: CategoryInfo[] = [
+  { id: 'enterprise', name: '기업/산업', description: '기업용 솔루션과 산업별 특화 시스템', icon: '🏢', color: '#3B82F6', count: 8 },
+  { id: 'healthcare', name: '의료/헬스케어', description: '의료진과 환자를 위한 디지털 헬스케어 솔루션', icon: '🏥', color: '#10B981', count: 5 },
+  { id: 'education', name: '교육', description: '학습자와 교육자를 위한 혁신적인 교육 플랫폼', icon: '📚', color: '#8B5CF6', count: 4 },
+  { id: 'ai-data', name: 'AI/데이터', description: '인공지능과 데이터 분석을 활용한 스마트 솔루션', icon: '🤖', color: '#F59E0B', count: 6 },
+  { id: 'public', name: '공공/사회', description: '사회적 가치를 창출하는 공공 서비스 플랫폼', icon: '🏛️', color: '#EF4444', count: 3 },
+  { id: 'gaming', name: '게임/엔터테인먼트', description: '재미있고 몰입감 있는 게임과 엔터테인먼트 콘텐츠', icon: '🎮', color: '#EC4899', count: 2 }
+];
+
+// 포트폴리오 프로젝트 리스트 (36개)
+export const projects: Project[] = [
+  // Ⅰ. 기업/브랜드 홈페이지형
+  {
+    id: 'baikal-systems',
+    title: '바이칼시스템즈 홈페이지',
+    category: 'enterprise',
+    date: '251018',
+    link: '',
+    tags: ['기업', '홈페이지'],
+    longDescription: '바이칼시스템즈는 중소기업을 위한 통합 비즈니스 관리 플랫폼으로, 생산성 75% 향상과 효율적인 업무 프로세스를 제공합니다. 최신 React, Node.js, PostgreSQL 기반으로 구축되어 높은 안정성과 확장성을 자랑합니다.',
+    technologies: [
+      { name: 'React', icon: '⚛️', category: 'frontend', color: '#61DAFB' },
+      { name: 'Node.js', icon: '🟢', category: 'backend', color: '#339933' },
+      { name: 'PostgreSQL', icon: '🐘', category: 'database', color: '#336791' }
+    ],
+    images: [
+      { id: 'baikal-main', url: '/images/mvp_project_04.jpg', alt: '바이칼시스템즈 메인 화면', type: 'screenshot', featured: true }
+    ]
+  },
+  {
+    id: 'baikal-resort',
+    title: '바이칼 리조트 홈페이지 및 예약시스템',
+    category: 'enterprise',
+    date: '251003',
+    link: '',
+    tags: ['리조트', '예약'],
+    longDescription: '바이칼 리조트 홈페이지는 실시간 예약 시스템과 연동되어 고객 편의성을 극대화하였습니다. React, Node.js, PostgreSQL 기반으로 빠르고 안전한 예약 경험을 제공합니다.',
+    technologies: [
+      { name: 'React', icon: '⚛️', category: 'frontend', color: '#61DAFB' },
+      { name: 'Node.js', icon: '🟢', category: 'backend', color: '#339933' },
+      { name: 'PostgreSQL', icon: '🐘', category: 'database', color: '#336791' }
+    ],
+    // image intentionally omitted: canonical image is used by 'mvp-project-26'
+  },
+  {
+    id: 'koreacopron',
+    title: '한국코프론 홈페이지',
+    category: 'enterprise',
+    date: '251003',
+    link: '',
+    tags: ['기업', '홈페이지'],
+    longDescription: '한국코프론 홈페이지는 기업 브랜딩과 정보 전달에 최적화된 UI/UX를 제공합니다. Vue.js와 Node.js, MongoDB를 활용하여 구축되었습니다.',
+    technologies: [
+      { name: 'Vue.js', icon: '💚', category: 'frontend', color: '#4FC08D' },
+      { name: 'Node.js', icon: '🟢', category: 'backend', color: '#339933' },
+      { name: 'MongoDB', icon: '🍃', category: 'database', color: '#47A248' }
+    ],
+    images: [
+      { id: 'koreacopron-main', url: '/images/mvp_project_03.jpg', alt: '한국코프론 메인 화면', type: 'screenshot', featured: true }
+    ]
+  },
+  {
+    id: 'mansong-v1',
+    title: '만송시스템 홈페이지 (v1)',
+    category: 'enterprise',
+    date: '251016',
+    link: '',
+    tags: ['기업', '홈페이지'],
+    longDescription: '만송시스템 홈페이지 v1은 기업 정보와 서비스 소개에 중점을 둔 첫 버전입니다. React와 Express, MySQL로 개발되었습니다.',
+    technologies: [
+      { name: 'React', icon: '⚛️', category: 'frontend', color: '#61DAFB' },
+      { name: 'Express', icon: '🚂', category: 'backend', color: '#000000' },
+      { name: 'MySQL', icon: '🐬', category: 'database', color: '#4479A1' }
+    ],
+    images: [
+      { id: 'mansong-v1-main', url: '/images/mvp_project_09.jpg', alt: '만송시스템 v1 메인 화면', type: 'screenshot', featured: true }
+    ]
+  },
+  {
+    id: 'mansong-v2',
+    title: '만송시스템 홈페이지 (v2)',
+    category: 'enterprise',
+    date: '251016',
+    link: '',
+    tags: ['기업', '홈페이지'],
+    longDescription: '만송시스템 홈페이지 v2는 사용자 경험과 디자인을 대폭 개선한 최신 버전입니다. Next.js, Node.js, PostgreSQL 기반으로 구축되었습니다.',
+    technologies: [
+      { name: 'Next.js', icon: '▲', category: 'frontend', color: '#000000' },
+      { name: 'Node.js', icon: '🟢', category: 'backend', color: '#339933' },
+      { name: 'PostgreSQL', icon: '🐘', category: 'database', color: '#336791' }
+    ],
+    images: [
+      { id: 'mansong-v2-main', url: '/images/mxten_project_30.jpg', alt: '만송시스템 v2 메인 화면', type: 'screenshot', featured: true }
+    ]
+  },
+  { id: 'dbinfo-renewal', title: '디비인포 리뉴얼', category: 'enterprise', date: '251013', link: '', tags: ['기업', '리뉴얼'], images: [ { id: 'dbinfo-renewal-main', url: '/images/dbinfo_final.jpg', alt: '디비인포 리뉴얼', type: 'screenshot', featured: true } ] },
+  { id: 'dbinfo-admin', title: '디비인포 관리자 모드 리뉴얼', category: 'enterprise', date: '251013', link: '', tags: ['기업', '관리자'], images: [ { id: 'dbinfo-admin-main', url: '/images/dbinfo_final_admin.jpg', alt: '디비인포 관리자 화면', type: 'screenshot', featured: true } ] },
+
+  // Ⅱ. 공공/행정 서비스형
+  {
+    id: 'assembly-landing',
+    title: '국회의원 랜딩페이지 (시민참여형)',
+    category: 'public',
+    date: '251018',
+    link: '',
+    tags: ['공공', '시민참여'],
+    longDescription: '국회의원 랜딩페이지는 시민참여형 설계로, 실시간 의견 수렴과 정책 피드백이 가능합니다. React, Node.js, MongoDB 기반으로 개발되었습니다.',
+    technologies: [
+      { name: 'React', icon: '⚛️', category: 'frontend', color: '#61DAFB' },
+      { name: 'Node.js', icon: '🟢', category: 'backend', color: '#339933' },
+      { name: 'MongoDB', icon: '🍃', category: 'database', color: '#47A248' }
+    ],
+    images: [
+      { id: 'assembly-landing-main', url: '/images/law_maker.jpg', alt: '국회의원 랜딩 메인 화면', type: 'screenshot', featured: true }
+    ]
+  },
+  { id: 'rpa-platform', title: '시군구 RPA 통합 플랫폼 앱', category: 'public', date: '251010', link: '', tags: ['공공', 'RPA'] },
+    { id: 'rpa-platform', title: '시군구 RPA 통합 플랫폼 앱', category: 'public', date: '251010', link: '', tags: ['공공', 'RPA'],
+      longDescription: '시군구 RPA 통합 플랫폼 앱은 지방자치단체의 업무 자동화를 지원하는 솔루션입니다. Electron, Python, MySQL 기반으로 개발되어 다양한 행정 프로세스를 자동화합니다.',
+      technologies: [
+    { name: 'Electron', icon: '⚡', category: 'frontend', color: '#47848F' },
+        { name: 'Python', icon: '🐍', category: 'backend', color: '#3776AB' },
+        { name: 'MySQL', icon: '🐬', category: 'database', color: '#4479A1' }
+      ],
+      images: [
+        { id: 'rpa-platform-main', url: '/images/mvp_project_14.jpg', alt: 'RPA 통합 플랫폼 메인 화면', type: 'screenshot', featured: true }
+      ]
+    },
+  { id: 'facility-reservation', title: '공공시설 예약 통합 플랫폼', category: 'public', date: '251011', link: '', tags: ['공공', '예약'] },
+    { id: 'facility-reservation', title: '공공시설 예약 통합 플랫폼', category: 'public', date: '251011', link: '', tags: ['공공', '예약'],
+      longDescription: '공공시설 예약 통합 플랫폼은 다양한 공공시설의 예약을 한 곳에서 관리할 수 있는 서비스입니다. React, Node.js, PostgreSQL 기반으로 개발되었습니다.',
+      technologies: [
+        { name: 'React', icon: '⚛️', category: 'frontend', color: '#61DAFB' },
+        { name: 'Node.js', icon: '🟢', category: 'backend', color: '#339933' },
+        { name: 'PostgreSQL', icon: '🐘', category: 'database', color: '#336791' }
+      ],
+      images: [
+        { id: 'facility-reservation-main', url: '/images/mvp_project_28.jpg', alt: '공공시설 예약 메인 화면', type: 'screenshot', featured: true }
+      ]
+    },
+  { id: 'citizen-report', title: '주민 제보·민원 실시간 처리 웹앱', category: 'public', date: '251011', link: '', tags: ['공공', '민원'] },
+    { id: 'citizen-report', title: '주민 제보·민원 실시간 처리 웹앱', category: 'public', date: '251011', link: '', tags: ['공공', '민원'],
+      longDescription: '주민 제보·민원 실시간 처리 웹앱은 시민의 제보와 민원을 실시간으로 접수·처리하는 시스템입니다. Vue.js, Node.js, MongoDB 기반으로 개발되었습니다.',
+      technologies: [
+        { name: 'Vue.js', icon: '💚', category: 'frontend', color: '#4FC08D' },
+        { name: 'Node.js', icon: '🟢', category: 'backend', color: '#339933' },
+        { name: 'MongoDB', icon: '🍃', category: 'database', color: '#47A248' }
+      ],
+      images: [
+        { id: 'citizen-report-main', url: '/images/mvp_project_30.jpg', alt: '주민 제보·민원 메인 화면', type: 'screenshot', featured: true }
+      ]
+    },
+
+  // Ⅲ. 병원/의료기관형
+  {
+    id: 'pyj-dental',
+    title: '박영진치과 홈페이지',
+    category: 'healthcare',
+    date: '251013',
+    link: '',
+    tags: ['의료', '치과'],
+    longDescription: '박영진치과 홈페이지는 환자 중심의 예약 및 상담 시스템을 제공합니다. Vue.js, Django, PostgreSQL 기반으로 구축되었습니다.',
+    technologies: [
+      { name: 'Vue.js', icon: '💚', category: 'frontend', color: '#4FC08D' },
+      { name: 'Django', icon: '🎯', category: 'backend', color: '#092E20' },
+      { name: 'PostgreSQL', icon: '🐘', category: 'database', color: '#336791' }
+    ],
+    images: [
+      { id: 'pyj-dental-main', url: '/images/new_project_20.jpg', alt: '박영진치과 메인 화면', type: 'screenshot', featured: true }
+    ]
+  },
+  { id: 'sunwoo-ent', title: '선우 이비인후과 홈페이지', category: 'healthcare', date: '251018', link: '', tags: ['의료', '이비인후과'] },
+    { id: 'sunwoo-ent', title: '선우 이비인후과 홈페이지', category: 'healthcare', date: '251018', link: '', tags: ['의료', '이비인후과'],
+      longDescription: '선우 이비인후과 홈페이지는 환자 예약, 진료 안내, 의료진 소개 등 다양한 기능을 제공합니다. React, Django, PostgreSQL 기반으로 개발되었습니다.',
+      technologies: [
+        { name: 'React', icon: '⚛️', category: 'frontend', color: '#61DAFB' },
+        { name: 'Django', icon: '🎯', category: 'backend', color: '#092E20' },
+        { name: 'PostgreSQL', icon: '🐘', category: 'database', color: '#336791' }
+      ],
+      images: [
+        { id: 'sunwoo-ent-main', url: '/images/new_project_30.jpg', alt: '선우 이비인후과 메인 화면', type: 'screenshot', featured: true }
+      ]
+    },
+  { id: 'sung-hye-ortho', title: '성혜 정형외과 홈페이지', category: 'healthcare', date: '251018', link: '', tags: ['의료', '정형외과'] },
+    { id: 'sung-hye-ortho', title: '성혜 정형외과 홈페이지', category: 'healthcare', date: '251018', link: '', tags: ['의료', '정형외과'],
+      longDescription: '성혜 정형외과 홈페이지는 진료 예약, 증상 안내, 의료진 정보 등 환자 중심의 서비스를 제공합니다. Vue.js, Node.js, MySQL 기반으로 개발되었습니다.',
+      technologies: [
+        { name: 'Vue.js', icon: '💚', category: 'frontend', color: '#4FC08D' },
+        { name: 'Node.js', icon: '🟢', category: 'backend', color: '#339933' },
+        { name: 'MySQL', icon: '🐬', category: 'database', color: '#4479A1' }
+      ],
+      images: [
+        { id: 'sung-hye-ortho-main', url: '/images/new_project_40.jpg', alt: '성혜 정형외과 메인 화면', type: 'screenshot', featured: true }
+      ]
+    },
+  { id: 'sung-hye-ai', title: '성혜 정형외과 AI 증상체크', category: 'healthcare', date: '251018', link: '', tags: ['의료', 'AI'] },
+    { id: 'sung-hye-ai', title: '성혜 정형외과 AI 증상체크', category: 'healthcare', date: '251018', link: '', tags: ['의료', 'AI'],
+      longDescription: '성혜 정형외과 AI 증상체크는 환자의 증상을 AI로 분석하여 맞춤형 진료를 안내하는 서비스입니다. React, Python, TensorFlow 기반으로 개발되었습니다.',
+      technologies: [
+        { name: 'React', icon: '⚛️', category: 'frontend', color: '#61DAFB' },
+        { name: 'Python', icon: '🐍', category: 'backend', color: '#3776AB' },
+        { name: 'TensorFlow', icon: '🧠', category: 'ai-ml', color: '#FF6F00' }
+      ],
+      images: [
+        { id: 'sung-hye-ai-main', url: '/images/new_project_40_ai.jpg', alt: '성혜 정형외과 AI 증상체크 메인 화면', type: 'screenshot', featured: true }
+      ]
+    },
+  { id: 'sung-hye-reserve', title: '성혜 정형외과 실시간 예약', category: 'healthcare', date: '251018', link: '', tags: ['의료', '예약'] },
+    { id: 'sung-hye-reserve', title: '성혜 정형외과 실시간 예약', category: 'healthcare', date: '251018', link: '', tags: ['의료', '예약'],
+      longDescription: '성혜 정형외과 실시간 예약 시스템은 환자가 온라인으로 빠르게 진료 예약을 할 수 있도록 지원합니다. Vue.js, Node.js, MongoDB 기반으로 개발되었습니다.',
+      technologies: [
+        { name: 'Vue.js', icon: '💚', category: 'frontend', color: '#4FC08D' },
+        { name: 'Node.js', icon: '🟢', category: 'backend', color: '#339933' },
+        { name: 'MongoDB', icon: '🍃', category: 'database', color: '#47A248' }
+      ],
+      images: [
+        { id: 'sung-hye-reserve-main', url: '/images/new_project_40_app.jpg', alt: '성혜 정형외과 실시간 예약 메인 화면', type: 'screenshot', featured: true }
+      ]
+    },
+
+  // Ⅳ. 복지/보육/돌봄 플랫폼
+  {
+    id: 'aittrak-kids',
+    title: '아이뜨락 어린이집 홈페이지',
+    category: 'welfare',
+    date: '251004',
+    link: '',
+    tags: ['복지', '어린이집'],
+    longDescription: '아이뜨락 어린이집 홈페이지는 학부모와 교사 간 소통을 강화하는 커뮤니케이션 플랫폼입니다. Vue.js, Node.js, MySQL 기반으로 개발되었습니다.',
+    technologies: [
+      { name: 'Vue.js', icon: '💚', category: 'frontend', color: '#4FC08D' },
+      { name: 'Node.js', icon: '🟢', category: 'backend', color: '#339933' },
+      { name: 'MySQL', icon: '🐬', category: 'database', color: '#4479A1' }
+    ],
+    images: [
+      { id: 'aittrak-kids-main', url: '/images/new_project_02.jpg', alt: '아이뜨락 어린이집 메인 화면', type: 'screenshot', featured: true }
+    ]
+  },
+  { id: 'baikal-welfare', title: '바이칼 재가복지센터 홈페이지', category: 'welfare', date: '251005', link: '', tags: ['복지', '센터'],
+    longDescription: '바이칼 재가복지센터 홈페이지는 복지 서비스 안내, 상담 신청, 센터 소개 등 다양한 기능을 제공하는 플랫폼입니다. Vue.js, Node.js, MySQL 기반으로 개발되었습니다.',
+    technologies: [
+      { name: 'Vue.js', icon: '💚', category: 'frontend', color: '#4FC08D' },
+      { name: 'Node.js', icon: '🟢', category: 'backend', color: '#339933' },
+      { name: 'MySQL', icon: '🐬', category: 'database', color: '#4479A1' }
+    ],
+    images: [
+      { id: 'baikal-welfare-main', url: '/images/mvp_project_18.jpg', alt: '바이칼시스템즈 홈페이지 메인 화면', type: 'screenshot', featured: true }
+    ]
+  },
+  { id: 'caring-plus', title: '재가복지센터 통합관리시스템 (Caring+)', category: 'welfare', date: '251010', link: '', tags: ['복지', '통합관리'], images: [ { id: 'caring-plus-main', url: '/images/mvp_project_16.jpg', alt: '재가 복지 센터 통합 관리', type: 'screenshot', featured: true } ] },
+  { id: 'welfare-rental', title: '복지용품·공유물품 대여서비스', category: 'welfare', date: '251011', link: '', tags: ['복지', '대여'], images: [ { id: 'welfare-rental-main', url: '/images/mvp_project_32.jpg', alt: '복지용품 대여서비스', type: 'screenshot', featured: true } ] },
+  { id: 'welfare-recommend', title: '복지 서비스 추천 앱', category: 'welfare', date: '251021', link: '', tags: ['복지', '추천'], images: [ { id: 'welfare-recommend-main', url: '/images/mvp_project_20.jpg', alt: '복지 서비스 추천 앱', type: 'screenshot', featured: true } ] },
+  { id: 'senior-info', title: '시니어 복지정보 알림 앱', category: 'welfare', date: '251022', link: '', tags: ['복지', '시니어'] },
+
+  // Ⅴ. 산업/스마트시설 관리형
+  {
+    id: 'work-order',
+    title: '디지털 작업지시서 (모바일/태블릿)',
+    category: 'industry',
+    date: '251004',
+    link: '',
+    tags: ['산업', '작업지시'],
+    longDescription: '디지털 작업지시서는 모바일/태블릿 환경에서 실시간 작업 관리와 보고가 가능한 산업용 솔루션입니다. React Native, Node.js, MongoDB 기반으로 개발되었습니다.',
+    technologies: [
+      { name: 'React Native', icon: '📱', category: 'mobile', color: '#61DAFB' },
+      { name: 'Node.js', icon: '🟢', category: 'backend', color: '#339933' },
+      { name: 'MongoDB', icon: '🍃', category: 'database', color: '#47A248' }
+    ],
+    images: [
+      { id: 'work-order-main', url: '/images/mxten_project_06.jpg', alt: '디지털 작업지시서 (모바일/태블릿) 메인 화면', type: 'screenshot', featured: true }
+    ]
+  },
+  {
+    id: 'ai-gas',
+    title: 'AI 주유소 통합관리 플랫폼',
+    category: 'industry',
+    date: '251022',
+    link: '',
+    tags: ['산업', '주유소', 'AI'],
+    longDescription: 'AI 기반 주유소 통합관리 플랫폼은 실시간 데이터 분석과 예측 기능을 제공하여 운영 효율성을 극대화합니다. Python, FastAPI, PostgreSQL 기반으로 개발되었습니다.',
+    technologies: [
+      { name: 'Python', icon: '🐍', category: 'backend', color: '#3776AB' },
+      { name: 'FastAPI', icon: '⚡', category: 'backend', color: '#009688' },
+      { name: 'PostgreSQL', icon: '🐘', category: 'database', color: '#336791' }
+    ],
+    images: [
+      { id: 'ai-gas-main', url: '/images/fuel_project_05.jpg', alt: 'AI 주유소 메인 화면', type: 'screenshot', featured: true }
+    ]
+  },
+
+  // Ⅵ. 행정/서비스업 개인사업자형
+  { id: 'psh-admin', title: '박신환 행정사 홈페이지', category: 'personal', date: '251010', link: '', tags: ['개인', '행정사'] },
+
+  // Ⅶ. 교육/AI 콘텐츠형
+  {
+    id: 'vibe-edu',
+    title: 'AI 맞춤형 교육 플랫폼 (바이브에듀)',
+    category: 'education',
+    date: '251002',
+    link: '',
+    tags: ['교육', 'AI'],
+    longDescription: '바이브에듀는 AI 기반 맞춤형 학습 경로를 제공하는 교육 플랫폼입니다. React, Python, TensorFlow로 개발되어 학습자별 최적화된 콘텐츠를 추천합니다.',
+    technologies: [
+      { name: 'React', icon: '⚛️', category: 'frontend', color: '#61DAFB' },
+      { name: 'Python', icon: '🐍', category: 'backend', color: '#3776AB' },
+      { name: 'TensorFlow', icon: '🧠', category: 'ai-ml', color: '#FF6F00' }
+    ],
+    images: [
+      { id: 'vibe-edu-main', url: '/images/jdx_project_01.jpg', alt: '바이브에듀 메인 화면', type: 'screenshot', featured: true }
+    ]
+  },
+  { id: 'worker-ai-edu', title: '직장인 AI교육 플랫폼', category: 'education', date: '251012', link: '', tags: ['교육', 'AI'], images: [ { id: 'worker-ai-edu-main', url: '/images/jdx_project_02.jpg', alt: '직장인 AI교육 플랫폼', type: 'screenshot', featured: true } ] },
+  { id: 'ai-music', title: 'AI 작사·작곡 도우미 (시→음악)', category: 'education', date: '251012', link: '', tags: ['교육', 'AI', '음악'], images: [ { id: 'ai-music-main', url: '/images/music_project_01.jpg', alt: 'AI 작사 작곡 도우미', type: 'screenshot', featured: true } ] },
+  { id: 'ai-bookkeeping', title: 'AI 간편장부 앱', category: 'education', date: '251020', link: '', tags: ['교육', 'AI', '장부'], images: [ { id: 'ai-bookkeeping-main', url: '/images/mvp_project_12.jpg', alt: 'AI 간편장부 앱', type: 'screenshot', featured: true } ] },
+
+  // Ⅷ. 일자리/사회 서비스형
+  { id: 'senior-job', title: 'AI 중장년 일자리 플랫폼', category: 'job', date: '251013', link: '', tags: ['일자리', '중장년', 'AI'], images: [ { id: 'senior-job-main', url: '/images/mvp_project_06.jpg', alt: 'AI 중장년 일자리 플랫폼', type: 'screenshot', featured: true } ] },
+  { id: 'medicine-family', title: '약 복용관리 플랫폼 (가족 알림 포함)', category: 'job', date: '251011', link: '', tags: ['일자리', '가족', '약관리'], images: [ { id: 'medicine-family-main', url: '/images/mvp_project_10.jpg', alt: '약 복용관리 플랫폼', type: 'screenshot', featured: true } ] },
+
+  // Ⅸ. 엔터테인먼트/커뮤니티형
+  {
+    id: 'pachinko-mvp',
+    title: '슬롯머신형 일본 파칭코 웹MVP',
+    category: 'entertainment',
+    date: '251015',
+    link: '',
+    tags: ['엔터', '게임', '파칭코'],
+    longDescription: '일본 파칭코 게임을 웹으로 구현한 MVP 프로젝트로, 실시간 점수판과 애니메이션 효과가 특징입니다. React, Node.js, Redis 기반으로 개발되었습니다.',
+    technologies: [
+      { name: 'React', icon: '⚛️', category: 'frontend', color: '#61DAFB' },
+      { name: 'Node.js', icon: '🟢', category: 'backend', color: '#339933' },
+      { name: 'Redis', icon: '🔴', category: 'database', color: '#DC382D' }
+    ],
+    images: [
+      { id: 'pachinko-mvp-main', url: '/images/mxten_project_10.jpg', alt: '파칭코 웹MVP 메인 화면', type: 'screenshot', featured: true }
+    ]
+  },
+  { id: 'jdx-team', title: '공정한 팀 배정 웹앱 (JDX Team Balancer)', category: 'entertainment', date: '251024', link: '', tags: ['엔터', '팀배정'], images: [ { id: 'jdx-team-main', url: '/images/jdx_project_05.jpg', alt: 'JDX 팀 배정', type: 'screenshot', featured: true } ] },
+  { id: 'jdx-memory', title: '추억 만지기 웹앱 (JDX)', category: 'entertainment', date: '251023', link: '', tags: ['엔터', '추억'], images: [ { id: 'jdx-memory-main', url: '/images/jdx_project_10.jpg', alt: 'JDX 추억 만지기', type: 'screenshot', featured: true } ] },
+
+  // Ⅹ. 메타 포트폴리오/통합자료형
+  {
+    id: 'vibe-showcase',
+    title: '바이브코딩 MVP 소개자료 (포트폴리오)',
+    category: 'meta',
+    date: '251016',
+    link: '',
+    tags: ['메타', '포트폴리오'],
+    longDescription: '바이브코딩의 대표 MVP 프로젝트와 개발 프로세스를 한눈에 볼 수 있는 포트폴리오 소개자료입니다. Next.js, Figma, Vercel 기반으로 제작되었습니다.',
+    technologies: [
+      { name: 'Next.js', icon: '▲', category: 'frontend', color: '#000000' },
+      { name: 'Figma', icon: '🎨', category: 'design', color: '#F24E1E' },
+      { name: 'Vercel', icon: '▲', category: 'cloud', color: '#000000' }
+    ],
+    images: [
+      { id: 'vibe-showcase-main', url: '/images/mxten_project_15.jpg', alt: '바이브코딩 포트폴리오 메인 화면', type: 'screenshot', featured: true }
+    ]
+  },
+  { id: 'vibe-portfolio2', title: '바이브코딩 MVP 포트폴리오2 (상세)', category: 'meta', date: '251015', link: '', tags: ['메타', '포트폴리오'], images: [ { id: 'vibe-portfolio2-main', url: '/images/mxten_project_20.jpg', alt: '바이브코딩 포트폴리오2', type: 'screenshot', featured: true } ] },
+  // --- AUTO-GENERATED PLACEHOLDERS FROM public/images (generated 2025-10-25) ---
+  // These entries were created to surface images in the portfolio. Titles and links set from user's mapping (2025-10-25).
+  { id: 'dbinfo-final', title: '디비인포 홈페이지', category: 'enterprise', date: '251025', link: 'https://dbinfo-final.vercel.app/', tags: ['auto-generated', '기업', '홈페이지'], images: [ { id: 'dbinfo-final-main', url: '/images/dbinfo_final.jpg', alt: '디비인포 홈페이지', type: 'screenshot', featured: true } ] },
+  { id: 'dbinfo-final-admin', title: '디비인포 홈페이지 관리자 모드', category: 'enterprise', date: '251025', link: 'https://dbinfo-final.vercel.app/admin/', tags: ['auto-generated', '기업', '관리자'], images: [ { id: 'dbinfo-final-admin-main', url: '/images/dbinfo_final_admin.jpg', alt: '디비인포 관리자 모드', type: 'screenshot', featured: true } ] },
+  { id: 'fuel-project-05', title: 'AI 주유소', category: 'industry', date: '251025', link: 'https://fuel-project-05.vercel.app/', tags: ['auto-generated', '산업', 'AI', '주유소'], images: [ { id: 'fuel-project-05-main', url: '/images/fuel_project_05.jpg', alt: 'AI 주유소', type: 'screenshot', featured: true } ] },
+  { id: 'jdx-project-01', title: 'AI 기반 맞춤형 교육플랫폼 (바이브에듀)', category: 'education', date: '251025', link: 'https://jdx-project-01.vercel.app/', tags: ['auto-generated', '교육', 'AI'], images: [ { id: 'jdx-project-01-main', url: '/images/jdx_project_01.jpg', alt: '바이브에듀', type: 'screenshot', featured: true } ] },
+  { id: 'jdx-project-02', title: '직장인을 위한 AI교육 플랫폼', category: 'education', date: '251025', link: 'https://jdx-project-02.vercel.app/', tags: ['auto-generated', '교육', 'AI'], images: [ { id: 'jdx-project-02-main', url: '/images/jdx_project_02.jpg', alt: '직장인 AI교육', type: 'screenshot', featured: true } ] },
+  { id: 'jdx-project-05', title: '공정한 팀 배정 웹앱', category: 'entertainment', date: '251025', link: 'https://jdx-project-05.vercel.app/', tags: ['auto-generated', '엔터테인먼트', '팀배정'], images: [ { id: 'jdx-project-05-main', url: '/images/jdx_project_05.jpg', alt: 'JDX 팀 배정', type: 'screenshot', featured: true } ] },
+  { id: 'jdx-project-10', title: '추억 만지기 웹앱', category: 'entertainment', date: '251025', link: 'https://jdx-project-10.vercel.app/', tags: ['auto-generated', '엔터테인먼트', '추억'], images: [ { id: 'jdx-project-10-main', url: '/images/jdx_project_10.jpg', alt: 'JDX 추억 만지기', type: 'screenshot', featured: true } ] },
+  { id: 'law-maker', title: '국회의원 랜딩페이지 MVP', category: 'public', date: '251025', link: 'https://lawmaker-landing.vercel.app/', tags: ['auto-generated', '공공', '랜딩페이지'], images: [ { id: 'law-maker-main', url: '/images/law_maker.jpg', alt: '국회의원 랜딩페이지', type: 'screenshot', featured: true } ] },
+  { id: 'music-project-01', title: 'AI 작사·작곡 도우미 플랫폼', category: 'education', date: '251025', link: 'https://music-project-01.vercel.app/', tags: ['auto-generated', '교육', '음악', 'AI'], images: [ { id: 'music-project-01-main', url: '/images/music_project_01.jpg', alt: 'AI 작사·작곡 도우미', type: 'screenshot', featured: true } ] },
+  { id: 'mvp-project-03', title: '한국코프론 홈페이지', category: 'enterprise', date: '251025', link: 'https://mvp-project-03.vercel.app/', tags: ['auto-generated', '기업', '홈페이지'], images: [ { id: 'mvp-project-03-main', url: '/images/mvp_project_03.jpg', alt: '한국코프론 홈페이지', type: 'screenshot', featured: true } ] },
+  { id: 'mvp-project-04', title: '바이칼시스템즈 홈페이지', category: 'enterprise', date: '251025', link: 'https://mvp-project-04.vercel.app/', tags: ['auto-generated', '기업', '홈페이지'], images: [ { id: 'mvp-project-04-main', url: '/images/mvp_project_04.jpg', alt: '바이칼시스템즈 홈페이지', type: 'screenshot', featured: true } ] },
+  { id: 'mvp-project-06', title: 'AI 중장년 일자리 플랫폼', category: 'job', date: '251025', link: 'https://mvp-project-06.vercel.app/', tags: ['auto-generated', '일자리', '중장년', 'AI'], images: [ { id: 'mvp-project-06-main', url: '/images/mvp_project_06.jpg', alt: 'AI 중장년 일자리 플랫폼', type: 'screenshot', featured: true } ] },
+  { id: 'mvp-project-08', title: '시니어 복지정보 알림', category: 'welfare', date: '251025', link: 'https://mvp-project-08.vercel.app/', tags: ['auto-generated', '시니어', '복지'], images: [ { id: 'mvp-project-08-main', url: '/images/mvp_project_08.jpg', alt: '시니어 복지정보 알림', type: 'screenshot', featured: true } ] },
+  { id: 'mvp-project-09', title: '만송시스템 홈페이지(버전1)', category: 'enterprise', date: '251025', link: 'https://mvp-project-09.vercel.app/', tags: ['auto-generated', '기업', '홈페이지'], images: [ { id: 'mvp-project-09-main', url: '/images/mvp_project_09.jpg', alt: '만송시스템 홈페이지 v1', type: 'screenshot', featured: true } ] },
+  { id: 'mvp-project-10', title: '약 복용관리 플랫폼', category: 'job', date: '251025', link: 'https://mvp-project-10.vercel.app/', tags: ['auto-generated', '헬스케어', '복약관리', '건강'], images: [ { id: 'mvp-project-10-main', url: '/images/mvp_project_10.jpg', alt: '약 복용관리 플랫폼', type: 'screenshot', featured: true } ] },
+  { id: 'mvp-project-12', title: 'AI 간편장부 앱', category: 'education', date: '251025', link: 'https://mvp-project-12.vercel.app/', tags: ['auto-generated', '교육', '회계', '간편장부'], images: [ { id: 'mvp-project-12-main', url: '/images/mvp_project_12.jpg', alt: 'AI 간편장부 앱', type: 'screenshot', featured: true } ] },
+  { id: 'mvp-project-14', title: '시군구 RPA 통합 플랫폼 앱', category: 'public', date: '251025', link: 'https://mvp-project-14.vercel.app/', tags: ['auto-generated', '공공', 'RPA'], images: [ { id: 'mvp-project-14-main', url: '/images/mvp_project_14.jpg', alt: 'RPA 통합 플랫폼', type: 'screenshot', featured: true } ] },
+  { id: 'mvp-project-16', title: '재가 복지 센터 통합 관리 시스템', category: 'welfare', date: '251025', link: 'https://caring-plus.vercel.app/login', tags: ['auto-generated', '복지', '재가복지', '관리시스템'], images: [ { id: 'mvp-project-16-main', url: '/images/mvp_project_16.jpg', alt: '재가 복지 센터 통합 관리', type: 'screenshot', featured: true } ] },
+  { id: 'mvp-project-18', title: '바이칼 재가복지센터 홈페이지', category: 'welfare', date: '251025', link: 'https://mvp-project-18.vercel.app', tags: ['auto-generated', '복지', '홈페이지', '재가복지센터'], images: [ { id: 'mvp-project-18-main', url: '/images/mvp_project_18.jpg', alt: '바이칼 재가복지센터 홈페이지', type: 'screenshot', featured: true } ] },
+  { id: 'mvp-project-20', title: '복지 서비스 추천 앱', category: 'welfare', date: '251025', link: 'https://mvp-project-20.vercel.app/', tags: ['auto-generated', '복지', '추천', '서비스'], images: [ { id: 'mvp-project-20-main', url: '/images/mvp_project_20.jpg', alt: '복지 서비스 추천 앱', type: 'screenshot', featured: true } ] },
+  { id: 'mvp-project-26', title: '바이칼 리조트 홈페이지 및 예약시스템', category: 'enterprise', date: '251025', link: 'https://mvp-project-26.vercel.app/', tags: ['auto-generated', '기업', '리조트', '예약'], images: [ { id: 'mvp-project-26-main', url: '/images/mvp_project_26.jpg', alt: '바이칼 리조트', type: 'screenshot', featured: true } ] },
+  { id: 'mvp-project-28', title: '공공시설 예약 통합 플랫폼', category: 'public', date: '251025', link: 'https://mvp-project-28.vercel.app/', tags: ['auto-generated', '공공', '예약', '플랫폼'], images: [ { id: 'mvp-project-28-main', url: '/images/mvp_project_28.jpg', alt: '공공시설 예약 통합 플랫폼', type: 'screenshot', featured: true } ] },
+  { id: 'mvp-project-30', title: '주민 제보·민원 실시간 처리웹앱', category: 'public', date: '251025', link: 'https://mvp-project-30.vercel.app/', tags: ['auto-generated', '공공', '민원', '실시간'], images: [ { id: 'mvp-project-30-main', url: '/images/mvp_project_30.jpg', alt: '주민 제보·민원 실시간 처리웹앱', type: 'screenshot', featured: true } ] },
+  { id: 'mvp-project-32', title: '대여서비스플랫폼', category: 'welfare', date: '251025', link: 'https://mvp-project-32.vercel.app/', tags: ['auto-generated', '복지', '대여서비스'], images: [ { id: 'mvp-project-32-main', url: '/images/mvp_project_32.jpg', alt: '대여서비스플랫폼', type: 'screenshot', featured: true } ] },
+  { id: 'mxten-project-06', title: '모바일/태블릿 기반 디지털 작업지시서', category: 'industry', date: '251025', link: 'https://mxten-project-06.vercel.app/', tags: ['auto-generated', '산업', '작업지시서', '모바일'], images: [ { id: 'mxten-project-06-main', url: '/images/mxten_project_06.jpg', alt: '디지털 작업지시서', type: 'screenshot', featured: true } ] },
+  { id: 'mxten-project-10', title: '슬롯머신형 일본 파칭코 웹', category: 'entertainment', date: '251025', link: 'https://mxten-project-10.vercel.app/', tags: ['auto-generated', '엔터테인먼트', '게임', '파칭코'], images: [ { id: 'mxten-project-10-main', url: '/images/mxten_project_10.jpg', alt: '파칭코 웹', type: 'screenshot', featured: true } ] },
+  { id: 'mxten-project-15', title: '바이브 코딩 MVP 소개자료(포트폴리오) 웹앱', category: 'meta', date: '251025', link: 'http://baikalsys.kr/', tags: ['auto-generated', '포트폴리오', 'MVP'], images: [ { id: 'mxten-project-15-main', url: '/images/mxten_project_15.jpg', alt: '바이브 코딩 포트폴리오', type: 'screenshot', featured: true } ] },
+  { id: 'mxten-project-20', title: '바이브코딩 MVP 포트폴리오2(상세)', category: 'meta', date: '251025', link: 'https://mxten-project-20.vercel.app/', tags: ['auto-generated', '포트폴리오', 'MVP'], images: [ { id: 'mxten-project-20-main', url: '/images/mxten_project_20.jpg', alt: '바이브코딩 포트폴리오2', type: 'screenshot', featured: true } ] },
+  { id: 'mxten-project-30', title: '만송시스템 홈페이지(버전2)', category: 'enterprise', date: '251025', link: 'https://mxten-project-30.vercel.app/', tags: ['auto-generated', '기업', '홈페이지'], images: [ { id: 'mxten-project-30-main', url: '/images/mxten_project_30.jpg', alt: '만송시스템 홈페이지 v2', type: 'screenshot', featured: true } ] },
+  { id: 'new-project-02', title: '아이뜨락 어린이집 홈페이지', category: 'welfare', date: '251025', link: 'https://new-project-02.vercel.app/', tags: ['auto-generated', '어린이집', '복지', '홈페이지'], images: [ { id: 'new-project-02-main', url: '/images/new_project_02.jpg', alt: '아이뜨락 어린이집', type: 'screenshot', featured: true } ] },
+  { id: 'new-project-04', title: '박신환 행정사 홈페이지', category: 'personal', date: '251025', link: 'https://new-project-04.vercel.app/', tags: ['auto-generated', '개인', '행정사', '홈페이지'], images: [ { id: 'new-project-04-main', url: '/images/new_project_04.jpg', alt: '박신환 행정사 홈페이지', type: 'screenshot', featured: true } ] },
+  { id: 'new-project-20', title: '박영진치과 홈페이지', category: 'healthcare', date: '251025', link: 'https://new-project-20.vercel.app/', tags: ['auto-generated', '의료', '치과', '홈페이지'], images: [ { id: 'new-project-20-main', url: '/images/new_project_20.jpg', alt: '박영진치과 홈페이지', type: 'screenshot', featured: true } ] },
+  { id: 'new-project-30', title: '선우 이비인후과 홈페이지', category: 'healthcare', date: '251025', link: 'https://new-project-30.vercel.app/', tags: ['auto-generated', '의료', '이비인후과', '홈페이지'], images: [ { id: 'new-project-30-main', url: '/images/new_project_30.jpg', alt: '선우 이비인후과 홈페이지', type: 'screenshot', featured: true } ] },
+  { id: 'new-project-40', title: '성혜 정형외과 의원', category: 'healthcare', date: '251025', link: 'https://new-project-40.vercel.app/', tags: ['auto-generated', '의료', '정형외과', '홈페이지'], images: [ { id: 'new-project-40-main', url: '/images/new_project_40.jpg', alt: '성혜 정형외과 의원', type: 'screenshot', featured: true } ] },
+  { id: 'new-project-40-ai', title: '성혜 정형외과 의원 (AI 진단)', category: 'healthcare', date: '251025', link: 'https://new-project-40.vercel.app/ai-symptom-check/', tags: ['auto-generated'], images: [ { id: 'new-project-40-ai-main', url: '/images/new_project_40_ai.jpg', alt: '성혜 정형외과 AI 진단', type: 'screenshot', featured: true } ] },
+  { id: 'new-project-40-app', title: '성혜 정형외과 의원 (실시간 예약)', category: 'healthcare', date: '251025', link: 'https://new-project-40.vercel.app/appointment/', tags: ['auto-generated'], images: [ { id: 'new-project-40-app-main', url: '/images/new_project_40_app.jpg', alt: '성혜 정형외과 실시간 예약', type: 'screenshot', featured: true } ] },
+];
+
+// 검색 함수
+export const searchProjects = (projects: Project[], query: string): Project[] => {
+  const lowercaseQuery = query.toLowerCase();
+  return projects.filter(project =>
+    project.title.toLowerCase().includes(lowercaseQuery) ||
+    (project.description && project.description.toLowerCase().includes(lowercaseQuery)) ||
+    (project.tags && project.tags.some(tag => tag.toLowerCase().includes(lowercaseQuery)))
+  );
+};
+
+// 카테고리별 필터 함수
+export const filterByCategory = (projects: Project[], category: string): Project[] => {
+  if (!category || category === 'all') return projects;
+  return projects.filter(project => project.category === category);
+};
+
+// 추천 프로젝트 가져오기
+export const getFeaturedProjects = (projects: Project[]): Project[] => {
+  return projects.filter(project => project.featured);
+};
+
+// 관련 프로젝트 가져오기
+export const getRelatedProjects = (projects: Project[], currentProject: Project): Project[] => {
+  return projects.filter(project =>
+    project.id !== currentProject.id &&
+    currentProject.relatedProjects && currentProject.relatedProjects.includes(project.id)
+  );
+};
