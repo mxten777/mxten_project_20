@@ -36,7 +36,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   impact,
   industry,
   timeline,
-  teamSize,
   clientType = 'enterprise',
 }) => {
   const clientTypeIcons = {
