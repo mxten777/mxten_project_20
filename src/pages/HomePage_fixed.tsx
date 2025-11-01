@@ -29,32 +29,6 @@ const HomePage: React.FC = () => {
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
   const scale = useTransform(scrollY, [0, 300], [1, 0.95]);
 
-  // 3D transform animations
-  const backgroundRotateX = useTransform(mouseYSpring, [-50, 50], [2, -2]);
-  const backgroundRotateY = useTransform(mouseXSpring, [-50, 50], [-2, 2]);
-  const particle1X = useTransform(mouseXSpring, [-50, 50], [-10, 10]);
-  const particle1Y = useTransform(mouseYSpring, [-50, 50], [-5, 5]);
-  const particle2X = useTransform(mouseXSpring, [-50, 50], [15, -15]);
-  const particle2Y = useTransform(mouseYSpring, [-50, 50], [8, -8]);
-  const particle3X = useTransform(mouseXSpring, [-50, 50], [-8, 8]);
-  const particle3Y = useTransform(mouseYSpring, [-50, 50], [12, -12]);
-  const smallParticle1X = useTransform(mouseXSpring, [-50, 50], [20, -20]);
-  const smallParticle1Y = useTransform(mouseYSpring, [-50, 50], [15, -15]);
-  const smallParticle2X = useTransform(mouseXSpring, [-50, 50], [-25, 25]);
-  const smallParticle2Y = useTransform(mouseYSpring, [-50, 50], [-10, 10]);
-
-  // Tech stack 3D transforms
-  const techRotateX1 = useTransform(mouseYSpring, [-50, 50], [-5, 5]);
-  const techRotateY1 = useTransform(mouseXSpring, [-50, 50], [-5, 5]);
-  const techRotateX2 = useTransform(mouseYSpring, [-50, 50], [5, -5]);
-  const techRotateY2 = useTransform(mouseXSpring, [-50, 50], [5, -5]);
-  const techRotateX3 = useTransform(mouseYSpring, [-50, 50], [-8, 8]);
-  const techRotateY3 = useTransform(mouseXSpring, [-50, 50], [-8, 8]);
-  const techRotateX4 = useTransform(mouseYSpring, [-50, 50], [8, -8]);
-  const techRotateY4 = useTransform(mouseXSpring, [-50, 50], [8, -8]);
-  const techRotateX5 = useTransform(mouseYSpring, [-50, 50], [-5, 5]);
-  const techRotateY5 = useTransform(mouseXSpring, [-50, 50], [-10, 10]);
-
   useEffect(() => {
     setIsVisible(true);
     
@@ -146,15 +120,15 @@ const HomePage: React.FC = () => {
                 style={{ 
                   y: y1, 
                   opacity,
-                  rotateX: backgroundRotateX,
-                  rotateY: backgroundRotateY
+                  rotateX: useTransform(mouseYSpring, [-50, 50], [2, -2]),
+                  rotateY: useTransform(mouseXSpring, [-50, 50], [-2, 2])
                 }}
               >
                 <motion.div 
                   className="absolute top-20 left-20 w-72 h-72 bg-purple-800 rounded-full mix-blend-lighten filter blur-2xl opacity-30"
                   style={{
-                    x: particle1X,
-                    y: particle1Y
+                    x: useTransform(mouseXSpring, [-50, 50], [-10, 10]),
+                    y: useTransform(mouseYSpring, [-50, 50], [-5, 5])
                   }}
                   animate={{
                     scale: [1, 1.1, 1],
@@ -165,8 +139,8 @@ const HomePage: React.FC = () => {
                 <motion.div 
                   className="absolute top-40 right-20 w-72 h-72 bg-yellow-500 rounded-full mix-blend-lighten filter blur-2xl opacity-20"
                   style={{
-                    x: particle2X,
-                    y: particle2Y
+                    x: useTransform(mouseXSpring, [-50, 50], [15, -15]),
+                    y: useTransform(mouseYSpring, [-50, 50], [8, -8])
                   }}
                   animate={{
                     scale: [1, 1.2, 1],
@@ -177,8 +151,8 @@ const HomePage: React.FC = () => {
                 <motion.div 
                   className="absolute -bottom-8 left-40 w-72 h-72 bg-pink-700 rounded-full mix-blend-lighten filter blur-2xl opacity-20"
                   style={{
-                    x: particle3X,
-                    y: particle3Y
+                    x: useTransform(mouseXSpring, [-50, 50], [-8, 8]),
+                    y: useTransform(mouseYSpring, [-50, 50], [12, -12])
                   }}
                   animate={{
                     scale: [1, 1.15, 1],
@@ -191,8 +165,8 @@ const HomePage: React.FC = () => {
                 <motion.div
                   className="absolute top-1/3 left-1/3 w-4 h-4 bg-blue-400 rounded-full opacity-60"
                   style={{
-                    x: smallParticle1X,
-                    y: smallParticle1Y
+                    x: useTransform(mouseXSpring, [-50, 50], [20, -20]),
+                    y: useTransform(mouseYSpring, [-50, 50], [15, -15])
                   }}
                   animate={{
                     scale: [0.5, 1.5, 0.5],
@@ -203,8 +177,8 @@ const HomePage: React.FC = () => {
                 <motion.div
                   className="absolute bottom-1/3 right-1/3 w-3 h-3 bg-green-400 rounded-full opacity-70"
                   style={{
-                    x: smallParticle2X,
-                    y: smallParticle2Y
+                    x: useTransform(mouseXSpring, [-50, 50], [-25, 25]),
+                    y: useTransform(mouseYSpring, [-50, 50], [-10, 10])
                   }}
                   animate={{
                     scale: [0.8, 1.2, 0.8],
@@ -241,7 +215,7 @@ const HomePage: React.FC = () => {
                 {/* Main Title with Advanced Typography Animation */}
                 <motion.h1 
                   variants={itemVariants}
-                  className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-6 sm:mb-8 leading-tight text-center text-[#181C2A] dark:text-[#FFD700] px-4 sm:px-0"
+                  className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight text-center text-[#181C2A] dark:text-[#FFD700]"
                 >
                   <motion.span 
                     className="block mb-4"
@@ -270,7 +244,7 @@ const HomePage: React.FC = () => {
                       transition: { duration: 0.3 }
                     }}
                   >
-                    <span className="font-black text-[#181C2A] dark:text-[#FFD700] text-xl sm:text-2xl md:text-3xl tracking-tight">바이브코딩</span>
+                    <span className="font-black text-[#181C2A] dark:text-[#FFD700] text-2xl md:text-3xl tracking-tight">바이브코딩</span>
                   </motion.div>
                 </motion.h1>
 
@@ -279,7 +253,7 @@ const HomePage: React.FC = () => {
                   variants={itemVariants}
                   className="mb-8 sm:mb-12"
                 >
-                  <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-6 leading-relaxed max-w-4xl mx-auto font-light px-4 sm:px-0 text-[#181C2A] dark:text-gray-200">
+                  <p className="text-xl sm:text-2xl md:text-3xl mb-6 leading-relaxed max-w-4xl mx-auto font-light px-4 sm:px-0 text-[#181C2A] dark:text-gray-200">
                     <span className="font-semibold text-[#FFD700]">5년간 50+개 프로젝트</span>를 통해 쌓은 경험으로<br className="hidden sm:block" />
                     <span className="font-bold">스타트업부터 대기업까지</span> 신뢰받는 개발 파트너
                   </p>
@@ -309,7 +283,7 @@ const HomePage: React.FC = () => {
                 >
                   <motion.a
                     href="#projects"
-                    className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-[#FFD700] text-[#181C2A] font-bold text-base sm:text-lg rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden w-full sm:w-auto text-center"
+                    className="group relative px-8 py-4 bg-[#FFD700] text-[#181C2A] font-bold text-lg rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden"
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -331,7 +305,7 @@ const HomePage: React.FC = () => {
                   
                   <motion.a
                     href="#contact"
-                    className="group px-6 sm:px-8 py-3 sm:py-4 border-2 border-[#FFD700] text-[#FFD700] font-bold text-base sm:text-lg rounded-xl hover:bg-[#FFD700] hover:text-[#181C2A] transition-all duration-300 w-full sm:w-auto text-center"
+                    className="group px-8 py-4 border-2 border-[#FFD700] text-[#FFD700] font-bold text-lg rounded-xl hover:bg-[#FFD700] hover:text-[#181C2A] transition-all duration-300"
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -371,7 +345,7 @@ const HomePage: React.FC = () => {
                 >
                   <motion.h2 
                     variants={itemVariants}
-                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-[#181C2A] dark:text-[#FFD700] px-4 sm:px-0"
+                    className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 text-[#181C2A] dark:text-[#FFD700]"
                   >
                     최첨단 기술 스택
                   </motion.h2>
@@ -381,7 +355,7 @@ const HomePage: React.FC = () => {
                   >
                     검증된 최신 기술 스택으로 안정적이고 확장 가능한 솔루션을 제공합니다
                   </motion.p>
-                </motion.div>
+                </div>
                 
                 {/* Advanced 3D Interactive Tech Grid */}
                 <motion.div 
@@ -397,8 +371,8 @@ const HomePage: React.FC = () => {
                     variants={itemVariants}
                     whileHover={{ scale: 1.1, y: -10 }}
                     style={{
-                      rotateX: techRotateX1,
-                      rotateY: techRotateY1
+                      rotateX: useTransform(mouseYSpring, [-50, 50], [-5, 5]),
+                      rotateY: useTransform(mouseXSpring, [-50, 50], [-5, 5])
                     }}
                   >
                     <motion.div 
@@ -448,8 +422,8 @@ const HomePage: React.FC = () => {
                     variants={itemVariants}
                     whileHover={{ scale: 1.1, y: -10 }}
                     style={{
-                      rotateX: techRotateX2,
-                      rotateY: techRotateY2
+                      rotateX: useTransform(mouseYSpring, [-50, 50], [5, -5]),
+                      rotateY: useTransform(mouseXSpring, [-50, 50], [5, -5])
                     }}
                   >
                     <motion.div 
@@ -501,8 +475,8 @@ const HomePage: React.FC = () => {
                     variants={itemVariants}
                     whileHover={{ scale: 1.1, y: -10 }}
                     style={{
-                      rotateX: techRotateX3,
-                      rotateY: techRotateY3
+                      rotateX: useTransform(mouseYSpring, [-50, 50], [-8, 8]),
+                      rotateY: useTransform(mouseXSpring, [-50, 50], [-8, 8])
                     }}
                   >
                     <motion.div 
@@ -593,8 +567,8 @@ const HomePage: React.FC = () => {
                     variants={itemVariants}
                     whileHover={{ scale: 1.1, y: -10 }}
                     style={{
-                      rotateX: techRotateX4,
-                      rotateY: techRotateY4
+                      rotateX: useTransform(mouseYSpring, [-50, 50], [8, -8]),
+                      rotateY: useTransform(mouseXSpring, [-50, 50], [8, -8])
                     }}
                   >
                     <motion.div 
@@ -644,8 +618,8 @@ const HomePage: React.FC = () => {
                     variants={itemVariants}
                     whileHover={{ scale: 1.1, y: -10 }}
                     style={{
-                      rotateX: techRotateX5,
-                      rotateY: techRotateY5
+                      rotateX: useTransform(mouseYSpring, [-50, 50], [-5, 5]),
+                      rotateY: useTransform(mouseXSpring, [-50, 50], [-10, 10])
                     }}
                   >
                     <motion.div 
@@ -746,7 +720,7 @@ const HomePage: React.FC = () => {
                 >
                   <motion.h2 
                     variants={itemVariants}
-                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-[#181C2A] dark:text-[#FFD700] px-4 sm:px-0"
+                    className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 text-[#181C2A] dark:text-[#FFD700]"
                   >
                     성공 사례로 증명하는 실력
                   </motion.h2>
@@ -765,152 +739,21 @@ const HomePage: React.FC = () => {
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.1 }}
                 >
-                  {projects.slice(0, 6).map((project, index) => {
-                    const projectData = [
-                      {
-                        icon: "🚀",
-                        gradientFrom: "#3B82F6",
-                        gradientTo: "#1E40AF",
-                        challenge: "복잡한 실시간 데이터 처리와 대용량 트래픽 관리가 필요한 상황",
-                        solution: "React + Node.js 기반 마이크로서비스 아키텍처로 확장성 확보",
-                        impact: "일일 활성 사용자 300% 증가, 서버 응답시간 60% 단축",
-                        industry: "핀테크",
-                        clientType: "startup" as const,
-                        techStack: [
-                          { name: 'React', color: 'text-blue-300', bg: 'bg-blue-500/30', border: 'border-blue-400/50' },
-                          { name: 'Node.js', color: 'text-green-300', bg: 'bg-green-500/30', border: 'border-green-400/50' },
-                          { name: 'MongoDB', color: 'text-emerald-300', bg: 'bg-emerald-500/30', border: 'border-emerald-400/50' }
-                        ],
-                        metrics: [
-                          { label: '성능 향상', value: '60%' },
-                          { label: '사용자 증가', value: '300%' },
-                          { label: '만족도', value: '4.9/5' }
-                        ]
-                      },
-                      {
-                        icon: "🏥",
-                        gradientFrom: "#10B981",
-                        gradientTo: "#059669",
-                        challenge: "의료진과 환자 간 효율적인 소통과 데이터 관리 시스템 구축",
-                        solution: "AI 기반 진단 보조 시스템과 실시간 모니터링 대시보드 개발",
-                        impact: "진료 대기시간 40% 감소, 진단 정확도 25% 향상",
-                        industry: "헬스케어",
-                        clientType: "enterprise" as const,
-                        techStack: [
-                          { name: 'Vue.js', color: 'text-emerald-300', bg: 'bg-emerald-500/30', border: 'border-emerald-400/50' },
-                          { name: 'Python', color: 'text-yellow-300', bg: 'bg-yellow-500/30', border: 'border-yellow-400/50' },
-                          { name: 'PostgreSQL', color: 'text-blue-300', bg: 'bg-blue-500/30', border: 'border-blue-400/50' }
-                        ],
-                        metrics: [
-                          { label: '대기시간 단축', value: '40%' },
-                          { label: '정확도 향상', value: '25%' },
-                          { label: '병원 도입', value: '15개' }
-                        ]
-                      },
-                      {
-                        icon: "🎓",
-                        gradientFrom: "#8B5CF6",
-                        gradientTo: "#7C3AED",
-                        challenge: "온라인 교육 플랫폼의 학습 효과 및 참여도 개선 필요",
-                        solution: "개인화된 학습 경로와 게임화 요소를 적용한 인터랙티브 플랫폼",
-                        impact: "학습 완료율 180% 증가, 학습 시간 45% 단축",
-                        industry: "에듀테크",
-                        clientType: "government" as const,
-                        techStack: [
-                          { name: 'Next.js', color: 'text-gray-300', bg: 'bg-gray-500/30', border: 'border-gray-400/50' },
-                          { name: 'AI/ML', color: 'text-purple-300', bg: 'bg-purple-500/30', border: 'border-purple-400/50' },
-                          { name: 'AWS', color: 'text-orange-300', bg: 'bg-orange-500/30', border: 'border-orange-400/50' }
-                        ],
-                        metrics: [
-                          { label: '완료율 증가', value: '180%' },
-                          { label: '시간 단축', value: '45%' },
-                          { label: '학습자', value: '50K+' }
-                        ]
-                      },
-                      {
-                        icon: "💰",
-                        gradientFrom: "#F59E0B",
-                        gradientTo: "#D97706",
-                        challenge: "전통적인 금융 서비스의 디지털 전환과 보안 강화",
-                        solution: "블록체인 기반 보안 시스템과 모바일 퍼스트 UX 설계",
-                        impact: "거래량 220% 증가, 보안사고 0건 달성",
-                        industry: "금융",
-                        clientType: "enterprise" as const,
-                        techStack: [
-                          { name: 'React Native', color: 'text-blue-300', bg: 'bg-blue-500/30', border: 'border-blue-400/50' },
-                          { name: 'Blockchain', color: 'text-yellow-300', bg: 'bg-yellow-500/30', border: 'border-yellow-400/50' },
-                          { name: 'Docker', color: 'text-cyan-300', bg: 'bg-cyan-500/30', border: 'border-cyan-400/50' }
-                        ],
-                        metrics: [
-                          { label: '거래량 증가', value: '220%' },
-                          { label: '보안사고', value: '0건' },
-                          { label: '앱 다운로드', value: '100K+' }
-                        ]
-                      },
-                      {
-                        icon: "🏭",
-                        gradientFrom: "#EF4444",
-                        gradientTo: "#DC2626",
-                        challenge: "제조업 생산라인의 실시간 모니터링 및 예측 유지보수",
-                        solution: "IoT 센서 데이터 기반 AI 예측 분석 시스템 구축",
-                        impact: "생산 효율성 35% 향상, 장비 고장률 70% 감소",
-                        industry: "제조업",
-                        clientType: "enterprise" as const,
-                        techStack: [
-                          { name: 'Python', color: 'text-yellow-300', bg: 'bg-yellow-500/30', border: 'border-yellow-400/50' },
-                          { name: 'IoT', color: 'text-red-300', bg: 'bg-red-500/30', border: 'border-red-400/50' },
-                          { name: 'TensorFlow', color: 'text-orange-300', bg: 'bg-orange-500/30', border: 'border-orange-400/50' }
-                        ],
-                        metrics: [
-                          { label: '효율성 향상', value: '35%' },
-                          { label: '고장률 감소', value: '70%' },
-                          { label: '공장 적용', value: '12개' }
-                        ]
-                      },
-                      {
-                        icon: "🛒",
-                        gradientFrom: "#EC4899",
-                        gradientTo: "#DB2777",
-                        challenge: "전자상거래 플랫폼의 개인화 추천 및 구매 전환율 개선",
-                        solution: "머신러닝 기반 개인화 추천 엔진과 원클릭 결제 시스템",
-                        impact: "구매 전환율 150% 증가, 고객 재방문율 80% 향상",
-                        industry: "이커머스",
-                        clientType: "startup" as const,
-                        techStack: [
-                          { name: 'Vue.js', color: 'text-green-300', bg: 'bg-green-500/30', border: 'border-green-400/50' },
-                          { name: 'Machine Learning', color: 'text-purple-300', bg: 'bg-purple-500/30', border: 'border-purple-400/50' },
-                          { name: 'Redis', color: 'text-red-300', bg: 'bg-red-500/30', border: 'border-red-400/50' }
-                        ],
-                        metrics: [
-                          { label: '전환율 증가', value: '150%' },
-                          { label: '재방문율', value: '80%' },
-                          { label: '매출 증가', value: '300%' }
-                        ]
-                      }
-                    ];
-                    
-                    const data = projectData[index] || projectData[0];
-                    return (
-                      <motion.div key={project.id} variants={cardVariants}>
-                        <ProjectCard 
-                          title={project.title}
-                          description={project.description || project.longDescription || "혁신적인 기술로 비즈니스 문제를 해결하는 프로젝트입니다."}
-                          icon={data.icon}
-                          status="완료"
-                          gradientFrom={data.gradientFrom}
-                          gradientTo={data.gradientTo}
-                          techStack={data.techStack}
-                          metrics={data.metrics}
-                          challenge={data.challenge}
-                          solution={data.solution}
-                          impact={data.impact}
-                          clientType={data.clientType}
-                          industry={data.industry}
-                          timeline={`${3 + index}개월`}
-                        />
-                      </motion.div>
-                    );
-                  })}
+                  {projects.slice(0, 6).map((project, index) => (
+                    <motion.div key={project.id} variants={cardVariants}>
+                      <ProjectCard 
+                        project={{
+                          ...project,
+                          challenge: project.challenge || "복잡한 비즈니스 요구사항을 효율적으로 해결해야 하는 도전",
+                          solution: project.solution || "최신 기술 스택과 최적화된 아키텍처로 안정적인 솔루션 구현",
+                          impact: project.impact || "사용자 만족도 향상과 비즈니스 성과 달성",
+                          clientType: project.clientType || (index < 2 ? "스타트업" : index < 4 ? "중견기업" : "대기업"),
+                          industry: project.industry || ["웹 개발", "기술 솔루션"][Math.floor(Math.random() * 2)],
+                          timeline: project.timeline || `${2 + Math.floor(Math.random() * 4)}개월`
+                        }} 
+                      />
+                    </motion.div>
+                  ))}
                 </motion.div>
 
                 {/* All Projects Button */}

@@ -71,10 +71,14 @@ export interface Challenge {
   impact: string;
 }
 
+// 컬러 시스템 일관성: 카테고리 메인 컬러(color), 프리미엄 포인트 컬러(pointColor) 등 명확히 분리
 export interface Project {
   id: string;
   title: string;
   category: ProjectCategory;
+  // 컬러 시스템(카테고리 메인/포인트 컬러)
+  color?: string; // 카테고리 메인 컬러(예: '#1A237E')
+  pointColor?: string; // 프리미엄 포인트/골드 컬러(예: '#FFD700')
   // 상세 프로젝트에만 필요한 속성 (필요시만 사용)
   subtitle?: string;
   description?: string;
@@ -102,12 +106,16 @@ export interface Project {
   link?: string;
 }
 
+// 카테고리별 컬러 시스템 세분화(메인/포인트/다크/라이트 등)
 export interface CategoryInfo {
   id: ProjectCategory;
   name: string;
   description: string;
   icon: string;
-  color: string;
+  color: string; // 메인 컬러
+  pointColor?: string; // 프리미엄 포인트/골드 컬러
+  darkColor?: string; // 다크 모드용 컬러
+  lightColor?: string; // 라이트 모드용 컬러
   count: number;
 }
 
