@@ -32,8 +32,8 @@ const Header: React.FC = () => {
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-white/95 dark:bg-brand-navy/95 backdrop-blur-xl shadow-sm'
-          : 'bg-white/80 dark:bg-brand-navy/80 backdrop-blur-md'
+          ? 'bg-brand-navy/95 backdrop-blur-xl shadow-lg'
+          : 'bg-brand-navy/90 backdrop-blur-md'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -44,7 +44,7 @@ const Header: React.FC = () => {
           {/* Logo - 서클 이미지 로고 */}
           <Link to="/" className="flex items-center gap-3 group">
             <motion.div 
-              className="w-10 h-10 rounded-full overflow-hidden shadow-lg flex items-center justify-center bg-white dark:bg-gray-800"
+              className="w-10 h-10 rounded-full overflow-hidden shadow-lg flex items-center justify-center bg-white"
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.2 }}
             >
@@ -55,10 +55,10 @@ const Header: React.FC = () => {
               />
             </motion.div>
             <div className="hidden sm:block">
-              <div className="text-xl font-black tracking-tight text-brand-navy dark:text-white">
+              <div className="text-xl font-black tracking-tight text-white">
                 바이칼시스템즈
               </div>
-              <div className="text-xs text-gray-500 dark:text-gray-400 tracking-widest">
+              <div className="text-xs text-gray-400 tracking-widest">
                 BAIKAL SYSTEMS
               </div>
             </div>
@@ -75,7 +75,7 @@ const Header: React.FC = () => {
                 <span className={`text-sm font-semibold transition-colors duration-200 ${
                   isActiveLink(link.path)
                     ? 'text-brand-gold'
-                    : 'text-gray-700 dark:text-gray-300 group-hover:text-brand-gold'
+                    : 'text-gray-300 group-hover:text-white'
                 }`}>
                   {link.label}
                 </span>
@@ -105,12 +105,12 @@ const Header: React.FC = () => {
 
           {/* Mobile Menu Button - 심플 */}
           <button
-            className="lg:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            className="lg:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 rounded-lg hover:bg-gray-800 transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="메뉴"
           >
             <motion.span
-              className="w-5 h-0.5 rounded-full bg-brand-navy dark:bg-white"
+              className="w-5 h-0.5 rounded-full bg-white"
               animate={{
                 rotate: isMenuOpen ? 45 : 0,
                 y: isMenuOpen ? 6 : 0,
@@ -118,12 +118,12 @@ const Header: React.FC = () => {
               transition={{ duration: 0.2 }}
             />
             <motion.span
-              className="w-5 h-0.5 rounded-full bg-brand-navy dark:bg-white"
+              className="w-5 h-0.5 rounded-full bg-white"
               animate={{ opacity: isMenuOpen ? 0 : 1 }}
               transition={{ duration: 0.2 }}
             />
             <motion.span
-              className="w-5 h-0.5 rounded-full bg-brand-navy dark:bg-white"
+              className="w-5 h-0.5 rounded-full bg-white"
               animate={{
                 rotate: isMenuOpen ? -45 : 0,
                 y: isMenuOpen ? -6 : 0,
@@ -159,7 +159,7 @@ const Header: React.FC = () => {
                         className={`block py-4 text-lg font-light tracking-wide transition-all duration-300 relative ${
                           isActive
                             ? 'text-brand-gold'
-                            : 'text-gray-600 dark:text-gray-400'
+                            : 'text-gray-400'
                         }`}
                       >
                         {isActive && (
