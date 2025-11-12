@@ -7,7 +7,6 @@ const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
-  // 스크롤 감지 - 더 세련된 효과
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -16,7 +15,6 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // 페이지 변경 시 모바일 메뉴 닫기
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location]);
@@ -24,195 +22,171 @@ const Header: React.FC = () => {
   const isActiveLink = (path: string) => location.pathname === path;
 
   const navLinks = [
-    { path: '/', label: '홈', icon: '🏠' },
-    { path: '/portfolio', label: '포트폴리오', icon: '💼' },
-    { path: '/about', label: '회사소개', icon: '👥' },
-    { path: '/contact', label: '연락처', icon: '📧' }
+    { path: '/', label: '홈' },
+    { path: '/portfolio', label: '포트폴리오' },
+    { path: '/about', label: '회사소개' },
+    { path: '/contact', label: '연락처' }
   ];
 
   return (
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-white/80 dark:bg-brand-navy/90 backdrop-blur-2xl shadow-premium border-b border-gray-200/50 dark:border-gray-700/50'
-          : 'bg-white/60 dark:bg-brand-navy/70 backdrop-blur-xl'
+          ? 'bg-white/95 dark:bg-brand-navy/95 backdrop-blur-xl shadow-sm'
+          : 'bg-white/80 dark:bg-brand-navy/80 backdrop-blur-md'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
     >
-      <div className="section-container">
-        <div className="flex items-center justify-between h-20 lg:h-24">
-          {/* Premium Logo */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo - 서클 이미지 로고 */}
           <Link to="/" className="flex items-center gap-3 group">
             <motion.div 
-              className="relative w-12 h-12 lg:w-14 lg:h-14"
-              whileHover={{ scale: 1.05, rotate: 5 }}
-              transition={{ duration: 0.3 }}
+              className="w-10 h-10 rounded-full overflow-hidden shadow-lg flex items-center justify-center bg-white dark:bg-gray-800"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.2 }}
             >
-              {/* Logo Glow Effect */}
-              <div className="absolute inset-0 bg-brand-gold/30 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-              <div className="relative w-full h-full bg-gradient-to-br from-brand-navy to-brand-navy-dark dark:from-brand-gold dark:to-brand-gold-dark rounded-2xl flex items-center justify-center shadow-premium">
-                <span className="text-brand-gold dark:text-brand-navy font-black text-xl lg:text-2xl tracking-tight">B</span>
-              </div>
+              <img 
+                src="/images/baikal_logo.png" 
+                alt="바이칼시스템즈 로고" 
+                className="w-full h-full object-cover"
+              />
             </motion.div>
-            <div className="flex flex-col">
-              <span className="text-2xl lg:text-3xl font-black tracking-tight text-brand-navy dark:text-white">
+            <div className="hidden sm:block">
+              <div className="text-xl font-black tracking-tight text-brand-navy dark:text-white">
                 바이칼시스템즈
-              </span>
-              <span className="text-xs lg:text-sm text-gray-600 dark:text-gray-400 font-semibold tracking-wide">
-                Baikal Systems
-              </span>
+              </div>
+              <div className="text-xs text-gray-500 dark:text-gray-400 tracking-widest">
+                BAIKAL SYSTEMS
+              </div>
             </div>
           </Link>
 
-          {/* Desktop Navigation - Premium Design */}
-          <nav className="hidden lg:flex items-center gap-2">
+          {/* Desktop Navigation - 미니멀 & 고급 */}
+          <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className="relative group"
+                className="relative group px-6 py-2"
               >
-                <motion.div
-                  className={`px-6 py-3 rounded-xl font-bold text-base transition-all duration-300 flex items-center gap-2
-                    ${isActiveLink(link.path)
-                      ? 'text-brand-navy dark:text-brand-gold bg-brand-gold/10 dark:bg-brand-gold/10'
-                      : 'text-gray-700 dark:text-gray-200 hover:text-brand-gold dark:hover:text-brand-gold hover:bg-gray-100 dark:hover:bg-gray-800/50'}
-                  `}
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <span className="text-lg">{link.icon}</span>
-                  <span>{link.label}</span>
-                </motion.div>
+                <span className={`text-sm font-semibold transition-colors duration-200 ${
+                  isActiveLink(link.path)
+                    ? 'text-brand-gold'
+                    : 'text-gray-700 dark:text-gray-300 group-hover:text-brand-gold'
+                }`}>
+                  {link.label}
+                </span>
                 {isActiveLink(link.path) && (
                   <motion.div
-                    className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-8 h-1 bg-brand-gold rounded-full"
+                    className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-brand-gold rounded-full"
                     layoutId="activeIndicator"
-                    transition={{ duration: 0.3, type: "spring", stiffness: 300, damping: 30 }}
+                    transition={{ duration: 0.3, type: "spring", stiffness: 400, damping: 30 }}
                   />
                 )}
               </Link>
             ))}
           </nav>
 
-          {/* Premium CTA Button (Desktop) */}
-          <div className="hidden lg:flex items-center gap-4">
+          {/* CTA Button - 프리미엄 */}
+          <div className="hidden lg:block">
             <Link to="/contact">
               <motion.button
-                className="relative px-8 py-3.5 rounded-2xl font-bold text-base overflow-hidden group"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ duration: 0.2 }}
+                className="px-6 py-2.5 bg-brand-gold text-brand-navy text-sm font-bold rounded-xl hover:shadow-lg transition-all duration-300"
+                whileHover={{ scale: 1.05, y: -1 }}
+                whileTap={{ scale: 0.98 }}
               >
-                {/* Animated Background */}
-                <div className="absolute inset-0 bg-gradient-to-r from-brand-gold via-brand-gold-light to-brand-gold bg-[length:200%_100%] group-hover:bg-[position:100%_0] transition-all duration-500"></div>
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-brand-gold shadow-glow-gold transition-opacity duration-300"></div>
-                
-                {/* Button Content */}
-                <span className="relative z-10 text-brand-navy flex items-center gap-2">
-                  <span>프로젝트 문의</span>
-                  <motion.span
-                    animate={{ x: [0, 4, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                  >
-                    →
-                  </motion.span>
-                </span>
+                문의하기
               </motion.button>
             </Link>
           </div>
 
-          {/* Mobile Menu Button - Premium Design */}
-          <motion.button
-            className="lg:hidden relative w-12 h-12 flex flex-col justify-center items-center gap-1.5 rounded-xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-premium"
+          {/* Mobile Menu Button - 심플 */}
+          <button
+            className="lg:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="메뉴 토글"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            aria-label="메뉴"
           >
             <motion.span
-              className="w-6 h-0.5 rounded-full bg-brand-navy dark:bg-brand-gold"
+              className="w-5 h-0.5 rounded-full bg-brand-navy dark:bg-white"
               animate={{
                 rotate: isMenuOpen ? 45 : 0,
-                y: isMenuOpen ? 8 : 0,
-              }}
-              transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-            />
-            <motion.span
-              className="w-6 h-0.5 rounded-full bg-brand-navy dark:bg-brand-gold"
-              animate={{
-                opacity: isMenuOpen ? 0 : 1,
-                scale: isMenuOpen ? 0 : 1,
+                y: isMenuOpen ? 6 : 0,
               }}
               transition={{ duration: 0.2 }}
             />
             <motion.span
-              className="w-6 h-0.5 rounded-full bg-brand-navy dark:bg-brand-gold"
+              className="w-5 h-0.5 rounded-full bg-brand-navy dark:bg-white"
+              animate={{ opacity: isMenuOpen ? 0 : 1 }}
+              transition={{ duration: 0.2 }}
+            />
+            <motion.span
+              className="w-5 h-0.5 rounded-full bg-brand-navy dark:bg-white"
               animate={{
                 rotate: isMenuOpen ? -45 : 0,
-                y: isMenuOpen ? -8 : 0,
+                y: isMenuOpen ? -6 : 0,
               }}
-              transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+              transition={{ duration: 0.2 }}
             />
-          </motion.button>
+          </button>
         </div>
 
-        {/* Mobile Navigation - Premium Design */}
+        {/* Mobile Menu - 세련되고 미니멀하게 */}
         <AnimatePresence>
           {isMenuOpen && (
             <motion.nav
-              className="lg:hidden overflow-hidden"
+              className="lg:hidden"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+              transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
             >
-              <div className="py-6 space-y-2 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-brand-navy rounded-2xl mt-4 shadow-premium-lg border border-gray-200 dark:border-gray-700">
-                {navLinks.map((link, index) => (
-                  <motion.div
-                    key={link.path}
-                    initial={{ x: -50, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: index * 0.1, duration: 0.3 }}
-                  >
-                    <Link
-                      to={link.path}
-                      className={`flex items-center gap-3 mx-3 py-4 px-5 rounded-xl font-bold text-lg transition-all duration-300
-                        ${isActiveLink(link.path)
-                          ? 'text-brand-navy dark:text-brand-navy bg-brand-gold shadow-premium'
-                          : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700/50 hover:text-brand-gold dark:hover:text-brand-gold'
-                        }`}
+              <div className="py-8 space-y-1">
+                {navLinks.map((link, index) => {
+                  const isActive = isActiveLink(link.path);
+                  return (
+                    <motion.div
+                      key={link.path}
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.08, duration: 0.3 }}
                     >
-                      <span className="text-2xl">{link.icon}</span>
-                      <span>{link.label}</span>
-                      {isActiveLink(link.path) && (
-                        <motion.span
-                          className="ml-auto text-brand-navy"
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          transition={{ duration: 0.3, type: "spring" }}
-                        >
-                          ✓
-                        </motion.span>
-                      )}
-                    </Link>
-                  </motion.div>
-                ))}
+                      <Link
+                        to={link.path}
+                        onClick={() => setIsMenuOpen(false)}
+                        className={`block py-4 text-lg font-light tracking-wide transition-all duration-300 relative ${
+                          isActive
+                            ? 'text-brand-gold'
+                            : 'text-gray-600 dark:text-gray-400'
+                        }`}
+                      >
+                        {isActive && (
+                          <motion.div
+                            layoutId="mobile-indicator"
+                            className="absolute left-0 top-0 bottom-0 w-1 bg-brand-gold rounded-r"
+                            transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                          />
+                        )}
+                        <span className="pl-6">{link.label}</span>
+                      </Link>
+                    </motion.div>
+                  );
+                })}
                 
                 <motion.div
-                  className="pt-4 px-3"
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: navLinks.length * 0.1, duration: 0.3 }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: navLinks.length * 0.08 + 0.1, duration: 0.3 }}
+                  className="pt-8"
                 >
                   <Link
                     to="/contact"
-                    className="block w-full text-center px-6 py-4 rounded-xl font-bold text-lg text-brand-navy bg-gradient-to-r from-brand-gold via-brand-gold-light to-brand-gold shadow-premium hover:shadow-premium-lg transition-all duration-300"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block py-4 px-8 bg-brand-gold text-brand-navy text-center text-base font-semibold rounded-full hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
                   >
-                    프로젝트 문의 →
+                    문의하기
                   </Link>
                 </motion.div>
               </div>

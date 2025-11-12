@@ -24,11 +24,11 @@ const ProjectDetailPage: React.FC = () => {
   const isFeatured = project.tags && project.tags.includes('대표');
 
   return (
-  <div className="min-h-screen py-8 bg-white dark:bg-[#181C2A] transition-colors">
+  <div className="min-h-screen py-8 bg-white dark:bg-brand-navy transition-colors">
       <div className="container-width section-padding">
         {/* Back Button */}
         <div className="mb-8">
-          <button className="flex items-center gap-2 text-[#181C2A] dark:text-[#FFD700] font-bold hover:underline" onClick={() => navigate(-1)}>
+          <button className="flex items-center gap-2 text-brand-navy dark:text-brand-gold font-bold hover:underline" onClick={() => navigate(-1)}>
             ← 포트폴리오로 돌아가기
           </button>
         </div>
@@ -38,30 +38,30 @@ const ProjectDetailPage: React.FC = () => {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <span className="text-3xl">{cat.icon}</span>
-              <span className="px-3 py-1 rounded-full text-sm font-bold bg-[#FFD700] text-[#181C2A] border-2 border-[#FFD700]">
+              <span className="px-3 py-1 rounded-full text-sm font-bold bg-brand-gold text-brand-navy border-2 border-brand-gold">
                 {cat.name}
               </span>
               {/* 대표/프리미엄 뱃지 */}
               {isFeatured && (
-                <span className="px-3 py-1 rounded-full font-bold text-xs bg-[#FFD700] text-[#181C2A] border-2 border-[#FFD700]">대표</span>
+                <span className="px-3 py-1 rounded-full font-bold text-xs bg-brand-gold text-brand-navy border-2 border-brand-gold">대표</span>
               )}
               {project.date && (
-                <span className="px-3 py-1 rounded-full text-sm font-bold bg-[#FFD700]/20 text-[#181C2A] border-2 border-[#FFD700]">
+                <span className="px-3 py-1 rounded-full text-sm font-bold bg-brand-gold/20 text-brand-navy border-2 border-brand-gold">
                   {project.date}
                 </span>
               )}
             </div>
 
-            <h1 className="text-4xl font-bold mb-4 text-[#181C2A] dark:text-[#FFD700]">
+            <h1 className="text-4xl font-bold mb-4 text-brand-navy dark:text-brand-gold">
               {project.title}
             </h1>
 
             {project.description && (
-              <p className="text-xl mb-6 text-[#181C2A] dark:text-gray-200">{project.description}</p>
+              <p className="text-xl mb-6 text-brand-navy dark:text-gray-200">{project.description}</p>
             )}
 
             {project.longDescription && (
-              <p className="mb-8 text-[#181C2A] dark:text-gray-200">{project.longDescription}</p>
+              <p className="mb-8 text-brand-navy dark:text-gray-200">{project.longDescription}</p>
             )}
 
             <div className="flex gap-4 mb-8">
@@ -70,7 +70,7 @@ const ProjectDetailPage: React.FC = () => {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3 rounded-xl font-bold text-base bg-[#FFD700] text-[#181C2A] border-2 border-[#FFD700] hover:bg-[#181C2A] hover:text-[#FFD700] dark:bg-[#FFD700] dark:text-[#181C2A] dark:hover:bg-[#181C2A] dark:hover:text-[#FFD700] transition-all duration-200"
+                  className="px-6 py-3 rounded-xl font-bold text-base bg-brand-gold text-brand-navy border-2 border-brand-gold hover:bg-brand-navy hover:text-brand-gold dark:bg-brand-gold dark:text-brand-navy dark:hover:bg-brand-navy dark:hover:text-brand-gold transition-all duration-200"
                 >외부 포트폴리오</a>
               )}
             </div>
@@ -78,7 +78,7 @@ const ProjectDetailPage: React.FC = () => {
             {/* 태그 */}
             <div className="flex flex-wrap gap-2 mb-4">
               {project.tags?.map(tag => (
-                <span key={tag} className="px-2 py-1 rounded-full text-xs font-semibold bg-[#FFD700]/20 text-[#181C2A] border border-[#FFD700]">{tag}</span>
+                <span key={tag} className="px-2 py-1 rounded-full text-xs font-semibold bg-brand-gold/20 text-brand-navy border border-brand-gold">{tag}</span>
               ))}
             </div>
           </div>
@@ -99,17 +99,17 @@ const ProjectDetailPage: React.FC = () => {
               </div>
             ) : (
               <div className="aspect-video bg-gray-200 dark:bg-gray-800 rounded-xl mb-4 flex items-center justify-center">
-                <span className="text-4xl text-[#181C2A] dark:text-[#FFD700]">🖥️</span>
+                <span className="text-4xl text-brand-navy dark:text-brand-gold">🖥️</span>
               </div>
             )}
 
             {/* 기술스택 */}
             {project.technologies && project.technologies.length > 0 && (
               <div className="mb-6">
-                <div className="font-bold text-[#181C2A] dark:text-[#FFD700] mb-2">기술 스택</div>
+                <div className="font-bold text-brand-navy dark:text-brand-gold mb-2">기술 스택</div>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map(tech => (
-                    <span key={tech.name} className="px-3 py-1 rounded-lg text-sm font-medium border border-[#FFD700] text-[#181C2A] dark:text-[#FFD700]">
+                    <span key={tech.name} className="px-3 py-1 rounded-lg text-sm font-medium border border-brand-gold text-brand-navy dark:text-brand-gold">
                       {tech.icon} {tech.name}
                     </span>
                   ))}

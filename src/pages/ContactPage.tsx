@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { containerVariants, itemVariants } from '../utils/animations';
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -50,30 +51,6 @@ const ContactPage: React.FC = () => {
         agreeToTerms: false
       });
     }, 3000);
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring" as const,
-        stiffness: 100,
-        damping: 15
-      }
-    }
   };
 
   return (

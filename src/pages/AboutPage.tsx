@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { projects } from '../data/projects';
 import { companyInfo } from '../data/company';
 import type { Project } from '../types/project';
+import { containerVariants, itemVariants } from '../utils/animations';
 
 // 카테고리 한글 이름 매핑
 const getCategoryName = (category: string): string => {
@@ -122,31 +123,6 @@ const AboutPage: React.FC = () => {
     return selected;
   }, []);
 
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring" as const,
-        stiffness: 100,
-        damping: 15
-      }
-    }
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-brand-navy dark:to-indigo-900">
       {/* Premium Hero Section */}
@@ -188,9 +164,14 @@ const AboutPage: React.FC = () => {
               </span>
             </motion.div>
 
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-8 text-brand-navy dark:text-brand-gold">
-              {companyInfo.name}
-            </h1>
+            <div className="mb-8">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-4 text-brand-navy dark:text-white tracking-tight">
+                바이칼시스템즈
+              </h1>
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-light text-gray-600 dark:text-gray-400 tracking-wider">
+                BAIKAL SYSTEMS
+              </div>
+            </div>
             
             <p className="text-xl sm:text-2xl leading-relaxed text-gray-700 dark:text-gray-200 mb-8">
               {companyInfo.description}

@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects } from '../data/projects';
 import { categories } from '../data/projects';
+import { containerVariants, itemVariants } from '../utils/animations';
 
 // 실제 프로젝트가 존재하는 모든 카테고리 추출 및 누락된 카테고리도 표시 (순서: 실제 데이터 순)
 const allCategoryIds = Array.from(new Set(projects.map(p => p.category)));
@@ -70,32 +71,6 @@ const PortfolioPage: React.FC = () => {
 
     return result;
   }, [selectedCategory, searchQuery, sortBy]);
-
-  // 애니메이션 variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        type: "spring" as const,
-        stiffness: 100,
-        damping: 15
-      }
-    }
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-brand-navy dark:to-indigo-900 transition-colors">
