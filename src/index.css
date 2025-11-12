@@ -1,17 +1,54 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Merriweather:wght@300;400;700;900&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.5;
+  /* Typography Scale */
+  --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, 'Courier New', monospace;
+  
+  /* Font Sizes - Premium Scale */
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;     /* 18px */
+  --text-xl: 1.25rem;      /* 20px */
+  --text-2xl: 1.5rem;      /* 24px */
+  --text-3xl: 1.875rem;    /* 30px */
+  --text-4xl: 2.25rem;     /* 36px */
+  --text-5xl: 3rem;        /* 48px */
+  --text-6xl: 3.75rem;     /* 60px */
+  --text-7xl: 4.5rem;      /* 72px */
+  
+  /* Line Heights */
+  --leading-none: 1;
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+  
+  /* Letter Spacing */
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+  
+  /* Font Optimization */
+  font-family: var(--font-sans);
+  line-height: var(--leading-normal);
   font-weight: 400;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 /* Custom CSS Variables for Dark/Light Theme */
@@ -29,34 +66,54 @@
   --color-bg-secondary: #1f2937;
 }
 
-/* Custom Components */
+/* Custom Components with Premium Spacing */
 @layer components {
   .btn-primary {
-    @apply px-6 py-3 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+    @apply px-8 py-4 bg-brand-gold text-brand-navy rounded-2xl font-bold text-lg;
+    @apply hover:bg-brand-gold-light hover:shadow-premium-lg;
+    @apply transition-all duration-300 ease-out;
+    @apply focus:outline-none focus:ring-4 focus:ring-brand-gold/30 focus:ring-offset-2;
+    @apply active:scale-95;
   }
   
   .btn-secondary {
-    @apply px-6 py-3 bg-white border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+    @apply px-8 py-4 bg-transparent border-2 border-brand-gold text-brand-gold rounded-2xl font-bold text-lg;
+    @apply hover:bg-brand-gold hover:text-brand-navy hover:shadow-premium;
+    @apply transition-all duration-300 ease-out;
+    @apply focus:outline-none focus:ring-4 focus:ring-brand-gold/30 focus:ring-offset-2;
+    @apply active:scale-95;
   }
   
   .btn-ghost {
-    @apply px-6 py-3 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg font-medium transition-colors duration-200;
+    @apply px-6 py-3 text-gray-700 dark:text-gray-200;
+    @apply hover:text-brand-gold hover:bg-gray-100 dark:hover:bg-gray-800;
+    @apply rounded-xl font-semibold transition-all duration-200;
   }
 
-  .card {
-    @apply bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6;
+  .card-premium {
+    @apply bg-white dark:bg-gray-800 rounded-3xl shadow-premium border border-gray-100 dark:border-gray-700;
+    @apply p-8 lg:p-10;
+    @apply transition-all duration-300;
+    @apply hover:shadow-premium-lg hover:-translate-y-1;
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-brand-gold via-brand-gold-light to-brand-gold;
+    @apply bg-clip-text text-transparent;
+    @apply animate-shimmer;
+    background-size: 200% auto;
   }
 
-  .section-padding {
-    @apply px-4 sm:px-6 lg:px-8;
+  .section-container {
+    @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12;
   }
 
-  .container-width {
-    @apply max-w-7xl mx-auto;
+  .section-spacing {
+    @apply py-20 sm:py-24 lg:py-32;
+  }
+
+  .content-spacing {
+    @apply space-y-6 sm:space-y-8 lg:space-y-10;
   }
 }
 
@@ -69,6 +126,46 @@
 
 body {
   @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300;
+  font-family: var(--font-sans);
+}
+
+/* Premium Typography Classes */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+h1 { font-size: var(--text-6xl); font-weight: 900; }
+h2 { font-size: var(--text-5xl); font-weight: 800; }
+h3 { font-size: var(--text-4xl); font-weight: 700; }
+h4 { font-size: var(--text-3xl); font-weight: 600; }
+h5 { font-size: var(--text-2xl); font-weight: 600; }
+h6 { font-size: var(--text-xl); font-weight: 600; }
+
+p {
+  line-height: var(--leading-relaxed);
+  margin-bottom: 1em;
+}
+
+.text-display {
+  font-size: var(--text-7xl);
+  font-weight: 900;
+  line-height: var(--leading-none);
+  letter-spacing: var(--tracking-tighter);
+}
+
+.text-body {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  letter-spacing: var(--tracking-normal);
+}
+
+.text-caption {
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-wide);
 }
 
 /* Scrollbar Styling */

@@ -1,9 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
 import ProjectCard from '../components/ProjectCard';
-import { projects } from '../data/projects';
+import { projects, technologies } from '../data/projects';
+import { companyInfo } from '../data/company';
 
 const HomePage: React.FC = () => {
+  // 카테고리별 최신 프로젝트 선정 (6개 카테고리)
+  const showcaseProjects = useMemo(() => {
+    const targetCategories = ['enterprise', 'education', 'healthcare', 'public', 'welfare', 'industry'];
+    return targetCategories.map(category => {
+      const categoryProjects = projects.filter(p => p.category === category);
+      if (categoryProjects.length > 0) {
+        return categoryProjects.sort((a, b) => {
+          const dateA = a.date || '0';
+          const dateB = b.date || '0';
+          return dateB.localeCompare(dateA);
+        })[0];
+      }
+      return null;
+    }).filter((p): p is typeof projects[0] => p !== null);
+  }, []);
+
   const [isVisible, setIsVisible] = useState(false);
   const [badgeCount, setBadgeCount] = useState(0);
   const { scrollY } = useScroll();
@@ -42,18 +59,6 @@ const HomePage: React.FC = () => {
   const smallParticle1Y = useTransform(mouseYSpring, [-50, 50], [15, -15]);
   const smallParticle2X = useTransform(mouseXSpring, [-50, 50], [-25, 25]);
   const smallParticle2Y = useTransform(mouseYSpring, [-50, 50], [-10, 10]);
-
-  // Tech stack 3D transforms
-  const techRotateX1 = useTransform(mouseYSpring, [-50, 50], [-5, 5]);
-  const techRotateY1 = useTransform(mouseXSpring, [-50, 50], [-5, 5]);
-  const techRotateX2 = useTransform(mouseYSpring, [-50, 50], [5, -5]);
-  const techRotateY2 = useTransform(mouseXSpring, [-50, 50], [5, -5]);
-  const techRotateX3 = useTransform(mouseYSpring, [-50, 50], [-8, 8]);
-  const techRotateY3 = useTransform(mouseXSpring, [-50, 50], [-8, 8]);
-  const techRotateX4 = useTransform(mouseYSpring, [-50, 50], [8, -8]);
-  const techRotateY4 = useTransform(mouseXSpring, [-50, 50], [8, -8]);
-  const techRotateX5 = useTransform(mouseYSpring, [-50, 50], [-5, 5]);
-  const techRotateY5 = useTransform(mouseXSpring, [-50, 50], [-10, 10]);
 
   useEffect(() => {
     setIsVisible(true);
@@ -270,7 +275,7 @@ const HomePage: React.FC = () => {
                       transition: { duration: 0.3 }
                     }}
                   >
-                    <span className="font-black text-[#181C2A] dark:text-[#FFD700] text-xl sm:text-2xl md:text-3xl tracking-tight">바이브코딩</span>
+                    <span className="font-black text-[#181C2A] dark:text-[#FFD700] text-xl sm:text-2xl md:text-3xl tracking-tight">바이칼시스템즈</span>
                   </motion.div>
                 </motion.h1>
 
@@ -280,7 +285,7 @@ const HomePage: React.FC = () => {
                   className="mb-8 sm:mb-12"
                 >
                   <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-6 leading-relaxed max-w-4xl mx-auto font-light px-4 sm:px-0 text-[#181C2A] dark:text-gray-200">
-                    <span className="font-semibold text-[#FFD700]">5년간 50+개 프로젝트</span>를 통해 쌓은 경험으로<br className="hidden sm:block" />
+                    <span className="font-semibold text-[#FFD700]">{companyInfo.stats.yearsExperience}년간 {companyInfo.stats.projectsCompleted}개 프로젝트</span>를 통해 쌓은 경험으로<br className="hidden sm:block" />
                     <span className="font-bold">스타트업부터 대기업까지</span> 신뢰받는 개발 파트너
                   </p>
                   <motion.div 
@@ -289,11 +294,11 @@ const HomePage: React.FC = () => {
                   >
                     <motion.div variants={itemVariants} className="flex items-center">
                       <div className="w-3 h-3 bg-green-500 rounded-full mr-2 animate-pulse"></div>
-                      월 평균 10만+ 사용자 서비스 운영
+                      {companyInfo.stats.clientsSatisfied}개 기업 파트너
                     </motion.div>
                     <motion.div variants={itemVariants} className="flex items-center">
                       <div className="w-3 h-3 bg-blue-500 rounded-full mr-2 animate-pulse"></div>
-                      99.9% 서비스 안정성 달성
+                      {companyInfo.stats.technologiesUsed}+ 기술 스택 활용
                     </motion.div>
                     <motion.div variants={itemVariants} className="flex items-center">
                       <div className="w-3 h-3 bg-purple-500 rounded-full mr-2 animate-pulse"></div>
@@ -383,7 +388,7 @@ const HomePage: React.FC = () => {
                   </motion.p>
                 </motion.div>
                 
-                {/* Advanced 3D Interactive Tech Grid */}
+                {/* Advanced 3D Interactive Tech Grid - Dynamic from technologies data */}
                 <motion.div 
                   className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 lg:gap-8 mb-12 sm:mb-16 px-4 sm:px-0"
                   variants={containerVariants}
@@ -391,306 +396,40 @@ const HomePage: React.FC = () => {
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.3 }}
                 >
-                  {/* React with Enhanced 3D */}
-                  <motion.div 
-                    className="group text-center"
-                    variants={itemVariants}
-                    whileHover={{ scale: 1.1, y: -10 }}
-                    style={{
-                      rotateX: techRotateX1,
-                      rotateY: techRotateY1
-                    }}
-                  >
+                  {technologies.slice(0, 12).map((tech, index) => (
                     <motion.div 
-                      className="relative w-20 h-20 mx-auto mb-4"
-                      style={{ perspective: "1000px" }}
+                      key={tech.name}
+                      className="group text-center"
+                      variants={itemVariants}
+                      whileHover={{ scale: 1.1, y: -10 }}
                     >
                       <motion.div 
-                        className="w-full h-full bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center shadow-2xl cursor-pointer relative overflow-hidden"
-                        whileHover={{ 
-                          rotateY: -15,
-                          rotateX: 10,
-                          z: 50
-                        }}
-                        transition={{ duration: 0.3 }}
-                        style={{ transformStyle: "preserve-3d" }}
+                        className="relative w-20 h-20 mx-auto mb-4"
+                        style={{ perspective: "1000px" }}
                       >
-                        <motion.span 
-                          className="text-3xl relative z-10"
-                          whileHover={{ scale: 1.3, rotate: 180 }}
-                          transition={{ duration: 0.6 }}
+                        <motion.div 
+                          className={`w-full h-full bg-gradient-to-br ${tech.color} rounded-2xl flex items-center justify-center shadow-2xl cursor-pointer relative overflow-hidden`}
+                          whileHover={{ 
+                            rotateY: index % 2 === 0 ? -15 : 15,
+                            rotateX: index % 3 === 0 ? 10 : -10,
+                            z: 50
+                          }}
+                          transition={{ duration: 0.3 }}
+                          style={{ transformStyle: "preserve-3d" }}
                         >
-                          ⚛️
-                        </motion.span>
-                        <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
-                        <motion.div
-                          className="absolute -top-1 -right-1 w-5 h-5 bg-blue-300 rounded-full opacity-70"
-                          animate={{
-                            scale: [1, 1.5, 1],
-                            rotate: [0, 360, 0]
-                          }}
-                          transition={{ duration: 3, repeat: Infinity }}
-                        />
+                          <motion.span 
+                            className="text-3xl relative z-10"
+                            whileHover={{ scale: 1.3, rotate: index % 2 === 0 ? 180 : -180 }}
+                            transition={{ duration: 0.6 }}
+                          >
+                            {tech.icon}
+                          </motion.span>
+                          <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
+                        </motion.div>
                       </motion.div>
+                      <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:opacity-80 transition-opacity duration-300">{tech.name}</h3>
                     </motion.div>
-                    <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-blue-600 transition-colors duration-300">React</h3>
-                    <div className="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="w-full bg-gray-200 rounded-full h-1.5">
-                        <div className="bg-blue-500 h-1.5 rounded-full" style={{width: '95%'}}></div>
-                      </div>
-                      <p className="text-xs text-gray-500 mt-1">전문도 95%</p>
-                    </div>
-                  </motion.div>
-
-                  {/* Node.js with Enhanced 3D */}
-                  <motion.div 
-                    className="group text-center"
-                    variants={itemVariants}
-                    whileHover={{ scale: 1.1, y: -10 }}
-                    style={{
-                      rotateX: techRotateX2,
-                      rotateY: techRotateY2
-                    }}
-                  >
-                    <motion.div 
-                      className="relative w-20 h-20 mx-auto mb-4"
-                      style={{ perspective: "1000px" }}
-                    >
-                      <motion.div 
-                        className="w-full h-full bg-gradient-to-br from-green-400 to-green-600 rounded-2xl flex items-center justify-center shadow-2xl cursor-pointer relative overflow-hidden"
-                        whileHover={{ 
-                          rotateY: 15,
-                          rotateX: -10,
-                          z: 50
-                        }}
-                        transition={{ duration: 0.3 }}
-                        style={{ transformStyle: "preserve-3d" }}
-                      >
-                        <motion.span 
-                          className="text-3xl relative z-10"
-                          animate={{ 
-                            rotate: [0, 10, -10, 0] 
-                          }}
-                          transition={{ duration: 4, repeat: Infinity }}
-                        >
-                          🚀
-                        </motion.span>
-                        <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
-                        <motion.div
-                          className="absolute bottom-1 left-1 w-4 h-4 bg-green-300 rounded-full opacity-60"
-                          animate={{
-                            scale: [0.5, 1.2, 0.5],
-                            x: [0, 8, 0]
-                          }}
-                          transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-                        />
-                      </motion.div>
-                    </motion.div>
-                    <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-green-600 transition-colors duration-300">Node.js</h3>
-                    <div className="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="w-full bg-gray-200 rounded-full h-1.5">
-                        <div className="bg-green-500 h-1.5 rounded-full" style={{width: '92%'}}></div>
-                      </div>
-                      <p className="text-xs text-gray-500 mt-1">전문도 92%</p>
-                    </div>
-                  </motion.div>
-
-                  {/* Python with Enhanced 3D */}
-                  <motion.div 
-                    className="group text-center"
-                    variants={itemVariants}
-                    whileHover={{ scale: 1.1, y: -10 }}
-                    style={{
-                      rotateX: techRotateX3,
-                      rotateY: techRotateY3
-                    }}
-                  >
-                    <motion.div 
-                      className="relative w-20 h-20 mx-auto mb-4"
-                      style={{ perspective: "1000px" }}
-                    >
-                      <motion.div 
-                        className="w-full h-full bg-gradient-to-br from-yellow-400 to-blue-500 rounded-2xl flex items-center justify-center shadow-2xl cursor-pointer relative overflow-hidden"
-                        whileHover={{ 
-                          rotateY: -20,
-                          rotateX: 15,
-                          z: 50
-                        }}
-                        transition={{ duration: 0.3 }}
-                        style={{ transformStyle: "preserve-3d" }}
-                      >
-                        <motion.span 
-                          className="text-3xl relative z-10"
-                          animate={{ 
-                            scale: [1, 1.2, 1],
-                            y: [-2, 2, -2]
-                          }}
-                          transition={{ duration: 3, repeat: Infinity }}
-                        >
-                          🐍
-                        </motion.span>
-                        <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
-                        <motion.div
-                          className="absolute top-2 right-1 w-3 h-3 bg-yellow-300 rounded-full opacity-80"
-                          animate={{
-                            scale: [1, 1.8, 1],
-                            opacity: [0.6, 1, 0.6]
-                          }}
-                          transition={{ duration: 2.5, repeat: Infinity, delay: 1 }}
-                        />
-                      </motion.div>
-                    </motion.div>
-                    <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-yellow-600 transition-colors duration-300">Python</h3>
-                    <div className="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="w-full bg-gray-200 rounded-full h-1.5">
-                        <div className="bg-indigo-500 h-1.5 rounded-full" style={{width: '91%'}}></div>
-                      </div>
-                      <p className="text-xs text-gray-500 mt-1">전문도 91%</p>
-                    </div>
-                  </motion.div>
-                  
-                  {/* AI/ML with Enhanced 3D */}
-                  <motion.div 
-                    className="group text-center"
-                    variants={itemVariants}
-                    whileHover={{ scale: 1.1, y: -10 }}
-                  >
-                    <motion.div 
-                      className="relative w-20 h-20 mx-auto mb-4"
-                      style={{ perspective: "1000px" }}
-                    >
-                      <motion.div 
-                        className="w-full h-full bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl flex items-center justify-center shadow-2xl cursor-pointer"
-                        whileHover={{ 
-                          rotateY: -20,
-                          rotateX: 15,
-                          z: 50
-                        }}
-                        transition={{ duration: 0.3 }}
-                        style={{ transformStyle: "preserve-3d" }}
-                      >
-                        <motion.span 
-                          className="text-3xl"
-                          whileHover={{ scale: 1.4, rotate: 360 }}
-                          transition={{ duration: 0.8 }}
-                        >
-                          🤖</motion.span>
-                        <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
-                      </motion.div>
-                    </motion.div>
-                    <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-600 transition-colors duration-300">AI/ML</h3>
-                    <div className="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="w-full bg-gray-200 rounded-full h-1.5">
-                        <div className="bg-purple-500 h-1.5 rounded-full" style={{width: '89%'}}></div>
-                      </div>
-                      <p className="text-xs text-gray-500 mt-1">전문도 89%</p>
-                    </div>
-                  </motion.div>
-                  
-                  {/* AWS with Enhanced 3D */}
-                  <motion.div 
-                    className="group text-center"
-                    variants={itemVariants}
-                    whileHover={{ scale: 1.1, y: -10 }}
-                    style={{
-                      rotateX: techRotateX4,
-                      rotateY: techRotateY4
-                    }}
-                  >
-                    <motion.div 
-                      className="relative w-20 h-20 mx-auto mb-4"
-                      style={{ perspective: "1000px" }}
-                    >
-                      <motion.div 
-                        className="w-full h-full bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center shadow-2xl cursor-pointer relative overflow-hidden"
-                        whileHover={{ 
-                          rotateY: -25,
-                          rotateX: 15,
-                          z: 50
-                        }}
-                        transition={{ duration: 0.3 }}
-                        style={{ transformStyle: "preserve-3d" }}
-                      >
-                        <motion.span 
-                          className="text-3xl relative z-10"
-                          animate={{ y: [-1, 1, -1] }}
-                          transition={{ duration: 3, repeat: Infinity }}
-                        >
-                          ☁️
-                        </motion.span>
-                        <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
-                        <motion.div
-                          className="absolute -top-1 -right-1 w-4 h-4 bg-orange-300 rounded-full opacity-70"
-                          animate={{
-                            scale: [0.8, 1.2, 0.8],
-                            x: [0, 5, 0]
-                          }}
-                          transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
-                        />
-                      </motion.div>
-                    </motion.div>
-                    <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-orange-600 transition-colors duration-300">AWS</h3>
-                    <div className="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="w-full bg-gray-200 rounded-full h-1.5">
-                        <div className="bg-orange-500 h-1.5 rounded-full" style={{width: '88%'}}></div>
-                      </div>
-                      <p className="text-xs text-gray-500 mt-1">전문도 88%</p>
-                    </div>
-                  </motion.div>
-
-                  {/* Docker with Enhanced 3D */}
-                  <motion.div 
-                    className="group text-center"
-                    variants={itemVariants}
-                    whileHover={{ scale: 1.1, y: -10 }}
-                    style={{
-                      rotateX: techRotateX5,
-                      rotateY: techRotateY5
-                    }}
-                  >
-                    <motion.div 
-                      className="relative w-20 h-20 mx-auto mb-4"
-                      style={{ perspective: "1000px" }}
-                    >
-                      <motion.div 
-                        className="w-full h-full bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-2xl flex items-center justify-center shadow-2xl cursor-pointer relative overflow-hidden"
-                        whileHover={{ 
-                          rotateY: 20,
-                          rotateX: -10,
-                          z: 50
-                        }}
-                        transition={{ duration: 0.3 }}
-                        style={{ transformStyle: "preserve-3d" }}
-                      >
-                        <motion.span 
-                          className="text-3xl relative z-10"
-                          animate={{ 
-                            scale: [1, 1.1, 1],
-                            rotate: [0, 5, 0]
-                          }}
-                          transition={{ duration: 4, repeat: Infinity }}
-                        >
-                          🐳
-                        </motion.span>
-                        <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
-                        <motion.div
-                          className="absolute top-1 right-1 w-3 h-3 bg-cyan-300 rounded-full opacity-80"
-                          animate={{
-                            scale: [1, 1.5, 1],
-                            opacity: [0.5, 1, 0.5]
-                          }}
-                          transition={{ duration: 2.5, repeat: Infinity, delay: 1.5 }}
-                        />
-                      </motion.div>
-                    </motion.div>
-                    <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-cyan-600 transition-colors duration-300">Docker</h3>
-                    <div className="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="w-full bg-gray-200 rounded-full h-1.5">
-                        <div className="bg-cyan-500 h-1.5 rounded-full" style={{width: '85%'}}></div>
-                      </div>
-                      <p className="text-xs text-gray-500 mt-1">전문도 85%</p>
-                    </div>
-                  </motion.div>
+                  ))}
                 </motion.div>
 
                 {/* Tech Stats Premium Cards */}
@@ -765,147 +504,129 @@ const HomePage: React.FC = () => {
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.1 }}
                 >
-                  {projects.slice(0, 6).map((project, index) => {
-                    const projectData = [
-                      {
-                        icon: "🚀",
+                  {showcaseProjects.map((project, index) => {
+                    // 프로젝트별 상세 정보 매핑
+                    const projectInfoMap: Record<string, {
+                      icon: string;
+                      gradientFrom: string;
+                      gradientTo: string;
+                      challenge: string;
+                      solution: string;
+                      impact: string;
+                      industry: string;
+                      clientType: 'startup' | 'enterprise' | 'government' | 'healthcare' | 'education';
+                    }> = {
+                      'dbinfo-final-admin': {
+                        icon: "🏢",
                         gradientFrom: "#3B82F6",
                         gradientTo: "#1E40AF",
-                        challenge: "복잡한 실시간 데이터 처리와 대용량 트래픽 관리가 필요한 상황",
-                        solution: "React + Node.js 기반 마이크로서비스 아키텍처로 확장성 확보",
-                        impact: "일일 활성 사용자 300% 증가, 서버 응답시간 60% 단축",
-                        industry: "핀테크",
-                        clientType: "startup" as const,
-                        techStack: [
-                          { name: 'React', color: 'text-blue-300', bg: 'bg-blue-500/30', border: 'border-blue-400/50' },
-                          { name: 'Node.js', color: 'text-green-300', bg: 'bg-green-500/30', border: 'border-green-400/50' },
-                          { name: 'MongoDB', color: 'text-emerald-300', bg: 'bg-emerald-500/30', border: 'border-emerald-400/50' }
-                        ],
-                        metrics: [
-                          { label: '성능 향상', value: '60%' },
-                          { label: '사용자 증가', value: '300%' },
-                          { label: '만족도', value: '4.9/5' }
-                        ]
+                        challenge: "기업 데이터 관리 시스템의 효율성 및 보안 강화",
+                        solution: "실시간 데이터 동기화 및 권한 기반 접근 제어 시스템",
+                        impact: "데이터 처리 속도 60% 향상, 보안 사고 0건 달성",
+                        industry: "기업 솔루션",
+                        clientType: "enterprise"
                       },
-                      {
-                        icon: "🏥",
-                        gradientFrom: "#10B981",
-                        gradientTo: "#059669",
-                        challenge: "의료진과 환자 간 효율적인 소통과 데이터 관리 시스템 구축",
-                        solution: "AI 기반 진단 보조 시스템과 실시간 모니터링 대시보드 개발",
-                        impact: "진료 대기시간 40% 감소, 진단 정확도 25% 향상",
-                        industry: "헬스케어",
-                        clientType: "enterprise" as const,
-                        techStack: [
-                          { name: 'Vue.js', color: 'text-emerald-300', bg: 'bg-emerald-500/30', border: 'border-emerald-400/50' },
-                          { name: 'Python', color: 'text-yellow-300', bg: 'bg-yellow-500/30', border: 'border-yellow-400/50' },
-                          { name: 'PostgreSQL', color: 'text-blue-300', bg: 'bg-blue-500/30', border: 'border-blue-400/50' }
-                        ],
-                        metrics: [
-                          { label: '대기시간 단축', value: '40%' },
-                          { label: '정확도 향상', value: '25%' },
-                          { label: '병원 도입', value: '15개' }
-                        ]
-                      },
-                      {
+                      'mvp-project-12': {
                         icon: "🎓",
                         gradientFrom: "#8B5CF6",
                         gradientTo: "#7C3AED",
-                        challenge: "온라인 교육 플랫폼의 학습 효과 및 참여도 개선 필요",
-                        solution: "개인화된 학습 경로와 게임화 요소를 적용한 인터랙티브 플랫폼",
-                        impact: "학습 완료율 180% 증가, 학습 시간 45% 단축",
+                        challenge: "AI로 복잡한 장부 작성을 간편화하여 소상공인 지원",
+                        solution: "개인화된 학습 경로와 AI 기반 자동 분류 시스템",
+                        impact: "장부 작성 시간 70% 단축, 세무 정확도 95% 향상",
                         industry: "에듀테크",
-                        clientType: "government" as const,
-                        techStack: [
-                          { name: 'Next.js', color: 'text-gray-300', bg: 'bg-gray-500/30', border: 'border-gray-400/50' },
-                          { name: 'AI/ML', color: 'text-purple-300', bg: 'bg-purple-500/30', border: 'border-purple-400/50' },
-                          { name: 'AWS', color: 'text-orange-300', bg: 'bg-orange-500/30', border: 'border-orange-400/50' }
-                        ],
-                        metrics: [
-                          { label: '완료율 증가', value: '180%' },
-                          { label: '시간 단축', value: '45%' },
-                          { label: '학습자', value: '50K+' }
-                        ]
+                        clientType: "education"
                       },
-                      {
-                        icon: "💰",
-                        gradientFrom: "#F59E0B",
-                        gradientTo: "#D97706",
-                        challenge: "전통적인 금융 서비스의 디지털 전환과 보안 강화",
-                        solution: "블록체인 기반 보안 시스템과 모바일 퍼스트 UX 설계",
-                        impact: "거래량 220% 증가, 보안사고 0건 달성",
-                        industry: "금융",
-                        clientType: "enterprise" as const,
-                        techStack: [
-                          { name: 'React Native', color: 'text-blue-300', bg: 'bg-blue-500/30', border: 'border-blue-400/50' },
-                          { name: 'Blockchain', color: 'text-yellow-300', bg: 'bg-yellow-500/30', border: 'border-yellow-400/50' },
-                          { name: 'Docker', color: 'text-cyan-300', bg: 'bg-cyan-500/30', border: 'border-cyan-400/50' }
-                        ],
-                        metrics: [
-                          { label: '거래량 증가', value: '220%' },
-                          { label: '보안사고', value: '0건' },
-                          { label: '앱 다운로드', value: '100K+' }
-                        ]
+                      'new-project-40-app': {
+                        icon: "🏥",
+                        gradientFrom: "#10B981",
+                        gradientTo: "#059669",
+                        challenge: "정형외과 실시간 예약 시스템의 효율성 및 환자 편의성 개선",
+                        solution: "실시간 예약 처리 및 AI 기반 스케줄 최적화 시스템",
+                        impact: "예약 처리 시간 70% 단축, 환자 만족도 92% 달성",
+                        industry: "헬스케어",
+                        clientType: "healthcare"
                       },
-                      {
-                        icon: "🏭",
+                      'mvp-project-30': {
+                        icon: "🏛️",
                         gradientFrom: "#EF4444",
                         gradientTo: "#DC2626",
-                        challenge: "제조업 생산라인의 실시간 모니터링 및 예측 유지보수",
-                        solution: "IoT 센서 데이터 기반 AI 예측 분석 시스템 구축",
-                        impact: "생산 효율성 35% 향상, 장비 고장률 70% 감소",
-                        industry: "제조업",
-                        clientType: "enterprise" as const,
-                        techStack: [
-                          { name: 'Python', color: 'text-yellow-300', bg: 'bg-yellow-500/30', border: 'border-yellow-400/50' },
-                          { name: 'IoT', color: 'text-red-300', bg: 'bg-red-500/30', border: 'border-red-400/50' },
-                          { name: 'TensorFlow', color: 'text-orange-300', bg: 'bg-orange-500/30', border: 'border-orange-400/50' }
-                        ],
-                        metrics: [
-                          { label: '효율성 향상', value: '35%' },
-                          { label: '고장률 감소', value: '70%' },
-                          { label: '공장 적용', value: '12개' }
-                        ]
+                        challenge: "주민 제보와 민원을 실시간으로 처리하는 투명한 행정 시스템 구축",
+                        solution: "위치 기반 제보 시스템과 실시간 처리 현황 추적 플랫폼",
+                        impact: "민원 처리 시간 50% 단축, 주민 참여율 3배 증가",
+                        industry: "공공 서비스",
+                        clientType: "government"
                       },
-                      {
-                        icon: "🛒",
-                        gradientFrom: "#EC4899",
-                        gradientTo: "#DB2777",
-                        challenge: "전자상거래 플랫폼의 개인화 추천 및 구매 전환율 개선",
-                        solution: "머신러닝 기반 개인화 추천 엔진과 원클릭 결제 시스템",
-                        impact: "구매 전환율 150% 증가, 고객 재방문율 80% 향상",
-                        industry: "이커머스",
-                        clientType: "startup" as const,
-                        techStack: [
-                          { name: 'Vue.js', color: 'text-green-300', bg: 'bg-green-500/30', border: 'border-green-400/50' },
-                          { name: 'Machine Learning', color: 'text-purple-300', bg: 'bg-purple-500/30', border: 'border-purple-400/50' },
-                          { name: 'Redis', color: 'text-red-300', bg: 'bg-red-500/30', border: 'border-red-400/50' }
-                        ],
-                        metrics: [
-                          { label: '전환율 증가', value: '150%' },
-                          { label: '재방문율', value: '80%' },
-                          { label: '매출 증가', value: '300%' }
-                        ]
+                      'mvp-project-16': {
+                        icon: "❤️‍🩹",
+                        gradientFrom: "#10B981",
+                        gradientTo: "#059669",
+                        challenge: "재가 복지 센터의 통합 관리 효율성 및 서비스 품질 향상",
+                        solution: "통합 케어 관리 시스템과 AI 기반 돌봄 스케줄링",
+                        impact: "관리 효율성 80% 향상, 서비스 만족도 95% 달성",
+                        industry: "사회복지",
+                        clientType: "government"
+                      },
+                      'mxten-project-06': {
+                        icon: "🏭",
+                        gradientFrom: "#0284C7",
+                        gradientTo: "#0369A1",
+                        challenge: "제조 현장의 디지털 전환과 실시간 작업 지시 효율화",
+                        solution: "모바일/태블릿 기반 디지털 작업지시서 및 실시간 모니터링",
+                        impact: "작업 지시 시간 65% 단축, 현장 생산성 45% 향상",
+                        industry: "스마트 팩토리",
+                        clientType: "enterprise"
                       }
-                    ];
+                    };
                     
-                    const data = projectData[index] || projectData[0];
+                    const data = projectInfoMap[project.id] || {
+                      icon: "🚀",
+                      gradientFrom: "#3B82F6",
+                      gradientTo: "#1E40AF",
+                      challenge: "혁신적인 비즈니스 솔루션 개발",
+                      solution: "최신 기술 스택을 활용한 확장 가능한 시스템 구축",
+                      impact: "프로젝트 목표 성공적 달성",
+                      industry: "종합",
+                      clientType: "enterprise" as const
+                    };
+                    
+                    const projectData = {
+                      icon: data.icon,
+                      gradientFrom: data.gradientFrom,
+                      gradientTo: data.gradientTo,
+                      challenge: data.challenge,
+                      solution: data.solution,
+                      impact: data.impact,
+                      industry: data.industry,
+                      clientType: data.clientType,
+                      techStack: project.tags?.slice(1, 4).map(tag => ({
+                        name: tag,
+                        color: 'text-blue-300',
+                        bg: 'bg-blue-500/30',
+                        border: 'border-blue-400/50'
+                      })) || [],
+                      metrics: [
+                        { label: '카테고리', value: project.category },
+                        { label: '완료일', value: project.date ? `${project.date.slice(0,2)}.${project.date.slice(2,4)}` : 'N/A' },
+                        { label: '상태', value: '완료' }
+                      ]
+                    };
+                  
                     return (
                       <motion.div key={project.id} variants={cardVariants}>
                         <ProjectCard 
                           title={project.title}
                           description={project.description || project.longDescription || "혁신적인 기술로 비즈니스 문제를 해결하는 프로젝트입니다."}
-                          icon={data.icon}
+                          icon={projectData.icon}
                           status="완료"
-                          gradientFrom={data.gradientFrom}
-                          gradientTo={data.gradientTo}
-                          techStack={data.techStack}
-                          metrics={data.metrics}
-                          challenge={data.challenge}
-                          solution={data.solution}
-                          impact={data.impact}
-                          clientType={data.clientType}
-                          industry={data.industry}
+                          gradientFrom={projectData.gradientFrom}
+                          gradientTo={projectData.gradientTo}
+                          techStack={projectData.techStack}
+                          metrics={projectData.metrics}
+                          challenge={projectData.challenge}
+                          solution={projectData.solution}
+                          impact={projectData.impact}
+                          clientType={projectData.clientType}
+                          industry={projectData.industry}
                           timeline={`${3 + index}개월`}
                         />
                       </motion.div>
