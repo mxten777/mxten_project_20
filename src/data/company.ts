@@ -174,7 +174,7 @@ export const companyInfo: CompanyInfo = {
   ],
   stats: {
     projectsCompleted: 40,
-    clientsSatisfied: 24,
+    clientsSatisfied: 10,
     yearsExperience: 1,
     technologiesUsed: 25,
     awardsWon: 5

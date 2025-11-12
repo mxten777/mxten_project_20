@@ -45,7 +45,7 @@ export const categories: CategoryInfo[] = [
   { id: 'healthcare', name: '의료/헬스케어', description: '의료진과 환자를 위한 디지털 헬스케어 솔루션', icon: '🏥', color: '#14B8A6', count: 6 }
 ];
 
-// 포트폴리오 프로젝트 리스트 (36개)
+// 포트폴리오 프로젝트 리스트 (40+개)
 export const projects: Project[] = [
   // --- AUTO-GENERATED PLACEHOLDERS FROM public/images (generated 2025-10-25) ---
   // These entries were created to surface images in the portfolio. Titles and links set from user's mapping (2025-10-25).

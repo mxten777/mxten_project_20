@@ -294,7 +294,7 @@ const HomePage: React.FC = () => {
                   >
                     <motion.div variants={itemVariants} className="flex items-center">
                       <div className="w-3 h-3 bg-green-500 rounded-full mr-2 animate-pulse"></div>
-                      {companyInfo.stats.clientsSatisfied}개 기업 파트너
+                      10+ 기업 파트너
                     </motion.div>
                     <motion.div variants={itemVariants} className="flex items-center">
                       <div className="w-3 h-3 bg-blue-500 rounded-full mr-2 animate-pulse"></div>

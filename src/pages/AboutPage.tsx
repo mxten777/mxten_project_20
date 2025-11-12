@@ -85,15 +85,15 @@ const AboutPage: React.FC = () => {
       ? new Date(Math.min(...projectDates.map(d => d.getTime())))
       : new Date(2022, 0);
     
-    const yearsOfExperience = Math.max(new Date().getFullYear() - oldestDate.getFullYear(), 3);
+    const yearsOfExperience = Math.max(new Date().getFullYear() - oldestDate.getFullYear(), 1);
 
     // 고유 고객사 수 (클라이언트 정보가 있으면 계산, 없으면 프로젝트 수 기반 추정)
-    const estimatedClients = Math.floor(totalProjects * 0.7); // 프로젝트 대비 70% 고객사 추정
+    const estimatedClients = 10; // 고객사 수
 
     return {
       totalProjects,
       estimatedClients,
-      yearsOfExperience: yearsOfExperience > 0 ? yearsOfExperience : 3,
+      yearsOfExperience: yearsOfExperience > 0 ? yearsOfExperience : 1,
       categoryStats,
       topCategory: topCategory ? topCategory[0] : 'web',
       topCategoryCount: topCategory ? topCategory[1] : 0

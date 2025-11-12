@@ -1,7 +1,7 @@
 # 🚀 VibeCoding MVP Portfolio
 
 > **바이브코딩의 프리미엄 MVP 포트폴리오 랜딩페이지**  
-> 28개의 혁신적인 프로젝트로 디지털 미래를 설계하는 전문 개발팀
+> 40+개의 혁신적인 프로젝트로 디지털 미래를 설계하는 전문 개발팀
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-brightgreen?style=for-the-badge&logo=vercel)](https://mxten-project-20-8zn1yauz2-dongyeol-jungs-projects.vercel.app)
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github)](https://github.com/mxten777/mxten_project_20)
@@ -22,7 +22,7 @@
 
 ## 🎯 프로젝트 개요
 
-**VibeCoding MVP Portfolio**는 바이브코딩의 28개 혁신적인 MVP 프로젝트를 소개하는 **프리미엄 포트폴리오 웹사이트**입니다.
+**VibeCoding MVP Portfolio**는 바이브코딩의 40+개 혁신적인 MVP 프로젝트를 소개하는 **프리미엄 포트폴리오 웹사이트**입니다.
 
 ### 핵심 목표
 - 🏢 **기업 브랜딩**: 바이브코딩의 전문성과 혁신성 어필
@@ -39,13 +39,13 @@
 
 ### 🏠 홈페이지 (Landing)
 - **프리미엄 히어로 섹션**: 글라스모피즘 효과와 3D 애니메이션
-- **실시간 통계 카운터**: 28개 프로젝트, 98% 성공률, 5.2개월 평균 개발기간
+- **실시간 통계 카운터**: 40+개 프로젝트, 1년+ 경험, 25+ 기술 스택
 - **추천 프로젝트 쇼케이스**: 대표 프로젝트 3개 하이라이트
 - **기술 스택 시각화**: 인터랙티브 3D 기술 아이콘들
 - **고급 CTA 섹션**: 프로젝트 문의 및 포트폴리오 탐색
 
 ### 📁 포트폴리오 페이지
-- **28개 프로젝트 그리드**: 카테고리별 필터링 지원
+- **40+개 프로젝트 그리드**: 카테고리별 필터링 지원
 - **고급 검색 기능**: 실시간 프로젝트 검색
 - **정렬 옵션**: 최신순, 인기순, 완성도순, 이름순
 - **카테고리 필터**: 기업/산업, 의료/헬스케어, 교육, AI/데이터, 공공/사회, 게임/엔터테인먼트

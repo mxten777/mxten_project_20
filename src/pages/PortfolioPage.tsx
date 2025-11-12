@@ -134,7 +134,7 @@ const PortfolioPage: React.FC = () => {
             >
               <span className="text-2xl">💼</span>
               <span className="font-bold text-brand-navy dark:text-brand-gold">
-                {projects.length}개의 혁신 프로젝트
+                40+개의 혁신 프로젝트
               </span>
             </motion.div>
 
@@ -197,7 +197,7 @@ const PortfolioPage: React.FC = () => {
               >
                 전체
                 <span className="ml-2 px-2 py-0.5 bg-brand-navy/10 dark:bg-brand-gold/20 rounded-full text-sm">
-                  {projects.length}
+                  40+
                 </span>
               </motion.button>
               
