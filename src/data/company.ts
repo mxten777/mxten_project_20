@@ -3,7 +3,7 @@ import type { CompanyInfo, FAQ } from '../types/common';
 export const companyInfo: CompanyInfo = {
   name: '바이칼시스템즈 (Baikal Systems)',
   tagline: 'Innovative MVP Solutions for Digital Transformation',
-  description: '바이칼시스템즈는 혁신적인 MVP(Minimum Viable Product) 개발로 기업의 디지털 전환을 가속화하는 전문 개발팀입니다. 28개의 성공적인 MVP 프로젝트를 통해 다양한 산업군의 디지털 혁신을 이끌어왔습니다.',
+  description: '바이칼시스템즈는 혁신적인 MVP(Minimum Viable Product) 개발로 기업의 디지털 전환을 가속화하는 전문 개발팀입니다. 40개 이상의 성공적인 MVP 프로젝트를 통해 다양한 산업군의 디지털 혁신을 이끌어왔습니다.',
   mission: '기술을 통해 비즈니스의 가능성을 현실로 만들어, 모든 기업이 디지털 시대에 성공할 수 있도록 돕습니다.',
   vision: '2030년까지 글로벌 MVP 개발의 선도 기업으로 자리잡아, 1,000개 이상의 혁신적인 디지털 솔루션을 세상에 선보입니다.',
   values: [
@@ -173,9 +173,9 @@ export const companyInfo: CompanyInfo = {
     { platform: 'Instagram', url: 'https://instagram.com/vibecoding', icon: 'instagram' }
   ],
   stats: {
-    projectsCompleted: 28,
+    projectsCompleted: 40,
     clientsSatisfied: 24,
-    yearsExperience: 3,
+    yearsExperience: 1,
     technologiesUsed: 25,
     awardsWon: 5
   }

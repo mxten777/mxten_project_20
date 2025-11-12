@@ -285,7 +285,7 @@ const HomePage: React.FC = () => {
                   className="mb-8 sm:mb-12"
                 >
                   <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-6 leading-relaxed max-w-4xl mx-auto font-light px-4 sm:px-0 text-[#181C2A] dark:text-gray-200">
-                    <span className="font-semibold text-[#FFD700]">{companyInfo.stats.yearsExperience}년간 {companyInfo.stats.projectsCompleted}개 프로젝트</span>를 통해 쌓은 경험으로<br className="hidden sm:block" />
+                    <span className="font-semibold text-[#FFD700]">1년+ {companyInfo.stats.projectsCompleted}+ 프로젝트</span>를 통해 쌓은 경험으로<br className="hidden sm:block" />
                     <span className="font-bold">스타트업부터 대기업까지</span> 신뢰받는 개발 파트너
                   </p>
                   <motion.div 
