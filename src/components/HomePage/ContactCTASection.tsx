@@ -35,7 +35,7 @@ const ContactCTASection: React.FC = () => {
     >
       <div className="absolute inset-0">
         <motion.div 
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-gold/10 rounded-full filter blur-3xl"
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-accent/10 rounded-full filter blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.1, 0.2, 0.1]
@@ -62,7 +62,7 @@ const ContactCTASection: React.FC = () => {
         >
           <motion.h2 
             variants={itemVariants}
-            className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 text-brand-gold"
+            className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 text-brand-accent"
           >
             함께 혁신을 만들어가요
           </motion.h2>
@@ -70,7 +70,7 @@ const ContactCTASection: React.FC = () => {
             variants={itemVariants}
             className="text-xl sm:text-2xl mb-8 sm:mb-12 leading-relaxed text-gray-300"
           >
-            당신의 아이디어를 현실로 만들어줄 <span className="font-bold text-brand-gold">신뢰받는 개발 파트너</span>를 찾고 계신가요?
+            당신의 아이디어를 현실로 만들어줄 <span className="font-bold text-brand-accent">신뢰받는 개발 파트너</span>를 찾고 계신가요?
           </motion.p>
           
           <motion.div 
@@ -79,7 +79,7 @@ const ContactCTASection: React.FC = () => {
           >
             <motion.a
               href="mailto:contact@vibecoding.com"
-              className="group px-8 py-4 bg-brand-gold text-brand-navy font-bold text-lg rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center"
+              className="group px-8 py-4 bg-brand-accent text-brand-navy font-bold text-lg rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -89,7 +89,7 @@ const ContactCTASection: React.FC = () => {
             
             <motion.a
               href="tel:+82-10-1234-5678"
-              className="group px-8 py-4 border-2 border-brand-gold text-brand-gold font-bold text-lg rounded-xl hover:bg-brand-gold hover:text-brand-navy transition-all duration-300 flex items-center"
+              className="group px-8 py-4 border-2 border-brand-accent text-brand-accent font-bold text-lg rounded-xl hover:bg-brand-accent hover:text-brand-navy transition-all duration-300 flex items-center"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -104,17 +104,17 @@ const ContactCTASection: React.FC = () => {
           >
             <motion.div variants={itemVariants} className="text-center">
               <div className="text-3xl mb-4">⚡</div>
-              <h3 className="text-xl font-bold mb-2 text-brand-gold">빠른 응답</h3>
+              <h3 className="text-xl font-bold mb-2 text-brand-accent">빠른 응답</h3>
               <p className="text-gray-300">24시간 내 응답 보장</p>
             </motion.div>
             <motion.div variants={itemVariants} className="text-center">
               <div className="text-3xl mb-4">🎯</div>
-              <h3 className="text-xl font-bold mb-2 text-brand-gold">맞춤 솔루션</h3>
+              <h3 className="text-xl font-bold mb-2 text-brand-accent">맞춤 솔루션</h3>
               <p className="text-gray-300">프로젝트별 최적화된 접근</p>
             </motion.div>
             <motion.div variants={itemVariants} className="text-center">
               <div className="text-3xl mb-4">🚀</div>
-              <h3 className="text-xl font-bold mb-2 text-brand-gold">성과 보장</h3>
+              <h3 className="text-xl font-bold mb-2 text-brand-accent">성과 보장</h3>
               <p className="text-gray-300">측정 가능한 결과 달성</p>
             </motion.div>
           </motion.div>

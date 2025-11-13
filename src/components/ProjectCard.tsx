@@ -68,7 +68,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     >
       {/* Premium Glow Effect */}
       <motion.div
-        className="absolute -inset-0.5 bg-gradient-to-r from-brand-gold via-primary-500 to-secondary-500 rounded-3xl blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500"
+        className="absolute -inset-0.5 bg-gradient-to-r from-brand-accent via-primary-500 to-secondary-500 rounded-3xl blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500"
         animate={{
           backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
         }}
@@ -77,7 +77,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       />
       
       {/* Main Card with Premium Styling */}
-      <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-900/90 to-gray-800/95 backdrop-blur-xl border border-gray-700/50 rounded-3xl p-6 sm:p-8 lg:p-10 hover:border-brand-gold/30 transition-all duration-500 shadow-premium-lg group-hover:shadow-premium-xl">
+      <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-900/90 to-gray-800/95 backdrop-blur-xl border border-gray-700/50 rounded-3xl p-6 sm:p-8 lg:p-10 hover:border-brand-accent/30 transition-all duration-500 shadow-premium-lg group-hover:shadow-premium-xl">
         {/* Enhanced Project Hero */}
         <div
           className="relative h-52 sm:h-60 lg:h-72 bg-gradient-to-br rounded-2xl mb-6 sm:mb-8 overflow-hidden group-hover:shadow-inner-premium transition-all duration-500"
@@ -100,7 +100,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 ✓ {status}
               </motion.span>
               <motion.span 
-                className="px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-900/95 backdrop-blur-md text-brand-gold rounded-lg text-xs sm:text-sm font-bold flex items-center gap-1.5 shadow-lg"
+                className="px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-900/95 backdrop-blur-md text-brand-accent rounded-lg text-xs sm:text-sm font-bold flex items-center gap-1.5 shadow-lg"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
               >
@@ -124,7 +124,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 via-black/80 to-transparent p-4 sm:p-6">
             {challenge && (
               <div className="mb-2">
-                <div className="text-xs sm:text-sm font-bold text-brand-gold mb-1.5 flex items-center gap-1.5">
+                <div className="text-xs sm:text-sm font-bold text-brand-accent mb-1.5 flex items-center gap-1.5">
                   <span>🎯</span>
                   <span>핵심 과제</span>
                 </div>

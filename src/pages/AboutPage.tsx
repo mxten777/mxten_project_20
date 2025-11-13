@@ -130,7 +130,7 @@ const AboutPage: React.FC = () => {
         {/* Background Effects */}
         <div className="absolute inset-0">
           <motion.div 
-            className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-gold/10 rounded-full filter blur-3xl"
+            className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-accent/10 rounded-full filter blur-3xl"
             animate={{
               scale: [1, 1.2, 1],
               opacity: [0.3, 0.5, 0.3]
@@ -155,11 +155,11 @@ const AboutPage: React.FC = () => {
             className="text-center max-w-4xl mx-auto"
           >
             <motion.div
-              className="inline-flex items-center gap-2 px-6 py-3 bg-brand-gold/10 dark:bg-brand-gold/20 border border-brand-gold/30 rounded-full mb-8"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-brand-accent/10 dark:bg-brand-accent/20 border border-brand-accent/30 rounded-full mb-8"
               whileHover={{ scale: 1.05 }}
             >
               <span className="text-2xl">👥</span>
-              <span className="font-bold text-brand-navy dark:text-brand-gold">
+              <span className="font-bold text-brand-navy dark:text-brand-accent">
                 Since {companyInfo.founded}
               </span>
             </motion.div>
@@ -182,7 +182,7 @@ const AboutPage: React.FC = () => {
                 className="text-center"
                 whileHover={{ scale: 1.05, y: -5 }}
               >
-                <div className="text-4xl sm:text-5xl font-black text-brand-gold mb-2">
+                <div className="text-4xl sm:text-5xl font-black text-brand-accent mb-2">
                   {statistics.totalProjects}+
                 </div>
                 <div className="text-sm sm:text-base text-gray-600 dark:text-gray-400">완성 프로젝트</div>
@@ -191,7 +191,7 @@ const AboutPage: React.FC = () => {
                 className="text-center"
                 whileHover={{ scale: 1.05, y: -5 }}
               >
-                <div className="text-4xl sm:text-5xl font-black text-brand-gold mb-2">
+                <div className="text-4xl sm:text-5xl font-black text-brand-accent mb-2">
                   {statistics.estimatedClients}+
                 </div>
                 <div className="text-sm sm:text-base text-gray-600 dark:text-gray-400">만족한 고객</div>
@@ -200,7 +200,7 @@ const AboutPage: React.FC = () => {
                 className="text-center"
                 whileHover={{ scale: 1.05, y: -5 }}
               >
-                <div className="text-4xl sm:text-5xl font-black text-brand-gold mb-2">
+                <div className="text-4xl sm:text-5xl font-black text-brand-accent mb-2">
                   {statistics.yearsOfExperience}년+
                 </div>
                 <div className="text-sm sm:text-base text-gray-600 dark:text-gray-400">경험</div>
@@ -269,7 +269,7 @@ const AboutPage: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl sm:text-5xl font-black mb-6 text-brand-navy dark:text-brand-gold">
+            <h2 className="text-4xl sm:text-5xl font-black mb-6 text-brand-navy dark:text-brand-accent">
               핵심 가치
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400">
@@ -342,7 +342,7 @@ const AboutPage: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-black mb-6 text-brand-navy dark:text-brand-gold">
+          <h2 className="text-4xl sm:text-5xl font-black mb-6 text-brand-navy dark:text-brand-accent">
             서비스
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400">
@@ -366,10 +366,10 @@ const AboutPage: React.FC = () => {
               onMouseEnter={() => setHoveredService(index)}
               onMouseLeave={() => setHoveredService(null)}
             >
-              <div className={`absolute -inset-0.5 bg-gradient-to-r from-brand-gold to-brand-gold-light rounded-3xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500`} />
+              <div className={`absolute -inset-0.5 bg-gradient-to-r from-brand-accent to-brand-accent-light rounded-3xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500`} />
               <div className="relative card-premium h-full">
                 <motion.div
-                  className={`w-16 h-16 mb-6 bg-gradient-to-br from-brand-gold to-brand-gold-light rounded-2xl flex items-center justify-center shadow-premium`}
+                  className={`w-16 h-16 mb-6 bg-gradient-to-br from-brand-accent to-brand-accent-light rounded-2xl flex items-center justify-center shadow-premium`}
                   animate={{
                     rotate: hoveredService === index ? [0, -10, 10, 0] : 0
                   }}
@@ -388,7 +388,7 @@ const AboutPage: React.FC = () => {
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ delay: idx * 0.1 }}
                     >
-                      <span className="text-brand-gold text-lg">✓</span>
+                      <span className="text-brand-accent text-lg">✓</span>
                       <span>{feature}</span>
                     </motion.li>
                   ))}
@@ -403,7 +403,7 @@ const AboutPage: React.FC = () => {
       <section className="relative py-20 sm:py-24 lg:py-32 bg-gradient-to-br from-brand-navy to-brand-navy-dark dark:from-brand-navy-dark dark:to-black overflow-hidden">
         <div className="absolute inset-0">
           <motion.div 
-            className="absolute top-1/4 right-1/4 w-96 h-96 bg-brand-gold/10 rounded-full filter blur-3xl"
+            className="absolute top-1/4 right-1/4 w-96 h-96 bg-brand-accent/10 rounded-full filter blur-3xl"
             animate={{
               scale: [1, 1.3, 1],
               opacity: [0.2, 0.4, 0.2]
@@ -417,7 +417,7 @@ const AboutPage: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl sm:text-5xl font-black mb-16 text-center text-brand-gold"
+            className="text-4xl sm:text-5xl font-black mb-16 text-center text-brand-accent"
           >
             숫자로 보는 바이칼시스템즈
           </motion.h2>
@@ -443,7 +443,7 @@ const AboutPage: React.FC = () => {
                 whileHover={{ scale: 1.1, y: -10 }}
               >
                 <motion.div
-                  className="text-5xl sm:text-6xl lg:text-7xl font-black mb-4 text-brand-gold"
+                  className="text-5xl sm:text-6xl lg:text-7xl font-black mb-4 text-brand-accent"
                   initial={{ opacity: 0, scale: 0.5 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
@@ -467,7 +467,7 @@ const AboutPage: React.FC = () => {
             viewport={{ once: true }}
             className="mt-20 max-w-4xl mx-auto"
           >
-            <h3 className="text-2xl font-black text-center mb-8 text-brand-gold">
+            <h3 className="text-2xl font-black text-center mb-8 text-brand-accent">
               프로젝트 카테고리 분포
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -476,10 +476,10 @@ const AboutPage: React.FC = () => {
                 .map(([category, count]) => (
                   <motion.div
                     key={category}
-                    className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 text-center border border-white/10 hover:border-brand-gold/50 transition-all"
+                    className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 text-center border border-white/10 hover:border-brand-accent/50 transition-all"
                     whileHover={{ scale: 1.05, y: -5 }}
                   >
-                    <div className="text-3xl font-black text-brand-gold mb-2">{count}</div>
+                    <div className="text-3xl font-black text-brand-accent mb-2">{count}</div>
                     <div className="text-sm text-gray-300 font-medium">{getCategoryName(category)}</div>
                   </motion.div>
                 ))}
@@ -497,7 +497,7 @@ const AboutPage: React.FC = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl sm:text-5xl font-black mb-6 text-brand-navy dark:text-brand-gold">
+            <h2 className="text-4xl sm:text-5xl font-black mb-6 text-brand-navy dark:text-brand-accent">
               실제 프로젝트로 검증된 역량
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
@@ -638,7 +638,7 @@ const AboutPage: React.FC = () => {
                 className="group relative"
                 whileHover={{ y: -8 }}
               >
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-gold to-brand-gold-light rounded-3xl blur opacity-0 group-hover:opacity-50 transition-opacity" />
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-accent to-brand-accent-light rounded-3xl blur opacity-0 group-hover:opacity-50 transition-opacity" />
                 <div className="relative card-premium overflow-hidden">
                   {/* 프로젝트 썸네일 */}
                   <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 rounded-2xl mb-4 flex items-center justify-center overflow-hidden">
@@ -655,8 +655,8 @@ const AboutPage: React.FC = () => {
                   
                   {/* 카테고리 배지 */}
                   <div className="flex items-center gap-2 mb-3">
-                    <div className="inline-block px-3 py-1 bg-brand-gold/20 rounded-full">
-                      <span className="text-sm font-bold text-brand-gold">{getCategoryName(project.category)}</span>
+                    <div className="inline-block px-3 py-1 bg-brand-accent/20 rounded-full">
+                      <span className="text-sm font-bold text-brand-accent">{getCategoryName(project.category)}</span>
                     </div>
                     {project.date && (
                       <div className="text-xs text-gray-500 dark:text-gray-400">
@@ -671,10 +671,10 @@ const AboutPage: React.FC = () => {
                   </h3>
                   
                   {/* 핵심 과제 */}
-                  <div className="mb-4 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-xl border-l-4 border-brand-gold">
+                  <div className="mb-4 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-xl border-l-4 border-brand-accent">
                     <div className="flex items-center gap-2 mb-2">
                       <span className="text-lg">🎯</span>
-                      <span className="text-xs font-bold text-brand-gold uppercase">핵심 과제</span>
+                      <span className="text-xs font-bold text-brand-accent uppercase">핵심 과제</span>
                     </div>
                     <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
                       {challengeInfo.challenge}
@@ -712,7 +712,7 @@ const AboutPage: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-brand-gold via-brand-gold-light to-brand-gold p-12 sm:p-16 lg:p-20 text-center"
+          className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-brand-accent via-brand-accent-light to-brand-accent p-12 sm:p-16 lg:p-20 text-center"
         >
           <div className="relative z-10">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 text-brand-navy">
@@ -724,7 +724,7 @@ const AboutPage: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <motion.a
                 href="/contact"
-                className="px-10 py-5 bg-brand-navy text-brand-gold rounded-2xl font-bold text-lg hover:shadow-premium-xl transition-all"
+                className="px-10 py-5 bg-brand-navy text-brand-accent rounded-2xl font-bold text-lg hover:shadow-premium-xl transition-all"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >

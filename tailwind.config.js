@@ -7,14 +7,22 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Premium Brand Colors - 고급스러운 금색/다크 조합
+        // Premium Brand Colors - 세련된 인디고/블루 톤
         brand: {
-          gold: '#FFD700',
-          'gold-light': '#FFE55C',
-          'gold-dark': '#D4AF37',
-          navy: '#181C2A',
-          'navy-light': '#232B44',
-          'navy-dark': '#0F1219',
+          // 메인 액센트 - 프리미엄 인디고 (기존 gold 대체)
+          accent: '#6366F1',        // 메인 액센트
+          'accent-light': '#818CF8',
+          'accent-dark': '#4F46E5',
+          
+          // 보조 액센트
+          blue: '#3B82F6',
+          'blue-light': '#60A5FA',
+          'blue-dark': '#2563EB',
+          
+          // 프리미엄 다크 톤
+          navy: '#0A0E1A',          // 더 깊은 네이비
+          'navy-light': '#141824',
+          'navy-dark': '#050810',
         },
         // Enhanced Primary - 세련된 블루
         primary: {

@@ -79,7 +79,7 @@ const PortfolioPage: React.FC = () => {
         {/* Background Effects */}
         <div className="absolute inset-0 overflow-hidden">
           <motion.div 
-            className="absolute top-20 left-20 w-72 h-72 bg-brand-gold/10 rounded-full filter blur-3xl"
+            className="absolute top-20 left-20 w-72 h-72 bg-brand-accent/10 rounded-full filter blur-3xl"
             animate={{
               scale: [1, 1.2, 1],
               opacity: [0.3, 0.5, 0.3]
@@ -104,20 +104,20 @@ const PortfolioPage: React.FC = () => {
             transition={{ duration: 0.8 }}
           >
             <motion.div
-              className="inline-flex items-center gap-2 px-6 py-3 bg-brand-gold/10 dark:bg-brand-gold/20 border border-brand-gold/30 rounded-full mb-6"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-brand-accent/10 dark:bg-brand-accent/20 border border-brand-accent/30 rounded-full mb-6"
               whileHover={{ scale: 1.05 }}
             >
               <span className="text-2xl">💼</span>
-              <span className="font-bold text-brand-navy dark:text-brand-gold">
+              <span className="font-bold text-brand-navy dark:text-brand-accent">
                 40+개의 혁신 프로젝트
               </span>
             </motion.div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 text-brand-navy dark:text-brand-gold">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 text-brand-navy dark:text-brand-accent">
               포트폴리오
             </h1>
             <p className="text-xl sm:text-2xl max-w-3xl mx-auto leading-relaxed text-gray-700 dark:text-gray-200">
-              다양한 산업군에서 검증된 <span className="font-bold text-brand-gold">실전 프로젝트</span>를<br className="hidden sm:block" />
+              다양한 산업군에서 검증된 <span className="font-bold text-brand-accent">실전 프로젝트</span>를<br className="hidden sm:block" />
               카테고리별로 만나보세요
             </p>
           </motion.div>
@@ -135,7 +135,7 @@ const PortfolioPage: React.FC = () => {
                 placeholder="프로젝트 검색... (제목, 태그, 설명)"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-6 py-4 pl-14 pr-32 rounded-2xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 focus:border-brand-gold focus:ring-4 focus:ring-brand-gold/20 transition-all duration-300 text-lg shadow-premium"
+                className="w-full px-6 py-4 pl-14 pr-32 rounded-2xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 focus:border-brand-accent focus:ring-4 focus:ring-brand-accent/20 transition-all duration-300 text-lg shadow-premium"
               />
               <span className="absolute left-5 top-1/2 -translate-y-1/2 text-2xl">🔍</span>
               {searchQuery && (
@@ -143,7 +143,7 @@ const PortfolioPage: React.FC = () => {
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-gray-200 dark:bg-gray-700 hover:bg-brand-gold dark:hover:bg-brand-gold rounded-full transition-colors"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-gray-200 dark:bg-gray-700 hover:bg-brand-accent dark:hover:bg-brand-accent rounded-full transition-colors"
                 >
                   ✕
                 </motion.button>
@@ -163,15 +163,15 @@ const PortfolioPage: React.FC = () => {
               <motion.button
                 className={`px-6 py-3 rounded-xl font-bold text-base border-2 transition-all duration-300 ${
                   selectedCategory === 'all'
-                    ? 'bg-brand-gold text-brand-navy border-brand-gold shadow-premium'
-                    : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-700 hover:border-brand-gold hover:shadow-premium'
+                    ? 'bg-brand-accent text-brand-navy border-brand-accent shadow-premium'
+                    : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-700 hover:border-brand-accent hover:shadow-premium'
                 }`}
                 onClick={() => setSelectedCategory('all')}
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
                 전체
-                <span className="ml-2 px-2 py-0.5 bg-brand-navy/10 dark:bg-brand-gold/20 rounded-full text-sm">
+                <span className="ml-2 px-2 py-0.5 bg-brand-navy/10 dark:bg-brand-accent/20 rounded-full text-sm">
                   40+
                 </span>
               </motion.button>
@@ -183,15 +183,15 @@ const PortfolioPage: React.FC = () => {
                     key={cat.id}
                     className={`px-6 py-3 rounded-xl font-bold text-base border-2 transition-all duration-300 ${
                       selectedCategory === cat.id
-                        ? 'bg-brand-gold text-brand-navy border-brand-gold shadow-premium'
-                        : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-700 hover:border-brand-gold hover:shadow-premium'
+                        ? 'bg-brand-accent text-brand-navy border-brand-accent shadow-premium'
+                        : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-700 hover:border-brand-accent hover:shadow-premium'
                     }`}
                     onClick={() => setSelectedCategory(cat.id)}
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     {cat.icon} {cat.name}
-                    <span className="ml-2 px-2 py-0.5 bg-brand-navy/10 dark:bg-brand-gold/20 rounded-full text-sm">
+                    <span className="ml-2 px-2 py-0.5 bg-brand-navy/10 dark:bg-brand-accent/20 rounded-full text-sm">
                       {count}
                     </span>
                   </motion.button>
@@ -205,7 +205,7 @@ const PortfolioPage: React.FC = () => {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as SortOption)}
-                className="px-4 py-2 rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-semibold focus:border-brand-gold focus:ring-4 focus:ring-brand-gold/20 transition-all cursor-pointer"
+                className="px-4 py-2 rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-semibold focus:border-brand-accent focus:ring-4 focus:ring-brand-accent/20 transition-all cursor-pointer"
               >
                 <option value="latest">최신순</option>
                 <option value="oldest">오래된순</option>
@@ -222,7 +222,7 @@ const PortfolioPage: React.FC = () => {
             transition={{ delay: 0.5 }}
           >
             <p className="text-lg text-gray-600 dark:text-gray-400">
-              <span className="font-bold text-brand-gold">{filteredAndSortedProjects.length}개</span>의 프로젝트
+              <span className="font-bold text-brand-accent">{filteredAndSortedProjects.length}개</span>의 프로젝트
               {searchQuery && ` (검색: "${searchQuery}")`}
             </p>
           </motion.div>
@@ -252,7 +252,7 @@ const PortfolioPage: React.FC = () => {
                   setSearchQuery('');
                   setSelectedCategory('all');
                 }}
-                className="px-8 py-4 bg-brand-gold text-brand-navy rounded-xl font-bold hover:shadow-premium-lg transition-all"
+                className="px-8 py-4 bg-brand-accent text-brand-navy rounded-xl font-bold hover:shadow-premium-lg transition-all"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -283,10 +283,10 @@ const PortfolioPage: React.FC = () => {
                     transition={{ duration: 0.3 }}
                   >
                     {/* Premium Glow Effect */}
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-gold via-primary-500 to-secondary-500 rounded-3xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-accent via-primary-500 to-secondary-500 rounded-3xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
                     
                     {/* Card */}
-                    <div className="relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border-2 border-gray-200 dark:border-gray-700 group-hover:border-brand-gold transition-all duration-300 shadow-premium group-hover:shadow-premium-xl">
+                    <div className="relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border-2 border-gray-200 dark:border-gray-700 group-hover:border-brand-accent transition-all duration-300 shadow-premium group-hover:shadow-premium-xl">
                       {/* Image */}
                       <div className="relative h-48 overflow-hidden">
                         {project.images && project.images.length > 0 ? (
@@ -314,7 +314,7 @@ const PortfolioPage: React.FC = () => {
                           <motion.div
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
-                            className="absolute top-3 left-3 px-4 py-2 bg-brand-gold text-brand-navy rounded-xl font-bold text-sm shadow-premium border-2 border-brand-gold"
+                            className="absolute top-3 left-3 px-4 py-2 bg-brand-accent text-brand-navy rounded-xl font-bold text-sm shadow-premium border-2 border-brand-accent"
                           >
                             ⭐ 대표
                           </motion.div>
@@ -328,7 +328,7 @@ const PortfolioPage: React.FC = () => {
                       
                       {/* Content */}
                       <div className="p-5">
-                        <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white group-hover:text-brand-gold transition-colors line-clamp-2">
+                        <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white group-hover:text-brand-accent transition-colors line-clamp-2">
                           {project.title}
                         </h3>
                         
@@ -345,7 +345,7 @@ const PortfolioPage: React.FC = () => {
                           {project.tags && project.tags.slice(0, 3).map((tag) => (
                             <span 
                               key={tag}
-                              className="px-2.5 py-1 rounded-lg text-xs font-semibold bg-brand-gold/10 text-brand-navy dark:text-brand-gold border border-brand-gold/30"
+                              className="px-2.5 py-1 rounded-lg text-xs font-semibold bg-brand-accent/10 text-brand-navy dark:text-brand-accent border border-brand-accent/30"
                             >
                               {tag}
                             </span>
@@ -360,7 +360,7 @@ const PortfolioPage: React.FC = () => {
                       
                       {/* Hover Arrow */}
                       <motion.div
-                        className="absolute bottom-5 right-5 w-10 h-10 bg-brand-gold rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-premium"
+                        className="absolute bottom-5 right-5 w-10 h-10 bg-brand-accent rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-premium"
                         whileHover={{ scale: 1.1, x: 4 }}
                       >
                         <span className="text-brand-navy font-bold text-xl">→</span>

@@ -74,14 +74,14 @@ const Header: React.FC = () => {
               >
                 <span className={`text-sm font-semibold transition-colors duration-200 ${
                   isActiveLink(link.path)
-                    ? 'text-brand-gold'
+                    ? 'text-brand-accent'
                     : 'text-gray-300 group-hover:text-white'
                 }`}>
                   {link.label}
                 </span>
                 {isActiveLink(link.path) && (
                   <motion.div
-                    className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-brand-gold rounded-full"
+                    className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-brand-accent rounded-full"
                     layoutId="activeIndicator"
                     transition={{ duration: 0.3, type: "spring", stiffness: 400, damping: 30 }}
                   />
@@ -94,7 +94,7 @@ const Header: React.FC = () => {
           <div className="hidden lg:block">
             <Link to="/contact">
               <motion.button
-                className="px-6 py-2.5 bg-brand-gold text-brand-navy text-sm font-bold rounded-xl hover:shadow-lg transition-all duration-300"
+                className="px-6 py-2.5 bg-brand-accent text-brand-navy text-sm font-bold rounded-xl hover:shadow-lg transition-all duration-300"
                 whileHover={{ scale: 1.05, y: -1 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -158,14 +158,14 @@ const Header: React.FC = () => {
                         onClick={() => setIsMenuOpen(false)}
                         className={`block py-4 text-lg font-light tracking-wide transition-all duration-300 relative ${
                           isActive
-                            ? 'text-brand-gold'
+                            ? 'text-brand-accent'
                             : 'text-gray-400'
                         }`}
                       >
                         {isActive && (
                           <motion.div
                             layoutId="mobile-indicator"
-                            className="absolute left-0 top-0 bottom-0 w-1 bg-brand-gold rounded-r"
+                            className="absolute left-0 top-0 bottom-0 w-1 bg-brand-accent rounded-r"
                             transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                           />
                         )}
@@ -184,7 +184,7 @@ const Header: React.FC = () => {
                   <Link
                     to="/contact"
                     onClick={() => setIsMenuOpen(false)}
-                    className="block py-4 px-8 bg-brand-gold text-brand-navy text-center text-base font-semibold rounded-full hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+                    className="block py-4 px-8 bg-brand-accent text-brand-navy text-center text-base font-semibold rounded-full hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
                   >
                     문의하기
                   </Link>

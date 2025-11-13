@@ -47,7 +47,7 @@ const TechStackSection: React.FC = () => {
         >
           <motion.h2 
             variants={itemVariants}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-brand-navy dark:text-brand-gold px-4 sm:px-0"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-brand-navy dark:text-brand-accent px-4 sm:px-0"
           >
             최첨단 기술 스택
           </motion.h2>

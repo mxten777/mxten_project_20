@@ -188,12 +188,12 @@ const HeroSection: React.FC = () => {
         {/* Premium Brand Badge with Animation */}
         <motion.div 
           variants={itemVariants}
-          className="inline-flex items-center px-6 py-3 rounded-full bg-brand-gold/10 dark:bg-brand-gold/20 border border-brand-gold/30 backdrop-blur-sm mb-6 sm:mb-8"
+          className="inline-flex items-center px-6 py-3 rounded-full bg-brand-accent/10 dark:bg-brand-accent/20 border border-brand-accent/30 backdrop-blur-sm mb-6 sm:mb-8"
           whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 215, 0, 0.15)" }}
           transition={{ duration: 0.3 }}
         >
           <motion.div 
-            className="w-2 h-2 bg-brand-gold rounded-full mr-3"
+            className="w-2 h-2 bg-brand-accent rounded-full mr-3"
             animate={{ 
               scale: [1, 1.5, 1],
               opacity: [1, 0.5, 1]
@@ -206,7 +206,7 @@ const HeroSection: React.FC = () => {
         {/* Main Title with Advanced Typography Animation */}
         <motion.h1 
           variants={itemVariants}
-          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-6 sm:mb-8 leading-tight text-center text-brand-navy dark:text-brand-gold px-4 sm:px-0"
+          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-6 sm:mb-8 leading-tight text-center text-brand-navy dark:text-brand-accent px-4 sm:px-0"
         >
           <motion.span 
             className="block mb-4"
@@ -225,7 +225,7 @@ const HeroSection: React.FC = () => {
             현실을 혁신으로
           </motion.span>
           <motion.div 
-            className="inline-block mt-6 px-8 py-3 rounded-xl bg-brand-gold dark:bg-brand-navy"
+            className="inline-block mt-6 px-8 py-3 rounded-xl bg-brand-accent dark:bg-brand-navy"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.9, duration: 0.8, type: "spring" }}
@@ -235,7 +235,7 @@ const HeroSection: React.FC = () => {
               transition: { duration: 0.3 }
             }}
           >
-            <span className="font-black text-brand-navy dark:text-brand-gold text-xl sm:text-2xl md:text-3xl tracking-tight">바이칼시스템즈</span>
+            <span className="font-black text-brand-navy dark:text-brand-accent text-xl sm:text-2xl md:text-3xl tracking-tight">바이칼시스템즈</span>
           </motion.div>
         </motion.h1>
 
@@ -245,11 +245,11 @@ const HeroSection: React.FC = () => {
           className="mb-8 sm:mb-12"
         >
           <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-6 leading-relaxed max-w-4xl mx-auto font-light px-4 sm:px-0 text-brand-navy dark:text-gray-200">
-            <span className="font-semibold text-brand-gold">1년+ {companyInfo.stats.projectsCompleted}+ 프로젝트</span>를 통해 쌓은 경험으로<br className="hidden sm:block" />
+            <span className="font-semibold text-brand-accent">1년+ {companyInfo.stats.projectsCompleted}+ 프로젝트</span>를 통해 쌓은 경험으로<br className="hidden sm:block" />
             <span className="font-bold">스타트업부터 대기업까지</span> 신뢰받는 개발 파트너
           </p>
           <motion.div 
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 text-lg font-medium text-brand-navy dark:text-brand-gold"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 text-lg font-medium text-brand-navy dark:text-brand-accent"
             variants={containerVariants}
           >
             <motion.div variants={itemVariants} className="flex items-center">
@@ -274,12 +274,12 @@ const HeroSection: React.FC = () => {
         >
           <motion.a
             href="#projects"
-            className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-brand-gold text-brand-navy font-bold text-base sm:text-lg rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden w-full sm:w-auto text-center"
+            className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-brand-accent text-brand-navy font-bold text-base sm:text-lg rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden w-full sm:w-auto text-center"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
           >
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-brand-gold to-yellow-400"
+              className="absolute inset-0 bg-gradient-to-r from-brand-accent to-yellow-400"
               animate={{
                 backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
               }}
@@ -296,7 +296,7 @@ const HeroSection: React.FC = () => {
           
           <motion.a
             href="#contact"
-            className="group px-6 sm:px-8 py-3 sm:py-4 border-2 border-brand-gold text-brand-gold font-bold text-base sm:text-lg rounded-xl hover:bg-brand-gold hover:text-brand-navy transition-all duration-300 w-full sm:w-auto text-center"
+            className="group px-6 sm:px-8 py-3 sm:py-4 border-2 border-brand-accent text-brand-accent font-bold text-base sm:text-lg rounded-xl hover:bg-brand-accent hover:text-brand-navy transition-all duration-300 w-full sm:w-auto text-center"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -311,9 +311,9 @@ const HeroSection: React.FC = () => {
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <div className="w-6 h-10 border-2 border-brand-gold rounded-full flex justify-center">
+        <div className="w-6 h-10 border-2 border-brand-accent rounded-full flex justify-center">
           <motion.div 
-            className="w-1 h-3 bg-brand-gold rounded-full mt-2"
+            className="w-1 h-3 bg-brand-accent rounded-full mt-2"
             animate={{ y: [0, 12, 0], opacity: [1, 0, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
           />

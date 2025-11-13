@@ -48,13 +48,13 @@ const Footer: React.FC = () => {
 
           {/* Navigation */}
           <div>
-            <h3 className="text-sm font-bold text-brand-gold mb-4">바로가기</h3>
+            <h3 className="text-sm font-bold text-brand-accent mb-4">바로가기</h3>
             <div className="space-y-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.to}
                   to={link.to}
-                  className="block text-gray-400 hover:text-brand-gold text-sm transition-colors"
+                  className="block text-gray-400 hover:text-brand-accent text-sm transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -64,9 +64,9 @@ const Footer: React.FC = () => {
 
           {/* Contact */}
           <div>
-            <h3 className="text-sm font-bold text-brand-gold mb-4">연락처</h3>
+            <h3 className="text-sm font-bold text-brand-accent mb-4">연락처</h3>
             <div className="space-y-2 text-sm text-gray-400">
-              <a href="mailto:hello@baikalsystems.com" className="block hover:text-brand-gold transition-colors">
+              <a href="mailto:hello@baikalsystems.com" className="block hover:text-brand-accent transition-colors">
                 hello@baikalsystems.com
               </a>
               <p>평일 09:00 - 18:00 (KST)</p>
@@ -84,7 +84,7 @@ const Footer: React.FC = () => {
               <a
                 key={link.label}
                 href={link.href}
-                className="hover:text-brand-gold transition-colors"
+                className="hover:text-brand-accent transition-colors"
               >
                 {link.label}
               </a>

@@ -69,24 +69,24 @@
 /* Custom Components with Premium Spacing */
 @layer components {
   .btn-primary {
-    @apply px-8 py-4 bg-brand-gold text-brand-navy rounded-2xl font-bold text-lg;
-    @apply hover:bg-brand-gold-light hover:shadow-premium-lg;
+    @apply px-8 py-4 bg-brand-accent text-white rounded-2xl font-bold text-lg;
+    @apply hover:bg-brand-accent-light hover:shadow-premium-lg;
     @apply transition-all duration-300 ease-out;
-    @apply focus:outline-none focus:ring-4 focus:ring-brand-gold/30 focus:ring-offset-2;
+    @apply focus:outline-none focus:ring-4 focus:ring-brand-accent/30 focus:ring-offset-2;
     @apply active:scale-95;
   }
   
   .btn-secondary {
-    @apply px-8 py-4 bg-transparent border-2 border-brand-gold text-brand-gold rounded-2xl font-bold text-lg;
-    @apply hover:bg-brand-gold hover:text-brand-navy hover:shadow-premium;
+    @apply px-8 py-4 bg-transparent border-2 border-brand-accent text-brand-accent rounded-2xl font-bold text-lg;
+    @apply hover:bg-brand-accent hover:text-white hover:shadow-premium;
     @apply transition-all duration-300 ease-out;
-    @apply focus:outline-none focus:ring-4 focus:ring-brand-gold/30 focus:ring-offset-2;
+    @apply focus:outline-none focus:ring-4 focus:ring-brand-accent/30 focus:ring-offset-2;
     @apply active:scale-95;
   }
   
   .btn-ghost {
     @apply px-6 py-3 text-gray-700 dark:text-gray-200;
-    @apply hover:text-brand-gold hover:bg-gray-100 dark:hover:bg-gray-800;
+    @apply hover:text-brand-accent hover:bg-gray-100 dark:hover:bg-gray-800;
     @apply rounded-xl font-semibold transition-all duration-200;
   }
 
@@ -98,7 +98,7 @@
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-brand-gold via-brand-gold-light to-brand-gold;
+    @apply bg-gradient-to-r from-brand-accent via-brand-accent-light to-brand-blue;
     @apply bg-clip-text text-transparent;
     @apply animate-shimmer;
     background-size: 200% auto;

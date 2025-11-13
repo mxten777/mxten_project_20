@@ -75,7 +75,7 @@ const CaseStudySection: React.FC = () => {
         >
           <motion.h2 
             variants={itemVariants}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-brand-navy dark:text-brand-gold px-4 sm:px-0"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-brand-navy dark:text-brand-accent px-4 sm:px-0"
           >
             성공 사례로 증명하는 실력
           </motion.h2>
@@ -83,7 +83,7 @@ const CaseStudySection: React.FC = () => {
             variants={itemVariants}
             className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed"
           >
-            <span className="font-semibold text-brand-gold">실제 비즈니스 문제를 해결</span>하고 <span className="font-bold">측정 가능한 성과</span>를 달성한 프로젝트들
+            <span className="font-semibold text-brand-accent">실제 비즈니스 문제를 해결</span>하고 <span className="font-bold">측정 가능한 성과</span>를 달성한 프로젝트들
           </motion.p>
         </motion.div>
 
@@ -234,7 +234,7 @@ const CaseStudySection: React.FC = () => {
         >
           <motion.a
             href="/portfolio"
-            className="inline-flex items-center px-8 py-4 bg-brand-gold text-brand-navy font-bold text-lg rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300"
+            className="inline-flex items-center px-8 py-4 bg-brand-accent text-brand-navy font-bold text-lg rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
           >

@@ -54,7 +54,7 @@ const HomePage: React.FC = () => {
               {/* Subtle Background Elements */}
               <div className="absolute inset-0">
                 <motion.div 
-                  className="absolute top-1/4 right-1/4 w-96 h-96 bg-brand-gold/5 rounded-full filter blur-3xl"
+                  className="absolute top-1/4 right-1/4 w-96 h-96 bg-brand-accent/5 rounded-full filter blur-3xl"
                   animate={{
                     scale: [1, 1.2, 1],
                     opacity: [0.3, 0.5, 0.3]
@@ -113,17 +113,17 @@ const HomePage: React.FC = () => {
                   className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 md:gap-12 mb-12 sm:mb-16 px-4"
                 >
                   <div className="text-center">
-                    <div className="text-3xl sm:text-4xl md:text-5xl font-black text-brand-gold mb-1 sm:mb-2">40+</div>
+                    <div className="text-3xl sm:text-4xl md:text-5xl font-black text-brand-accent mb-1 sm:mb-2">40+</div>
                     <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">프로젝트</div>
                   </div>
                   <div className="w-px h-10 sm:h-12 bg-gray-300 dark:bg-gray-700" />
                   <div className="text-center">
-                    <div className="text-3xl sm:text-4xl md:text-5xl font-black text-brand-gold mb-1 sm:mb-2">1년+</div>
+                    <div className="text-3xl sm:text-4xl md:text-5xl font-black text-brand-accent mb-1 sm:mb-2">1년+</div>
                     <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">경험</div>
                   </div>
                   <div className="w-px h-10 sm:h-12 bg-gray-300 dark:bg-gray-700" />
                   <div className="text-center">
-                    <div className="text-3xl sm:text-4xl md:text-5xl font-black text-brand-gold mb-1 sm:mb-2">10+</div>
+                    <div className="text-3xl sm:text-4xl md:text-5xl font-black text-brand-accent mb-1 sm:mb-2">10+</div>
                     <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">파트너사</div>
                   </div>
                 </motion.div>
@@ -135,7 +135,7 @@ const HomePage: React.FC = () => {
                 >
                   <motion.a
                     href="#projects"
-                    className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-brand-gold text-brand-navy font-bold text-base sm:text-lg rounded-2xl hover:shadow-2xl transition-all duration-300 text-center"
+                    className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-brand-accent text-brand-navy font-bold text-base sm:text-lg rounded-2xl hover:shadow-2xl transition-all duration-300 text-center"
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -144,7 +144,7 @@ const HomePage: React.FC = () => {
                   
                   <motion.a
                     href="/contact"
-                    className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border-2 border-brand-gold text-brand-gold font-bold text-base sm:text-lg rounded-2xl hover:bg-brand-gold hover:text-brand-navy transition-all duration-300 text-center"
+                    className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border-2 border-brand-accent text-brand-accent font-bold text-base sm:text-lg rounded-2xl hover:bg-brand-accent hover:text-brand-navy transition-all duration-300 text-center"
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -159,9 +159,9 @@ const HomePage: React.FC = () => {
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                <div className="w-6 h-10 border-2 border-brand-gold rounded-full flex justify-center">
+                <div className="w-6 h-10 border-2 border-brand-accent rounded-full flex justify-center">
                   <motion.div 
-                    className="w-1 h-3 bg-brand-gold rounded-full mt-2"
+                    className="w-1 h-3 bg-brand-accent rounded-full mt-2"
                     animate={{ y: [0, 12, 0], opacity: [1, 0, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   />
@@ -417,7 +417,7 @@ const HomePage: React.FC = () => {
                 >
                   <motion.a
                     href="/portfolio"
-                    className="inline-flex items-center px-8 py-4 bg-brand-gold text-brand-navy font-bold text-lg rounded-2xl hover:shadow-2xl transition-all duration-300"
+                    className="inline-flex items-center px-8 py-4 bg-brand-accent text-brand-navy font-bold text-lg rounded-2xl hover:shadow-2xl transition-all duration-300"
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -440,7 +440,7 @@ const HomePage: React.FC = () => {
             >
               <div className="absolute inset-0">
                 <motion.div 
-                  className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-gold/10 rounded-full filter blur-3xl"
+                  className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-accent/10 rounded-full filter blur-3xl"
                   animate={{
                     scale: [1, 1.2, 1],
                     opacity: [0.1, 0.2, 0.1]
@@ -459,7 +459,7 @@ const HomePage: React.FC = () => {
                 >
                   <motion.h2 
                     variants={itemVariants}
-                    className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 text-brand-gold"
+                    className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 text-brand-accent"
                   >
                     함께 만들어가요
                   </motion.h2>
@@ -476,7 +476,7 @@ const HomePage: React.FC = () => {
                   >
                     <motion.a
                       href="/contact"
-                      className="px-8 py-4 bg-brand-gold text-brand-navy font-bold text-lg rounded-2xl hover:shadow-2xl transition-all duration-300"
+                      className="px-8 py-4 bg-brand-accent text-brand-navy font-bold text-lg rounded-2xl hover:shadow-2xl transition-all duration-300"
                       whileHover={{ scale: 1.05, y: -2 }}
                       whileTap={{ scale: 0.98 }}
                     >

@@ -59,7 +59,7 @@ const ContactPage: React.FC = () => {
       <section className="relative py-24 sm:py-32 lg:py-40 overflow-hidden">
         <div className="absolute inset-0">
           <motion.div 
-            className="absolute top-1/4 right-1/4 w-96 h-96 bg-brand-gold/10 rounded-full filter blur-3xl"
+            className="absolute top-1/4 right-1/4 w-96 h-96 bg-brand-accent/10 rounded-full filter blur-3xl"
             animate={{
               scale: [1, 1.3, 1],
               opacity: [0.2, 0.4, 0.2]
@@ -87,12 +87,12 @@ const ContactPage: React.FC = () => {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-              className="inline-block px-6 py-3 bg-brand-gold/10 border border-brand-gold/30 rounded-full mb-8"
+              className="inline-block px-6 py-3 bg-brand-accent/10 border border-brand-accent/30 rounded-full mb-8"
             >
-              <span className="text-brand-gold font-bold">💌 프로젝트 문의</span>
+              <span className="text-brand-accent font-bold">💌 프로젝트 문의</span>
             </motion.div>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 text-brand-navy dark:text-brand-gold">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 text-brand-navy dark:text-brand-accent">
               함께 만들어갈<br />
               <span className="gradient-text">혁신적인 프로젝트</span>
             </h1>
@@ -116,7 +116,7 @@ const ContactPage: React.FC = () => {
           >
             <div className="card-premium">
               <div className="flex items-center gap-4 mb-8">
-                <div className="w-12 h-12 bg-gradient-to-br from-brand-gold to-brand-gold-light rounded-2xl flex items-center justify-center shadow-premium">
+                <div className="w-12 h-12 bg-gradient-to-br from-brand-accent to-brand-accent-light rounded-2xl flex items-center justify-center shadow-premium">
                   <span className="text-2xl">✉️</span>
                 </div>
                 <h2 className="text-3xl font-black text-gray-900 dark:text-white">프로젝트 문의하기</h2>
@@ -170,14 +170,14 @@ const ContactPage: React.FC = () => {
                             onFocus={() => setFocusedField('name')}
                             onBlur={() => setFocusedField(null)}
                             className="w-full px-5 py-4 bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl 
-                                     focus:border-brand-gold focus:ring-4 focus:ring-brand-gold/20 transition-all
+                                     focus:border-brand-accent focus:ring-4 focus:ring-brand-accent/20 transition-all
                                      text-gray-900 dark:text-white font-medium placeholder:text-gray-400"
                             placeholder="홍길동"
                           />
                           {focusedField === 'name' && (
                             <motion.div
                               layoutId="focus-indicator"
-                              className="absolute -inset-0.5 bg-gradient-to-r from-brand-gold to-brand-gold-light rounded-2xl -z-10 blur"
+                              className="absolute -inset-0.5 bg-gradient-to-r from-brand-accent to-brand-accent-light rounded-2xl -z-10 blur"
                               initial={{ opacity: 0 }}
                               animate={{ opacity: 0.3 }}
                               exit={{ opacity: 0 }}
@@ -200,14 +200,14 @@ const ContactPage: React.FC = () => {
                             onFocus={() => setFocusedField('email')}
                             onBlur={() => setFocusedField(null)}
                             className="w-full px-5 py-4 bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl 
-                                     focus:border-brand-gold focus:ring-4 focus:ring-brand-gold/20 transition-all
+                                     focus:border-brand-accent focus:ring-4 focus:ring-brand-accent/20 transition-all
                                      text-gray-900 dark:text-white font-medium placeholder:text-gray-400"
                             placeholder="hello@example.com"
                           />
                           {focusedField === 'email' && (
                             <motion.div
                               layoutId="focus-indicator"
-                              className="absolute -inset-0.5 bg-gradient-to-r from-brand-gold to-brand-gold-light rounded-2xl -z-10 blur"
+                              className="absolute -inset-0.5 bg-gradient-to-r from-brand-accent to-brand-accent-light rounded-2xl -z-10 blur"
                               initial={{ opacity: 0 }}
                               animate={{ opacity: 0.3 }}
                               exit={{ opacity: 0 }}
@@ -231,7 +231,7 @@ const ContactPage: React.FC = () => {
                           onFocus={() => setFocusedField('company')}
                           onBlur={() => setFocusedField(null)}
                           className="w-full px-5 py-4 bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl 
-                                   focus:border-brand-gold focus:ring-4 focus:ring-brand-gold/20 transition-all
+                                   focus:border-brand-accent focus:ring-4 focus:ring-brand-accent/20 transition-all
                                    text-gray-900 dark:text-white font-medium placeholder:text-gray-400"
                           placeholder="회사명 (선택)"
                         />
@@ -249,7 +249,7 @@ const ContactPage: React.FC = () => {
                           onFocus={() => setFocusedField('phone')}
                           onBlur={() => setFocusedField(null)}
                           className="w-full px-5 py-4 bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl 
-                                   focus:border-brand-gold focus:ring-4 focus:ring-brand-gold/20 transition-all
+                                   focus:border-brand-accent focus:ring-4 focus:ring-brand-accent/20 transition-all
                                    text-gray-900 dark:text-white font-medium placeholder:text-gray-400"
                           placeholder="010-1234-5678"
                         />
@@ -269,7 +269,7 @@ const ContactPage: React.FC = () => {
                         onFocus={() => setFocusedField('projectType')}
                         onBlur={() => setFocusedField(null)}
                         className="w-full px-5 py-4 bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl 
-                                 focus:border-brand-gold focus:ring-4 focus:ring-brand-gold/20 transition-all
+                                 focus:border-brand-accent focus:ring-4 focus:ring-brand-accent/20 transition-all
                                  text-gray-900 dark:text-white font-medium cursor-pointer"
                       >
                         <option value="">프로젝트 유형을 선택해주세요</option>
@@ -296,7 +296,7 @@ const ContactPage: React.FC = () => {
                           onFocus={() => setFocusedField('budget')}
                           onBlur={() => setFocusedField(null)}
                           className="w-full px-5 py-4 bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl 
-                                   focus:border-brand-gold focus:ring-4 focus:ring-brand-gold/20 transition-all
+                                   focus:border-brand-accent focus:ring-4 focus:ring-brand-accent/20 transition-all
                                    text-gray-900 dark:text-white font-medium cursor-pointer"
                         >
                           <option value="">예산 범위를 선택해주세요</option>
@@ -320,7 +320,7 @@ const ContactPage: React.FC = () => {
                           onFocus={() => setFocusedField('timeline')}
                           onBlur={() => setFocusedField(null)}
                           className="w-full px-5 py-4 bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl 
-                                   focus:border-brand-gold focus:ring-4 focus:ring-brand-gold/20 transition-all
+                                   focus:border-brand-accent focus:ring-4 focus:ring-brand-accent/20 transition-all
                                    text-gray-900 dark:text-white font-medium cursor-pointer"
                         >
                           <option value="">희망 일정을 선택해주세요</option>
@@ -347,7 +347,7 @@ const ContactPage: React.FC = () => {
                         onFocus={() => setFocusedField('message')}
                         onBlur={() => setFocusedField(null)}
                         className="w-full px-5 py-4 bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl 
-                                 focus:border-brand-gold focus:ring-4 focus:ring-brand-gold/20 transition-all
+                                 focus:border-brand-accent focus:ring-4 focus:ring-brand-accent/20 transition-all
                                  text-gray-900 dark:text-white font-medium placeholder:text-gray-400 resize-none"
                         placeholder="프로젝트에 대한 상세한 설명을 작성해주세요.&#10;&#10;• 프로젝트 목표&#10;• 주요 기능&#10;• 타겟 사용자&#10;• 특별한 요구사항"
                       />
@@ -362,8 +362,8 @@ const ContactPage: React.FC = () => {
                         required
                         checked={formData.agreeToTerms}
                         onChange={handleInputChange}
-                        className="mt-1.5 w-5 h-5 text-brand-gold border-2 border-gray-300 dark:border-gray-600 rounded-lg 
-                                 focus:ring-4 focus:ring-brand-gold/20 cursor-pointer"
+                        className="mt-1.5 w-5 h-5 text-brand-accent border-2 border-gray-300 dark:border-gray-600 rounded-lg 
+                                 focus:ring-4 focus:ring-brand-accent/20 cursor-pointer"
                       />
                       <label htmlFor="agreeToTerms" className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                         개인정보 수집 및 이용에 동의합니다. 수집된 정보는 문의 답변 및 프로젝트 상담 목적으로만 사용되며, 
@@ -376,7 +376,7 @@ const ContactPage: React.FC = () => {
                       variants={itemVariants}
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-5 bg-gradient-to-r from-brand-gold via-brand-gold-light to-brand-gold text-brand-navy rounded-2xl 
+                      className="w-full py-5 bg-gradient-to-r from-brand-accent via-brand-accent-light to-brand-accent text-brand-navy rounded-2xl 
                                font-black text-lg shadow-premium hover:shadow-premium-xl transition-all
                                disabled:opacity-50 disabled:cursor-not-allowed
                                flex items-center justify-center gap-3 group"
@@ -433,7 +433,7 @@ const ContactPage: React.FC = () => {
                   <span className="text-2xl">📧</span>
                   <div>
                     <div className="font-bold text-gray-900 dark:text-white mb-1">이메일</div>
-                    <div className="text-brand-gold group-hover:underline">hello@vibecoding.com</div>
+                    <div className="text-brand-accent group-hover:underline">hello@vibecoding.com</div>
                   </div>
                 </motion.a>
                 
@@ -445,7 +445,7 @@ const ContactPage: React.FC = () => {
                   <span className="text-2xl">�</span>
                   <div>
                     <div className="font-bold text-gray-900 dark:text-white mb-1">전화</div>
-                    <div className="text-brand-gold group-hover:underline">+82-2-1234-5678</div>
+                    <div className="text-brand-accent group-hover:underline">+82-2-1234-5678</div>
                   </div>
                 </motion.a>
                 
@@ -472,7 +472,7 @@ const ContactPage: React.FC = () => {
 
             {/* Quick Response */}
             <motion.div
-              className="relative overflow-hidden rounded-3xl p-6 bg-gradient-to-br from-brand-gold via-brand-gold-light to-yellow-300"
+              className="relative overflow-hidden rounded-3xl p-6 bg-gradient-to-br from-brand-accent via-brand-accent-light to-yellow-300"
               whileHover={{ scale: 1.02 }}
             >
               <motion.div
@@ -491,7 +491,7 @@ const ContactPage: React.FC = () => {
                 <p className="text-brand-navy-light font-medium mb-4 leading-relaxed">
                   모든 문의에 대해 24시간 내에 답변드리며, 긴급한 경우 당일 내 연락드립니다.
                 </p>
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-navy text-brand-gold rounded-full text-sm font-bold">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-navy text-brand-accent rounded-full text-sm font-bold">
                   <span>⏱️</span>
                   평균 응답 시간: 4시간
                 </div>
@@ -537,7 +537,7 @@ const ContactPage: React.FC = () => {
                   >
                     <div className="flex items-start gap-3 mb-2">
                       <span className="text-xl">{faq.icon}</span>
-                      <h4 className="font-bold text-gray-900 dark:text-white leading-relaxed group-hover:text-brand-gold transition-colors">
+                      <h4 className="font-bold text-gray-900 dark:text-white leading-relaxed group-hover:text-brand-accent transition-colors">
                         {faq.q}
                       </h4>
                     </div>
